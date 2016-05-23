@@ -117,6 +117,23 @@
                     <li><a class="custom-color-a" href="http://www.ozanam-lycee.fr" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Site Web"
                                     class="fa fa-internet-explorer" aria-hidden="true"></span></a></li>
+
+                    <li><a class="custom-color-a" href="http://www.ozanet.fr/cdt" target="_blank"><span
+                                    data-toggle="tooltip_menu" data-original-title="Cahier d'appel"
+                                    class="fa fa-pencil-square-o" aria-hidden="true"></span></a></li>
+
+                    <li><a class="custom-color-a" href="http://www.ozanet.fr/cdt" target="_blank"><span
+                                    data-toggle="tooltip_menu" data-original-title="Cahier de Texte"
+                                    class="fa fa-pencil-square-o" aria-hidden="true"></span></a></li>
+
+                    <li><a class="custom-color-a" href="http://www.moodle.ozanam-lycee.fr" target="_blank"><span
+                                    data-toggle="tooltip_menu" data-original-title="Moodle"
+                                    class="fa fa-book" aria-hidden="true"></span></a></li>
+
+                    <li><a class="custom-color-a" href="http://www.scolinfo.net" target="_blank"><span
+                                    data-toggle="tooltip_menu" data-original-title="Scolinfo"
+                                    class="fa fa-book" aria-hidden="true"></span></a></li>
+<!--
                     <li><a class="custom-color-a" href="http://www.moodle.ozanam-lycee.fr" target="_blank"><i
                                     class="fa fa-book" aria-hidden="true"></i>&nbsp Moodle </a></li>
                     <li><a class="custom-color-a" href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp Scolinfo
@@ -129,10 +146,24 @@
                             Rectorat </a></li>
                     <li><a class="custom-color-a" href="#"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp Album
                             <span></span></a></li>
+-->
                 </ul>
             @endif
             <ul class="nav navbar-nav navbar-right">
 
+                <li class="search" style="margin-right: 25px">
+                    <form action="http://www.google.fr/search" method="get" onsubmit="process(); return false;">
+                        <p>
+                            <a href="http://www.google.fr"></a>
+                            <input maxlength="255" name="q" size="21" type="text">
+                            <input name="hl" type="hidden" value="fr">
+                            <button class="btn btn-inverse icon-btn" name="btnG" type="submit">
+                                <span class="glyphicon btn-glyphicon glyphicon-search img-circle text-success"></span>
+                                Google
+                            </button>
+                        </p>
+                    </form>
+                </li>
                 <!--Bouton de toggle-->
                 @if(!Auth::check())
                     <li>
@@ -159,20 +190,9 @@
                            aria-hidden="true"></i>
                         Contacter</a>
                 </li>
+
             </ul>
-            <div class="search">
-                <form action="http://www.google.fr/search" method="get" onsubmit="process(); return false;">
-                    <p>
-                        <a href="http://www.google.fr"></a>
-                        <input maxlength="255" name="q" size="21" type="text">
-                        <input name="hl" type="hidden" value="fr">
-                        <button class="btn btn-inverse icon-btn" name="btnG" type="submit">
-                            <span class="glyphicon btn-glyphicon glyphicon-search img-circle text-success"></span>
-                            Google
-                        </button>
-                    </p>
-                </form>
-            </div>
+
         </div>
 
     </div>
