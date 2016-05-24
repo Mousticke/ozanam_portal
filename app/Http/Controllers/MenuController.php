@@ -7,6 +7,8 @@ namespace App\Http\Controllers;
 use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
@@ -33,13 +35,17 @@ class MenuController extends Controller
     {
 
         $this->validate($request, [
-            'new_name' => 'required',
+            'name' => 'required',
             'link' => 'required',
+            'icon' => 'required',
         ]);
 
         $menu = new Menu();
         $menu->name = $request['name'];
         $menu->link = $request['link'];
+        $file = $request->file('icon');
+        $file->move('uploads', $file->getClientOriginalName());
+        $menu->icon = 'uploads/' . $file->getClientOriginalName();
         $message = 'Il y a une erreur';
         /*Save the post si c'est un succès c'est bon.*/
         if ($request->user()->menus()->save($menu)) {
