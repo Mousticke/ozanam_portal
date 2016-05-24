@@ -99,17 +99,6 @@
                         @endif
                     @endif
                 @endforeach
-                <!--
-                                <li><a class="custom-color-a" href="http://www.ozanam-lycee.fr" target="_blank"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Site Vitrine </a></li>
-                                <li><a class="custom-color-a" href="http://www.moodle.ozanam-lycee.fr" target="_blank"><i class="fa fa-book" aria-hidden="true"></i>&nbsp Moodle </a></li>
-                                <li><a class="custom-color-a" href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp Scolinfo </a></li>
-                                <li><a class="custom-color-a" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp Cahier de Texte </a></li>
-                                <li><a class="custom-color-a" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp Cahier d'Appel </a></li>
-                                <li><a class="custom-color-a" href="#"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp E-Sidoc </a></li>
-                                <li><a class="custom-color-a" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp Rectorat </a></li>
-                                <li><a class="custom-color-a" href="#"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Cerise Pro</a></li>
-                                <li><a class="custom-color-a" href="#"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp Album </a></li>
-                                -->
                     <li><a class="custom-color-a" href="{{route('pl_admin')}}">Admin</a></li>
                 </ul>
             @else
@@ -133,20 +122,6 @@
                     <li><a class="custom-color-a" href="http://www.scolinfo.net" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Scolinfo"
                                     class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/scolinfo.png')}}"></span></a></li>
-<!--
-                    <li><a class="custom-color-a" href="http://www.moodle.ozanam-lycee.fr" target="_blank"><i
-                                    class="fa fa-book" aria-hidden="true"></i>&nbsp Moodle </a></li>
-                    <li><a class="custom-color-a" href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp Scolinfo
-                        </a></li>
-                    <li><a class="custom-color-a" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp
-                            Cahier de Texte </a></li>
-                    <li><a class="custom-color-a" href="#"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp
-                            E-Sidoc </a></li>
-                    <li><a class="custom-color-a" href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp
-                            Rectorat </a></li>
-                    <li><a class="custom-color-a" href="#"><i class="fa fa-camera" aria-hidden="true"></i>&nbsp Album
-                            <span></span></a></li>
--->
                 </ul>
             @endif
             <ul class="nav navbar-nav navbar-right">
