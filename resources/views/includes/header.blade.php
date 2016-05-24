@@ -61,41 +61,42 @@
             @if(Auth::check())
                 <ul class="nav navbar-nav site">
                     @foreach($menus as $menu)
+
                         @if(str_contains($menu->link , '.fr') || str_contains($menu->link , '.com') || str_contains($menu->link , '.org') || str_contains($menu->link , '.net'))
                             @if(starts_with($menu->link , 'wwww.'))
-                                <li><a class="custom-color-a" href="http://{{$menu->link}}" target="_blank"><i
-                                                class="fa {{$menu->icon}}" aria-hidden="true"></i>&nbsp {{$menu->name}}
-                                    </a></li>
+                                <li><a class="custom-color-a" href="http://{{$menu->link}}" target="_blank"><span
+                                                data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
                             @elseif(starts_with($menu->link , 'http://'))
-                                <li><a class="custom-color-a" href="{{$menu->link}}" target="_blank"><i
-                                                class="fa {{$menu->icon}}" aria-hidden="true"></i>&nbsp {{$menu->name}}
-                                    </a></li>
+                                <li><a class="custom-color-a" href="{{$menu->link}}" target="_blank"><span
+                                                data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
                             @elseif(starts_with($menu->link , 'https://'))
-                                <li><a class="custom-color-a" href="{{$menu->link}}" target="_blank"><i
-                                                class="fa {{$menu->icon}}" aria-hidden="true"></i>&nbsp {{$menu->name}}
-                                    </a></li>
+                                <li><a class="custom-color-a" href="{{$menu->link}}" target="_blank"><span
+                                                data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
                             @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                <li><a class="custom-color-a" href="http://www.{{$menu->link}}" target="_blank"><i
-                                                class="fa {{$menu->icon}}" aria-hidden="true"></i>&nbsp {{$menu->name}}
-                                    </a></li>
+                                <li><a class="custom-color-a" href="http://www.{{$menu->link}}" target="_blank"><span
+                                                data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
                             @endif
                         @else
                             @if(starts_with($menu->link , 'wwww'))
-                                <li><a class="custom-color-a" href="http://{{$menu->link}}.fr" target="_blank"><i
-                                                class="fa {{$menu->icon}}" aria-hidden="true"></i>&nbsp {{$menu->name}}
-                                    </a></li>
+                                <li><a class="custom-color-a" href="http://{{$menu->link}}.fr" target="_blank"><span
+                                                data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
                             @elseif(starts_with($menu->link , 'http://'))
-                                <li><a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank"><i
-                                                class="fa {{$menu->icon}}" aria-hidden="true"></i>&nbsp {{$menu->name}}
-                                    </a></li>
+                                <li><a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank"><span
+                                                data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
                             @elseif(starts_with($menu->link , 'https://'))
-                                <li><a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank"><i
-                                                class="fa {{$menu->icon}}" aria-hidden="true"></i>&nbsp {{$menu->name}}
-                                    </a></li>
+                                <li><a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank"><span
+                                                data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
                             @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                <li><a class="custom-color-a" href="http://www.{{$menu->link}}.fr" target="_blank"><i
-                                                class="fa {{$menu->icon}}" aria-hidden="true"></i>&nbsp {{$menu->name}}
-                                    </a></li>
+                                <li><a class="custom-color-a" href="http://www.{{$menu->link}}.fr" target="_blank"><span
+                                                data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
                         @endif
                     @endif
                 @endforeach
@@ -105,23 +106,23 @@
                 <ul class="nav navbar-nav site">
                     <li><a class="custom-color-a" href="http://www.ozanam-lycee.fr" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Site Web"
-                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/website.png')}}"></span></a></li>
+                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('uploads/website.png')}}"></span></a></li>
 
                     <li><a class="custom-color-a" href="http://www.ozanet.fr/cdt" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Cahier d'appel"
-                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/cda.png')}}"></span></a></li>
+                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('uploads/cda.png')}}"></span></a></li>
 
                     <li><a class="custom-color-a" href="http://www.ozanet.fr/cdt" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Cahier de Texte"
-                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/cdt.png')}}"></span></a></li>
+                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('uploads/cdt.png')}}"></span></a></li>
 
                     <li><a class="custom-color-a" href="http://www.moodle.ozanam-lycee.fr" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Moodle"
-                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/moodle.png')}}"></span></a></li>
+                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('uploads/moodle.png')}}"></span></a></li>
 
                     <li><a class="custom-color-a" href="http://www.scolinfo.net" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Scolinfo"
-                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/scolinfo.png')}}"></span></a></li>
+                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('uploads/scolinfo.png')}}"></span></a></li>
                 </ul>
             @endif
             <ul class="nav navbar-nav navbar-right">

@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="{{URL::to('src/css/header.css')}}">
     <link rel="stylesheet" href="{{URL::to('src/css/contact.css')}}">
 
-
+    <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
 
 </head>
 <body ng-app="mainApp">
@@ -45,9 +47,6 @@
         crossorigin="anonymous"></script>
 
 
-<script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.0/angular-animate.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
