@@ -78,7 +78,7 @@ class MenuController extends Controller
     {
 
         $this->validate($request, [
-            'icon_new' => 'required',
+            'icon_new' => 'required|mimes:png',
         ]);
 
         $icons = new Faicon();

@@ -32,13 +32,15 @@ $('#modal-save').on('click', function () {
 
 $('.menu').find('.interaction').find('.editMenu').on('click', function (event) {
     event.preventDefault();
-
-    NameElement = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[2];
-    // LinkElement = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[3];
-    // IconeElement = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[3];
-    // var postBody = postBodyElement.textContent;
+    NameElement = $("tr").children(".name-site");
+    LinkElement = $("tr").children(".link-site");
+    //NameElement = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes.childNodes[1];
+    //LinkElement = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[3];
+    var SiteName = NameElement.textContent;
+    var SiteLink = LinkElement.textContent;
     postId = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset['postid'];
-    //$("#post-Menu").val(postBody);
+    $("#new_name_site").val(SiteName);
+    $("#new_link_site").val(SiteLink);
     $('#edit-modal-menu').modal();
 });
 
@@ -47,14 +49,14 @@ $('#modal-saveMenu').on('click', function () {
         method: 'POST',
         url: urlMenu,
         data: {
-            name: $("#name").val(),
-            link: $('#link').val(),
+            new_name_site: $("#new_name_site").val(),
+            new_link_site : $('#new_link_site').val(),
             postId: postId,
             _token: token
         }
     })
         .done(function (msg) {
-            $(NameElement).text(msg['new_name']);
+            $(NameElement).text(msg['new_name_update', 'new_link_update']);
             //   $(LinkElement).text(msg['new_link']);
             $('#edit-modal-menu').modal('hide');
         });

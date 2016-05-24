@@ -13,6 +13,7 @@ use App\Menu;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -85,15 +86,15 @@ class AdminController extends Controller
     public function postEditMenuAdmin (Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'link' => 'max:520',
+            'new_name_site' => 'required',
+            'new_link_site' => 'max:520',
         ]);
-
         $menu = Menu::find($request['postId']);
-        $menu->name = $request['name'];
-        $menu->link = $request['link'];
+        $menu->name = $request['new_name_site'];
+        $menu->link = $request['new_link_site'];
+
         $menu->update();
-        return response()->json(['new_name' => $menu->name], 200);
+        return response()->json(['new_name_update' => $menu->name, 'new_link_update' => $menu->link], 200);
     }
 
 

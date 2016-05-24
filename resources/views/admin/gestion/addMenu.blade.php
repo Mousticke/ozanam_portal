@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-6">
         <div class="box box-success">
             <div class="box-header with-border">
                 <h3 class="box-title">Ajout d'une icône</h3>

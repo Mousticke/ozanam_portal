@@ -133,9 +133,10 @@ Route::post('/editAdmin', [
 
 Route::post('/editMenu', [
 
-    'uses' => 'AdminController@postEditMenuAdmin',
+    'uses' => 'AdminController@postEditMenuAdmin', 
     'as' => 'edit.menu',
 ]);
+
 
 Route::get('/logout', [
     'uses' => 'UserController@getLogout',

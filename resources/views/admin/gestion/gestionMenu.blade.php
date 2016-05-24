@@ -16,7 +16,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nom</th>
+                                    <th>Name</th>
                                     <th>Lien</th>
                                     <th>Liste des icônes disponibles</th>
                                     <th>Icône</th>
@@ -29,31 +29,31 @@
                                 @foreach($menus as $menu)
                                     <tr class="menu" data-postid="{{ $menu->id }}">
                                         <td>{{$menu->id}}</td>
-                                        <td>{{$menu->name}}</td>
+                                        <td class="name-site">{{$menu->name}}</td>
                                         @if(str_contains($menu->link , '.fr') || str_contains($menu->link , '.com') || str_contains($menu->link , '.org') || str_contains($menu->link , '.net'))
                                             @if(starts_with($menu->link , 'wwww.'))
-                                                <td><a href="http://{{$menu->link}}"
+                                                <td><a class="link-site" href="http://{{$menu->link}}"
                                                        target="_blank">http://{{$menu->link}}</a></td>
                                             @elseif(starts_with($menu->link , 'http://'))
-                                                <td><a href="{{$menu->link}}" target="_blank">{{$menu->link}}</a></td>
+                                                <td><a class="link-site" href="{{$menu->link}}" target="_blank">{{$menu->link}}</a></td>
                                             @elseif(starts_with($menu->link , 'https://'))
-                                                <td><a href="{{$menu->link}}" target="_blank">{{$menu->link}}</a></td>
+                                                <td><a class="link-site" href="{{$menu->link}}" target="_blank">{{$menu->link}}</a></td>
                                             @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                                <td><a href="http://www.{{$menu->link}}"
+                                                <td><a class="link-site" href="http://www.{{$menu->link}}"
                                                        target="_blank">http://www.{{$menu->link}}</a></td>
                                             @endif
                                         @else
                                             @if(starts_with($menu->link , 'wwww'))
-                                                <td><a href="http://{{$menu->link}}.fr"
+                                                <td><a class="link-site" href="http://{{$menu->link}}.fr"
                                                        target="_blank">http://{{$menu->link}}.fr</a></td>
                                             @elseif(starts_with($menu->link , 'http://'))
-                                                <td><a href="{{$menu->link}}.fr" target="_blank">{{$menu->link}}.fr</a>
+                                                <td><a class="link-site" href="{{$menu->link}}.fr" target="_blank">{{$menu->link}}.fr</a>
                                                 </td>
                                             @elseif(starts_with($menu->link , 'https://'))
-                                                <td><a href="{{$menu->link}}.fr" target="_blank">{{$menu->link}}.fr</a>
+                                                <td><a class="link-site" href="{{$menu->link}}.fr" target="_blank">{{$menu->link}}.fr</a>
                                                 </td>
                                             @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                                <td><a href="http://www.{{$menu->link}}.fr"
+                                                <td><a class="link-site" href="http://www.{{$menu->link}}.fr"
                                                        target="_blank">http://www.{{$menu->link}}.fr</a></td>
                                             @endif
                                         @endif
@@ -118,21 +118,19 @@
                             aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Edition</h4>
             </div>
-
             <div class="modal-body">
                 <form class="form-horizontal">
-                    <div class="input-group {{ $errors->has('name') ? 'has-error ' : '' }}">
+                    <div class="input-group {{ $errors->has('new_name_site') ? 'has-error ' : '' }}">
                         <span class="input-group-addon" id="basic-addon1"><i class="fa fa-credit-card"
                                                                              aria-hidden="true"></i></span>
-                        <input aria-describedby="basic-addon1" placeholder="Nom" class="form-control" type="text"
-                               name="name" id="name" value="{{ Request::old('name') }}">
+                        <input aria-describedby="basic-addon1" class="form-control" type="text" name="new_name_site" id="new_name_site">
                     </div>
-                    <div class="input-group {{ $errors->has('link') ? 'has-error ' : '' }}">
+                    <div class="input-group {{ $errors->has('new_link_site') ? 'has-error ' : '' }}">
                         <!-- <label for="email">Votre Nom </label>-->
                         <span class="input-group-addon" id="basic-addon2"><i class="fa fa-internet-explorer"
                                                                              aria-hidden="true"></i></span>
                         <input aria-describedby="basic-addon2" placeholder="lien" class="form-control" type="text"
-                               name="link" id="link" value="{{ Request::old('link') }}">
+                               name="new_link_site" id="new_link_site" value="{{ Request::old('new_link_site') }}">
                     </div>
                 </form>
             </div>

@@ -31,13 +31,11 @@
             <div class="row">
                 <section class="content">
                 @include('includes.message-block')
-                @include('admin.includes.timeline')
                 @include('admin.includes.manageActualite')
                 @include('admin.includes.manageCarousel')
                 @include('admin.includes.manageNavbar')
-                <!--include('admin.includes.timeline')-->
+                <!-- include('admin.includes.timeline') -->
                     <div class="col-md-12">
-
                         <div class="box box-solid">
                             <div class="box-header with-border">
                                 <h3 class="box-title">Mode d'accordion</h3>
