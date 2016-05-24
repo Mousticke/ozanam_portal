@@ -116,23 +116,23 @@
                 <ul class="nav navbar-nav site">
                     <li><a class="custom-color-a" href="http://www.ozanam-lycee.fr" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Site Web"
-                                    class="fa fa-internet-explorer" aria-hidden="true"></span></a></li>
+                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/website.png')}}"></span></a></li>
 
                     <li><a class="custom-color-a" href="http://www.ozanet.fr/cdt" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Cahier d'appel"
-                                    class="fa fa-pencil-square-o" aria-hidden="true"></span></a></li>
+                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/cda.png')}}"></span></a></li>
 
                     <li><a class="custom-color-a" href="http://www.ozanet.fr/cdt" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Cahier de Texte"
-                                    class="fa fa-pencil-square-o" aria-hidden="true"></span></a></li>
+                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/cdt.png')}}"></span></a></li>
 
                     <li><a class="custom-color-a" href="http://www.moodle.ozanam-lycee.fr" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Moodle"
-                                    class="fa fa-book" aria-hidden="true"></span></a></li>
+                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/moodle.png')}}"></span></a></li>
 
                     <li><a class="custom-color-a" href="http://www.scolinfo.net" target="_blank"><span
                                     data-toggle="tooltip_menu" data-original-title="Scolinfo"
-                                    class="fa fa-book" aria-hidden="true"></span></a></li>
+                                    class="fa custom_fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to('src/img/scolinfo.png')}}"></span></a></li>
 <!--
                     <li><a class="custom-color-a" href="http://www.moodle.ozanam-lycee.fr" target="_blank"><i
                                     class="fa fa-book" aria-hidden="true"></i>&nbsp Moodle </a></li>
@@ -167,7 +167,7 @@
                 <!--Bouton de toggle-->
                 @if(!Auth::check())
                     <li>
-                        <a ng-click="slideToggle=! slideToggle" class="btn icon-btn btn-success" href="#">
+                        <a ng-click="slideToggle=! slideToggle" class="btn icon-btn btn-success custom_btn" href="#">
                             <i class="glyphicon btn-glyphicon glyphicon-user img-circle text-primary"
                                aria-hidden="true"></i>
                             Se Connecter
@@ -177,7 +177,7 @@
             <!--<li><a ng-click="slideToggle=! slideToggle" class="custom-color-a" href="#"><span class="fa fa-user" aria-hidden="true"></span>&nbsp Se Connecter</a></li>-->
                 @if(Auth::check())
                     <li>
-                        <a class="btn icon-btn btn-danger" href="{{route('logout')}}">
+                        <a class="btn icon-btn btn-danger custom_btn" href="{{route('logout')}}">
                             <i class="glyphicon btn-glyphicon glyphicon-log-out img-circle text-info"
                                aria-hidden="true"></i>
                             Se Déconnecter</a>
@@ -185,7 +185,7 @@
                 @endif
 
                 <li>
-                    <a ng-click="slideToggle2=! slideToggle2" class="btn icon-btn btn-warning" href="#">
+                    <a ng-click="slideToggle2=! slideToggle2" class="btn icon-btn btn-warning custom_btn" href="#">
                         <i class="glyphicon btn-glyphicon glyphicon-phone img-circle text-primary"
                            aria-hidden="true"></i>
                         Contacter</a>

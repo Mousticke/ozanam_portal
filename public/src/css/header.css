@@ -3,6 +3,14 @@
     margin: 0 !important;
 }
 
+.custom_fa{
+    width: 25px;
+}
+
+.custom_btn{
+    margin-top:5px;
+}
+
 .custom-color-a {
     color: white !important;
 }
