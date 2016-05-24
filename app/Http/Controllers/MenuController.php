@@ -40,6 +40,7 @@ class MenuController extends Controller
             'name' => 'required',
             'link' => 'required',
             'icon' => 'required_without_all:icon_exist|mimes:png',
+            'icon_exist' => 'required_without_all:icon'
         ]);
 
         $menu = new Menu();
@@ -49,21 +50,34 @@ class MenuController extends Controller
         $menu->link = $request['link'];
 
         $file = $request->file('icon');
-        $file->move('uploads', $file->getClientOriginalName());
-        $icons->faicon = 'uploads/' . $file->getClientOriginalName();
-        $menu->icon = 'uploads/' . $file->getClientOriginalName();
+        if(File::exists($file)){
+            $menu->icon = 'uploads/' . $file->getClientOriginalName();
 
-        $message = 'Il y a une erreur';
-        /*Save the post si c'est un succès c'est bon.*/
-        if ($request->user()->menus()->save($menu)) {
-            $message = 'L élement a bien été ajouté au menu';
+            $message = 'Il y a une erreur';
+            /*Save the post si c'est un succès c'est bon.*/
+            if ($request->user()->menus()->save($menu)) {
+                $message = 'L icône est bien ajouté à la base de données. L élement a bien été ajouté au menu';
+            }
+            return redirect()->route('pl_admin')->with(['message' => $message]);
+        }else{
+            $file->move('uploads', $file->getClientOriginalName());
+            $icons->faicon = 'uploads/' . $file->getClientOriginalName();
+            $menu->icon = 'uploads/' . $file->getClientOriginalName();
+
+            $message = 'Il y a une erreur';
+            if ($request->user()->faicons()->save($icons) && $request->user()->menus()->save($menu)) {
+                $message = 'L icône est bien ajouté à la base de données. L élement a bien été ajouté au menu';
+            }
+
+            return redirect()->route('pl_admin')->with(['message' => $message]);
         }
-        if ($request->user()->faicons()->save($icons)) {
-            $message = 'L icône est bien ajouté à la base de données';
-        }
-        return redirect()->route('pl_admin')->with(['message' => $message]);
+
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postCreateIcon (Request $request)
     {
 
