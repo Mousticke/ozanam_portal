@@ -35,7 +35,6 @@ class MenuController extends Controller
      */
     public function postCreateMenu (Request $request)
     {
-
         $this->validate($request, [
             'name' => 'required',
             'link' => 'required',
@@ -48,15 +47,14 @@ class MenuController extends Controller
 
         $menu->name = $request['name'];
         $menu->link = $request['link'];
-
         $file = $request->file('icon');
-        if(File::exists($file)){
+        $filename = 'uploads/' . $file->getClientOriginalName();
+        if(File::exists($filename)){
             $menu->icon = 'uploads/' . $file->getClientOriginalName();
-
             $message = 'Il y a une erreur';
             /*Save the post si c'est un succès c'est bon.*/
             if ($request->user()->menus()->save($menu)) {
-                $message = 'L icône est bien ajouté à la base de données. L élement a bien été ajouté au menu';
+                $message = 'L\'icône est existant dans la base de données. Supression de duplication. L\'élement a bien été ajouté au menu';
             }
             return redirect()->route('pl_admin')->with(['message' => $message]);
         }else{
@@ -66,12 +64,10 @@ class MenuController extends Controller
 
             $message = 'Il y a une erreur';
             if ($request->user()->faicons()->save($icons) && $request->user()->menus()->save($menu)) {
-                $message = 'L icône est bien ajouté à la base de données. L élement a bien été ajouté au menu';
+                $message = 'L\'icône est bien ajouté à la base de données. L\'élement a bien été ajouté au menu';
             }
-
             return redirect()->route('pl_admin')->with(['message' => $message]);
         }
-
     }
 
     /**
@@ -82,19 +78,25 @@ class MenuController extends Controller
     {
 
         $this->validate($request, [
-            'icon' => 'required',
+            'icon_new' => 'required',
         ]);
 
         $icons = new Faicon();
-        $file = $request->file('icon');
-        $file->move('uploads', $file->getClientOriginalName());
-        $icons->faicon = 'uploads/' . $file->getClientOriginalName();
-        $message = 'Il y a une erreur';
-        /*Save the post si c'est un succès c'est bon.*/
-        if ($request->user()->faicons()->save($icons)) {
-            $message = 'L icône est bien ajouté à la base de données';
-        }
+        $file = $request->file('icon_new');
+        $filename = 'uploads/' . $file->getClientOriginalName();
+        if(File::exists($filename)){
+            $error = 'L\'icône existe déjà en base de données. ';
+            return redirect()->route('pl_admin')->with(['error'=>$error]);
+        }else{
+            $file->move('uploads', $file->getClientOriginalName());
+            $icons->faicon = 'uploads/' . $file->getClientOriginalName();
+            $message= "Il n'y a une erreur";
+            /*Save the post si c'est un succès c'est bon.*/
+            if ($request->user()->faicons()->save($icons)) {
 
-        return redirect()->route('pl_admin')->with(['message' => $message]);
+                $message = 'L icône est bien ajouté à la base de données';
+            }
+            return redirect()->route('pl_admin')->with(['message' => $message]);
+        }
     }
 }

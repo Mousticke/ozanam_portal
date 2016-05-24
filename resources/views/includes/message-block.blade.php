@@ -27,3 +27,16 @@
     </div>
 @endif
 
+@if(Session::has('error'))
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-close"></i> Echec !</h4>
+                {{Session::get('error')}}
+            </div>
+        </div>
+
+    </div>
+@endif
+
