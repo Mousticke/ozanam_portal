@@ -15,8 +15,8 @@ class CreateFaiconsTable extends Migration
         Schema::create('faicons', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('faicon');
-            $table->string('hexaicon');
+            $table->string('faicon')->unique();
+            $table->integer('user_id');
         });
     }
 

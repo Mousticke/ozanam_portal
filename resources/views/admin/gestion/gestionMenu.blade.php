@@ -60,8 +60,8 @@
                                         <td>
                                             <select class="wpmse_select2">
                                                 @foreach($faicons as $icon)
-                                                    <option value="{{$icon->faicon}}"><i class="fa {{$icon->faicon}}"
-                                                                                         aria-hidden="true"></i> {{$icon->faicon}}
+                                                    <option value="{{$icon->faicon}}" style="background-image: {{URL::to($icon->faicon)}};"><i class="fa {{$icon->faicon}}"
+                                                                                         aria-hidden="true"></i>{{$icon->faicon}}
                                                     </option>
                                                 @endforeach
                                             </select>

@@ -66,6 +66,13 @@ Route::post('/createcarousel', [
 
 Route::post('/createmenu', [
 
+    'uses' => 'MenuController@postCreateIcon',
+    'as' => 'post.icon.create',
+    'middleware' => 'auth'
+]);
+
+Route::post('/createicon', [
+
     'uses' => 'MenuController@postCreateMenu',
     'as' => 'post.menu.create',
     'middleware' => 'auth'

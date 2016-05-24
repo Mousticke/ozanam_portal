@@ -29,4 +29,12 @@ class User extends Model implements Authenticatable
     {
         return $this->hasMany('App\Menu');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function faicons ()
+    {
+        return $this->hasMany('App\Faicon');
+    }
 }
