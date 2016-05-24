@@ -14,18 +14,28 @@ use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
+    /**
+     * @param $menu_id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function getDeleteLinkAdmin ($menu_id)
     {
-
-        /*Alternative :
-         * $post = Post::find($post_id)->first();
-         */
-
         //chercher un unique post à supprimer par son id
         $menu = Menu::where('id', $menu_id)->first();
         $menu->delete();
 
         return redirect()->route('pl_admin')->with(['message' => 'Lien du menu effacé']);
+    }
+
+    /**
+     * @param $icon_id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function getDeleteIconAdmin ($icon_id)
+    {
+        $icons = Faicon::where('id', $icon_id)->first();
+        $icons->delete();
+        return redirect()->route('pl_admin')->with(['message' => 'Icône du menu effacée']);
     }
 
     /**

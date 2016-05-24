@@ -105,6 +105,13 @@ Route::get('/delete-link-admin/{menu_id}', [
     'middleware' => 'auth',
 ]);
 
+Route::get('/delete-icon-admin/{icon_id}', [
+
+    'uses' => 'MenuController@getDeleteIconAdmin',
+    'as' => 'icon.delete.admin',
+    'middleware' => 'auth',
+]);
+
 Route::get('/delete-post/{post_id}', [
 
     'uses' => 'PostController@getDeletePost',
