@@ -1,3 +1,40 @@
+.modal li.annexes_files a{
+    margin-top:0;
+    color: black !important;
+    font-size: smaller;
+}
+.modal li.annexes_link a{
+    color: mediumvioletred !important;
+    font-size: smaller;
+}
+.modal li.annexes_facebook a{
+    color: blue !important;
+    font-size: smaller;
+}
+div.tab-content a.link_modal, a.files_modal, a.facebook_modal{
+    font-size: smaller;
+}
+
+div.nav li{
+    font-size: smaller;
+}
+
+.modal.modal-wide .modal-dialog {
+    width: 70%;
+}
+.modal-wide .modal-body {
+    overflow-y: auto;
+}
+img.center_image_modal {
+    display: block;
+    margin: 0 auto;
+}
+
+blockquote.contentArticle{
+    display: block;
+    margin: 0 auto;
+}
+
 p {
     font-size: smaller;
 }
@@ -13,7 +50,7 @@ p {
 
 .new-post header,
 .postArticle .postAdmin header {
-    margin-botton: 20px;
+    margin-bottom: 20px;
 }
 
 .posts .postArticle .postAdmin {

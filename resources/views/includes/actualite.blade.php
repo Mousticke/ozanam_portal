@@ -52,44 +52,6 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="modal fade modal-primary" id="actualite_display">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                ×
-                                            </button>
-                                            <h4 class="modal-title">
-                                                <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                            </h4>
-                                        </div>
-                                        <div class="modal-body"
-                                             style="background-color: #FFFFFF !important; color : #5D9CEC !important;">
-                                            <div class="attach_media">
-                                                <img style="max-height: 400px; max-width: 500px; margin-left: 28px;"
-                                                     src="{{URL::to('slider/slider1.jpg')}}" alt="user">
-                                            </div>
-                                            <div class="attach_files" style="text-decoration: underline; float: left">
-                                                <p><i class="fa fa-file" aria-hidden="true"></i>&nbsp Pièces jointes</p>
-                                                <a href="#" target="_blank"> Fichier 1</a>
-                                            </div>
-                                            <div class="annexes_link" style="text-decoration: underline; float: right">
-                                                <p><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens
-                                                    annexes</p>
-                                                <a href="#" target="_blank">Site 1</a>
-                                            </div>
-                                            <br>
-                                            <div class="contentArticle"
-                                                 style="color : #000 !important; border: 3px solid lightblue; border-radius: 4px">
-                                                {!! html_entity_decode($post->body) !!}
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Fermer</button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
                         @elseif($key == 1 )
                             <div class="info-box card radius shadowDepth1 bg-green" data-actuid="{{ $post->id }}">
                                 <div class="card_header_actu bg-blue">
@@ -138,44 +100,6 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="modal fade modal-primary" id="actualite_display">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                ×
-                                            </button>
-                                            <h4 class="modal-title">
-                                                <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                            </h4>
-                                        </div>
-                                        <div class="modal-body"
-                                             style="background-color: #FFFFFF !important; color : #5D9CEC !important;">
-                                            <div class="attach_media">
-                                                <img style="max-height: 400px; max-width: 500px; margin-left: 28px;"
-                                                     src="{{URL::to('slider/slider1.jpg')}}" alt="user">
-                                            </div>
-                                            <div class="attach_files" style="text-decoration: underline; float: left">
-                                                <p><i class="fa fa-file" aria-hidden="true"></i>&nbsp Pièces jointes</p>
-                                                <a href="#" target="_blank"> Fichier 1</a>
-                                            </div>
-                                            <div class="annexes_link" style="text-decoration: underline; float: right">
-                                                <p><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens
-                                                    annexes</p>
-                                                <a href="#" target="_blank">Site 1</a>
-                                            </div>
-                                            <br>
-                                            <div class="contentArticle"
-                                                 style="color : #000 !important; border: 3px solid lightblue; border-radius: 4px">
-                                                {!! html_entity_decode($post->body) !!}
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Fermer</button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
                         @elseif($key == 2 )
                             <div class="info-box card radius shadowDepth1 bg-red" data-actuid="{{ $post->id }}">
                                 <div class="card_header_actu bg-blue">
@@ -224,44 +148,6 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="modal fade modal-primary" id="actualite_display">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                ×
-                                            </button>
-                                            <h4 class="modal-title">
-                                                <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                            </h4>
-                                        </div>
-                                        <div class="modal-body"
-                                             style="background-color: #FFFFFF !important; color : #5D9CEC !important;">
-                                            <div class="attach_media">
-                                                <img style="max-height: 400px; max-width: 500px; margin-left: 28px;"
-                                                     src="{{URL::to('slider/slider1.jpg')}}" alt="user">
-                                            </div>
-                                            <div class="attach_files" style="text-decoration: underline; float: left">
-                                                <p><i class="fa fa-file" aria-hidden="true"></i>&nbsp Pièces jointes</p>
-                                                <a href="#" target="_blank"> Fichier 1</a>
-                                            </div>
-                                            <div class="annexes_link" style="text-decoration: underline; float: right">
-                                                <p><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens
-                                                    annexes</p>
-                                                <a href="#" target="_blank">Site 1</a>
-                                            </div>
-                                            <br>
-                                            <div class="contentArticle"
-                                                 style="color : #000 !important; border: 3px solid lightblue; border-radius: 4px">
-                                                {!! html_entity_decode($post->body) !!}
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Fermer</button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
                         @else
                             <div class="info-box card radius shadowDepth1 bg-yellow" data-actuid="{{ $post->id }}">
                                 <div class="card_header_actu bg-blue">
@@ -308,44 +194,6 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="modal fade modal-primary" id="actualite_display">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                                ×
-                                            </button>
-                                            <h4 class="modal-title">
-                                                <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                            </h4>
-                                        </div>
-                                        <div class="modal-body"
-                                             style="background-color: #FFFFFF !important; color : #5D9CEC !important;">
-                                            <div class="attach_media">
-                                                <img style="max-height: 400px; max-width: 500px; margin-left: 28px;"
-                                                     src="{{URL::to('slider/slider1.jpg')}}" alt="user">
-                                            </div>
-                                            <div class="attach_files" style="text-decoration: underline; float: left">
-                                                <p><i class="fa fa-file" aria-hidden="true"></i>&nbsp Pièces jointes</p>
-                                                <a href="#" target="_blank"> Fichier 1</a>
-                                            </div>
-                                            <div class="annexes_link" style="text-decoration: underline; float: right">
-                                                <p><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens
-                                                    annexes</p>
-                                                <a href="#" target="_blank">Site 1</a>
-                                            </div>
-                                            <br>
-                                            <div class="contentArticle"
-                                                 style="color : #000 !important; border: 3px solid lightblue; border-radius: 4px">
-                                                {!! html_entity_decode($post->body) !!}
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary">Fermer</button>
-                                        </div>
-                                    </div><!-- /.modal-content -->
-                                </div><!-- /.modal-dialog -->
-                            </div><!-- /.modal -->
                         @endif
                     @endforeach
                 </div>
@@ -354,13 +202,15 @@
     </div>
 </div>
 <div class="clearfix"></div>
-<div class="posts col-lg-offset-4 col-xs-offset-4 col-md-offset-4 col-sm-offset-4">
+
+<div class="clearfix"></div>
+<div class="posts col-lg-offset-4 "><!--col-xs-offset-4 col-md-offset-4 col-sm-offset-4-->
     <!--Actu Facebook-->
-    <div id="articleNew" class="col-lg-7 col-xs-7">
+    <div id="articleNew" class="col-lg-8 "><!--col-xs-7-->
         <div class="small-box info-box bg-blue">
             <span class="info-box-icon"><i class="fa fa-facebook"></i></span>
             <div class="info-box-content">
-                <div class="panel-heading">Dernière Actu Facebook</div>
+                <div class="panel-heading">Fil d'actualité Facebook</div>
                 <div class="progress">
                     <div class="progress-bar" style="width: 100%"></div>
                 </div>
@@ -373,12 +223,162 @@
     </div>
 </div>
 <div class="clearfix"></div>
-<div>
-    <md-divider md-inset></md-divider>
-</div>
-<br>
 
-
+<div class="modal fade modal-wide modal-primary" id="actualite_display">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title">
+                    <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp UNE DATE</span>
+                </h4>
+            </div>
+            <div class="modal-body"
+                 style="background-color: #FFFFFF !important; color : #5D9CEC !important;">
+                <div class="attach_media">
+                    <img style="max-height: 400px; max-width: 500px;"
+                         src="{{URL::to('slider/slider1.jpg')}}" alt="img_modal" class="center_image_modal">
+                </div>
+                <div class="row">
+                    <!-- Custom Tabs (Pulled to the right) -->
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs pull-right">
+                            <li class="active annexes_link"><a href="#tab_1-1" data-toggle="tab" aria-expanded="true"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens</a>
+                            </li>
+                            <li class="annexes_files"><a href="#tab_2-2" data-toggle="tab" aria-expanded="false"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichiers</a></li>
+                            <li class="annexes_facebook"><a href="#tab_3-2" data-toggle="tab" aria-expanded="false"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp Facebook</a></li>
+                            <li class="pull-left header"><i class="fa fa-th"></i>Liens/Fichiers Utiles</li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1-1">
+                                <a href="http://www.google.fr" class="link_modal"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens 1</a>
+                                <a href="http://www.google.fr" class="link_modal"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens 2</a>
+                            </div><!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_2-2">
+                                <a href="http://www.google.fr" class="files_modal"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichier 1</a>
+                                <a href="http://www.google.fr" class="files_modal"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichier 2</a>
+                            </div><!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_3-2">
+                                <a href="http://www.google.fr" class="facebook_modal"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp Facebook</a>
+                            </div><!-- /.tab-pane -->
+                        </div><!-- /.tab-content -->
+                    </div><!-- nav-tabs-custom -->
+                </div>
+                <br>
+                <blockquote class="contentArticle"
+                     style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%;">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                    It has survived not only five centuries, but also the leap into electronic
+                    typesetting,
+                    remaining essentially unchanged. It was popularised in the 1960s with the release of
+                    Letraset
+                    sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                    software
+                    like Aldus PageMaker including versions of Lorem Ipsum.
+                </blockquote>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info">Précédent</button>
+                <button type="button" class="btn btn-success">Suivant</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--
 <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -404,3 +404,4 @@
         </div>
     </div>
 </div>
+-->

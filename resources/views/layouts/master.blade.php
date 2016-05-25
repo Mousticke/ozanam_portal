@@ -49,10 +49,10 @@
         integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
         crossorigin="anonymous"></script>
 
-
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
 <script src="{{URL::to('src/admintheme/plugins/fastclick/fastclick.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{URL::to('src/admintheme/dist/js/app.min.js')}}"></script>
