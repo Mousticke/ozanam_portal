@@ -2,7 +2,7 @@
  * Created by Akim on 13/05/2016.
  */
 var postId = 0;
-var postBodyElement, NameElement, LinkElement, IconeElement = null;
+var postBodyElement, NameElement, LinkElement, IconElement, VisibilityElement = null;
 
 $('.post').find('.interaction').find('.editAdmin').on('click', function (event) {
     event.preventDefault();
@@ -32,15 +32,21 @@ $('#modal-save').on('click', function () {
 
 $('.menu').find('.interaction').find('.editMenu').on('click', function (event) {
     event.preventDefault();
-    NameElement = $("tr").children(".name-site");
+    NameElement = $("tr").children(".name_site");
     LinkElement = $("tr").children(".link-site");
+    IconElement = $("tr").children(".icon-site");
+    VisibilityElement = $("tr").children(".menu_visibility");
     //NameElement = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes.childNodes[1];
     //LinkElement = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes[3];
     var SiteName = NameElement.textContent;
     var SiteLink = LinkElement.textContent;
+    var SiteIcon = IconElement.html();
+    var SiteVisibility = VisibilityElement.textContent;
     postId = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset['postid'];
     $("#new_name_site").val(SiteName);
     $("#new_link_site").val(SiteLink);
+    $("#new_icon_site").val(SiteIcon);
+    $("#new_visibility_site").val(SiteVisibility);
     $('#edit-modal-menu').modal();
 });
 
@@ -51,13 +57,17 @@ $('#modal-saveMenu').on('click', function () {
         data: {
             new_name_site: $("#new_name_site").val(),
             new_link_site : $('#new_link_site').val(),
+            new_icon_site : $('#new_icon_site').val(),
+            new_visibility_site : $('#new_visibility_site').val(),
             postId: postId,
             _token: token
         }
     })
         .done(function (msg) {
-            $(NameElement).text(msg['new_name_update', 'new_link_update']);
-            //   $(LinkElement).text(msg['new_link']);
+            $(NameElement).text(msg['new_name_update']);
+            $(LinkElement).text(msg['new_link_update']);
+            $(IconElement).text(msg['new_icon_update']);
+            $(VisibilityElement).text(msg['new_visibility_update']);
             $('#edit-modal-menu').modal('hide');
         });
 });

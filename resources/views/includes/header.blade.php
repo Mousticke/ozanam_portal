@@ -146,9 +146,9 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="search" style="margin-right: 25px">
-                    <form action="http://www.google.fr/search" method="get" onsubmit="process(); return false;">
+                    <form target="_blank" action="http://www.google.fr/search" method="get" onsubmit="process(); return false;">
                         <p>
-                            <a href="http://www.google.fr"></a>
+                            <a href="http://www.google.fr" target="_blank"></a>
                             <input maxlength="255" name="q" size="21" type="text">
                             <input name="hl" type="hidden" value="fr">
                             <button class="btn btn-inverse icon-btn" name="btnG" type="submit">

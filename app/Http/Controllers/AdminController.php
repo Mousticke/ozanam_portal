@@ -88,13 +88,17 @@ class AdminController extends Controller
         $this->validate($request, [
             'new_name_site' => 'required',
             'new_link_site' => 'max:520',
+            'new_icon_site'  => 'required',
+            'new_visibility_site'  => 'required',
         ]);
         $menu = Menu::find($request['postId']);
         $menu->name = $request['new_name_site'];
         $menu->link = $request['new_link_site'];
+        $menu->icon = $request['new_icon_site'];
+        $menu->visibility = $request['new_visibility_site'];
 
         $menu->update();
-        return response()->json(['new_name_update' => $menu->name, 'new_link_update' => $menu->link], 200);
+        return response()->json(['new_name_update' => $menu->name, 'new_link_update' => $menu->link, 'new_icon_update' => $menu->icon, 'new_visibility_update' => $menu->visibility], 200);
     }
 
 

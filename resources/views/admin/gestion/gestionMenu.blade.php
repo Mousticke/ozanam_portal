@@ -20,7 +20,7 @@
                                     <th>Lien</th>
                                     <th>Liste des icônes disponibles</th>
                                     <th>Icône</th>
-                                    <!--<th>Visibilité (tous, admin, connecté)</th>-->
+                                    <th>Visibilité</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -29,7 +29,7 @@
                                 @foreach($menus as $menu)
                                     <tr class="menu" data-postid="{{ $menu->id }}">
                                         <td>{{$menu->id}}</td>
-                                        <td class="name-site">{{$menu->name}}</td>
+                                        <td class="name_site">{{$menu->name}}</td>
                                         @if(str_contains($menu->link , '.fr') || str_contains($menu->link , '.com') || str_contains($menu->link , '.org') || str_contains($menu->link , '.net'))
                                             @if(starts_with($menu->link , 'wwww.'))
                                                 <td><a class="link-site" href="http://{{$menu->link}}"
@@ -57,7 +57,7 @@
                                                        target="_blank">http://www.{{$menu->link}}.fr</a></td>
                                             @endif
                                         @endif
-                                        <td>
+                                        <td class="icon-site">
                                             <select class="wpmse_select2">
                                                 @foreach($faicons as $icon)
                                                     <option value="{{$icon->faicon}}" style="background-image: {{URL::to($icon->faicon)}};"><i class="fa {{$icon->faicon}}"
@@ -66,8 +66,14 @@
                                                 @endforeach
                                             </select>
                                         </td>
-                                        <td><span class="fa {{$menu->icon}}" aria-hidden="true"></span></td>
-                                        <!-- <td><span class="label label-success">Tous</span></td>-->
+                                        <td><img class="custom_fa" src="{{URL::to($menu->icon)}}"></td>
+                                        <td class="menu_visibility">
+                                            @if($menu->visibility == 0)
+                                                <span class="label label-success">Public</span>
+                                            @elseif($menu->visibility == 1)
+                                                <span class="label label-danger">Privée</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             <div id="articleNew"
                                                  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-1 col-md-offset-1 col-sm-offset-1">
@@ -138,6 +144,24 @@
                         <input aria-describedby="basic-addon2" placeholder="lien" class="form-control" type="text"
                                name="new_link_site" id="new_link_site" value="{{ Request::old('new_link_site') }}">
                     </div>
+                    <div class="input-group {{ $errors->has('new_icon_site') ? 'has-error ' : '' }}">
+                        <select name="new_icon_site" id="new_icon_site" class="wpmse_select2">
+                            @foreach($faicons as $icon)
+                                <option value="{{$icon->faicon}}" style="background-image: {{URL::to($icon->faicon)}};"><i class="fa {{$icon->faicon}}" aria-hidden="true"></i>{{$icon->faicon}}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="input-group {{ $errors->has('visibiliy') ? 'has-error ' : '' }}">
+                    <span class="input-group-addon" id="basic-addon5"><i class="fa fa-user"
+                                                                         aria-hidden="true"></i></span>
+                        <select id="new_visibility_site" aria-describedby="basic-addon5" name="new_visibility_site" class="wpmse_select2">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="0">Public</option>
+                            <option value="1">Privée</option>
+                        </select>
+                    </div>
+
                 </form>
             </div>
 
