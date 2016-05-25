@@ -23,7 +23,7 @@ class HeaderController extends Controller
 
         $posts = Post::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
-        $menus = Menu::orderBy('created_at', 'desc')->get();
+        $menus = Menu::orderBy('created_at', 'desc')->get()->where('visibility', 0);
         return view('header', [
             'posts' => $posts,
             'carousels' => $carousels,

@@ -49,6 +49,7 @@ class MenuController extends Controller
             'name' => 'required',
             'link' => 'required',
             'icon' => 'required_without_all:icon_exist|mimes:png',
+            'visibility' =>'required',
             'icon_exist' => 'required_without_all:icon'
         ]);
 
@@ -57,6 +58,7 @@ class MenuController extends Controller
 
         $menu->name = $request['name'];
         $menu->link = $request['link'];
+        $menu->visibility = $request['visibility'];
         $file = $request->file('icon');
         $filename = 'uploads/' . $file->getClientOriginalName();
         if(File::exists($filename)){

@@ -77,7 +77,13 @@
                                                         <div>
                                                             <article>
                                                                 <p>{{$menu->name}} -> {{$menu->link}}
-                                                                    -> {{$menu->icon}} </p>
+                                                                    -> {{$menu->icon}} -> sa visibilité est :
+                                                                    @if($menu->visibility == 1)
+                                                                        <span style="text-decoration: underline;">Privée</span>
+                                                                    @else
+                                                                        <span style="text-decoration: underline;">Public</span>
+                                                                    @endif
+                                                                </p>
                                                                 <div class="interaction">
                                                                     <a class="btn icon-btn btn-success editMenu">
                                                                         <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>

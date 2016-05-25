@@ -98,6 +98,17 @@
                         <input aria-describedby="basic-addon3" placeholder="Icone (.png uniquement)" class="form-control" type="file"
                                name="icon" id="icon" value="{{ Request::old('icon') }}">
                     </div>
+
+                    <div class="input-group {{ $errors->has('visibiliy') ? 'has-error ' : '' }}">
+                    <span class="input-group-addon" id="basic-addon4"><i class="fa fa-user"
+                                                                         aria-hidden="true"></i></span>
+                        <select aria-describedby="basic-addon4" name="visibility" class="wpmse_select2">
+                            <option disabled selected value> -- select an option -- </option>
+                            <option value="0">Public</option>
+                            <option value="1">Privée</option>
+                        </select>
+                    </div>
+
                     <div class="input-group">
                     <span class="input-group-addon" id="basic-addon4"><i class="fa fa-image"
                                                                          aria-hidden="true"></i></span>

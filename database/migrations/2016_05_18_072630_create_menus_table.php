@@ -19,6 +19,7 @@ class CreateMenusTable extends Migration
             $table->string('link');
             $table->string('icon');
             $table->integer('user_id');
+            $table->integer('visibility');
         });
     }
 
