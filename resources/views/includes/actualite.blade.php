@@ -1,7 +1,7 @@
-<div class="col-lg-8 col-lg-offset-2">
-    <section class="row posts">
+<div class="col-lg-8 col-lg-offset-2"><!---->
+    <div class="row posts">
         <div ng-cloak>
-            <md-content class="md-padding" layout-xs="column" layout="row">
+            <div class="md-padding" layout-xs="column" layout="row">
                 <div flex-xs flex-gt-xs="100" layout="row">
                     @foreach($posts as $key=>$post)
                         @if($key == 0)
@@ -349,18 +349,14 @@
                         @endif
                     @endforeach
                 </div>
-            </md-content>
+            </div>
         </div>
-
-    </section>
+    </div>
 </div>
-<div>
-    <md-divider md-inset></md-divider>
-</div>
-<br>
-<section class="row posts col-lg-offset-3 col-xs-offset-3 col-md-offset-3 col-sm-offset-3">
+<div class="clearfix"></div>
+<div class="posts col-lg-offset-4 col-xs-offset-4 col-md-offset-4 col-sm-offset-4">
     <!--Actu Facebook-->
-    <div id="articleNew" class="col-lg-8 col-xs-8">
+    <div id="articleNew" class="col-lg-7 col-xs-7">
         <div class="small-box info-box bg-blue">
             <span class="info-box-icon"><i class="fa fa-facebook"></i></span>
             <div class="info-box-content">
@@ -368,13 +364,20 @@
                 <div class="progress">
                     <div class="progress-bar" style="width: 100%"></div>
                 </div>
-                <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FOzanamLyceeChalons%2Fposts%2F1767146926847630&width=600"
+                <!--<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FOzanamLyceeChalons%2Fposts%2F1767146926847630&width=600"
                         width="600" height="auto" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                        allowTransparency="true"></iframe>
+                        allowTransparency="true"></iframe>-->
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FOzanamLyceeChalons%2F%3Ffref%3Dts&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=152007268286" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
             </div>
         </div>
     </div>
-</section>
+</div>
+<div class="clearfix"></div>
+<div>
+    <md-divider md-inset></md-divider>
+</div>
+<br>
+
 
 <div class="modal fade" tabindex="-1" role="dialog" id="edit-modal">
     <div class="modal-dialog">
