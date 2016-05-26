@@ -313,6 +313,10 @@ header h3 {
     transition: transform 0.35s ease;
 }
 
+.readmore{
+    color : white !important;
+}
+
 .share-toggle {
     z-index: 2;
 }
