@@ -8,9 +8,9 @@
                 <small>Version 1.0</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
-                <li><a href="#"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-                <li class="active">Gestion des actualites</li>
+                <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Accueil</a></li>
+                <li><a href="{{route('pl_admin')}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+                <li class="active">Gestion du carousel</li>
             </ol>
         </section>
         <section class="content">
