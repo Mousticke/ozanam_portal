@@ -17,6 +17,31 @@ class PostController extends Controller
 {
 
     /**
+     * Creation et validation de l'actualité
+     * @param Request $request
+     * @return mixed
+     */
+    public function postCreateActualite (Request $request)
+    {
+
+        $this->validate($request, [
+            'body' => 'required|max:500'
+        ]);
+        /*Validation
+        * name field
+          */
+        $post = new Post();
+        $post->body = $request['body'];
+        $message = 'Il n\' y a une erreur';
+        /*Save the post si c'est un succès c'est bon.*/
+        if ($request->user()->posts()->save($post)) {
+            $message = 'Le post a été ajouté';
+        }
+
+        return redirect()->route('admin_actualite')->with(['message' => $message]);
+    }
+
+    /**
      * Retourne la dashboard avec tous les posts crées suivant l'ordre décroissant
      * @return mixed
      */
@@ -53,37 +78,58 @@ class PostController extends Controller
             'menus' => $menus,
         ]);
     }
-    /*
-        public function getPanel(){
-    
-            return view('admin.pl_Admin');
-        }
-    */
     /**
-     * Creation et validation de l'actualité
-     * @param Request $request
-     * @return mixed
+     * @param $post_id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function postCreatePost (Request $request)
+    public function getDeleteActualiteAdmin ($post_id)
     {
+        //chercher un unique post à supprimer par son id
+        $post = Post::where('id', $post_id)->first();
+        $post->delete();
 
-        $this->validate($request, [
-            'body' => 'required|max:500'
-        ]);
-        /*Validation
-        * name field
-          */
-        $post = new Post();
-        $post->body = $request['body'];
-        $message = 'Il n\' y a une erreur';
-        /*Save the post si c'est un succès c'est bon.*/
-        if ($request->user()->posts()->save($post)) {
-            $message = 'Le post a été ajouté';
-        }
-
-        return redirect()->route('admin_actualite')->with(['message' => $message]);
+        return redirect()->route('admin_actualite')->with(['message' => 'Post effacé']);
     }
 
+    /**
+     * Si on met rien dans le modal, on a une erreur et il n'y aura pas de changement
+     * On va corriger ça. De plus, on doit reloader la page si l'on veut voir les modifications. On va modifer le contenu grâce à l'ajax
+     * dans notre fichier .js
+     * @see public/src/js/appAdmin.js
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function postEditActualiteAdmin (Request $request)
+    {
+        $this->validate($request, [
+            'body' => 'required'
+        ]);
+
+        $post = Post::find($request['postId']);
+        $post->body = $request['body'];
+        $post->update();
+        return response()->json(['new_body' => $post->body], 200);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getManageActualiteAdmin(){
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('admin.includes.manageActualite',[
+            'posts' => $posts
+        ]);
+    }
+
+
+
+
+
+
+    /**
+     *                                      PARTIE OBSOLETE 
+     */
+    
     /**
      * On ne peut supprimer que notre post. Même via l'url, on ne peut pas supprimer si on n'est pas
      * le propriétaire

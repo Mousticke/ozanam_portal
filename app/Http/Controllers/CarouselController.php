@@ -57,5 +57,12 @@ class CarouselController extends Controller
         return redirect()->route('admin_carousel')->with(['message' => 'Carousel effacé']);
     }
 
+    public function getManageCarouselAdmin(){
+        $carousels = Carousel::orderBy('created_at', 'desc')->get();
+        return view('admin.includes.manageCarousel', [
+            'carousels' => $carousels,
+        ]);
+    }
+
 
 }
