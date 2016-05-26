@@ -28,7 +28,7 @@
 
     var editor_config = {
         path_absolute: "{{URL::to('/')}}",
-        selector: "textarea#new-post",
+        selector: "textarea#post-body",
         plugins: [
             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars code fullscreen",

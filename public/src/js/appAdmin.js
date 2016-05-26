@@ -10,6 +10,8 @@ $('.post').find('.interaction').find('.editAdmin').on('click', function (event) 
     postBodyElement = event.target.parentNode.parentNode.childNodes[1];
     var postBody = postBodyElement.textContent;
     postId = event.target.parentNode.parentNode.dataset['postid'];
+    var content =tinyMCE.activeEditor.getContent($.htmlDecodeAttr(event.target.parentNode.parentNode.dataset['content']));
+    alert(content);
     $("#post-body").val(postBody);
     $('#edit-modal').modal();
 });

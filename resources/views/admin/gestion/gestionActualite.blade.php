@@ -38,8 +38,8 @@
                                                         du : {{date('d M Y' ,strtotime($post->user->created_at))}}</div>
                                                     <div class="panel panel-body">
                                                         <div>
-                                                            <article class="post" data-postid="{{ $post->id }}">
-                                                                <p>{!! html_entity_decode($post->body) !!}</p>
+                                                            <article class="post" data-postid="{{ $post->id }}" data-content="{!! html_entity_decode($post->body) !!}">
+                                                                <p id="thisArticle">{!! html_entity_decode($post->body) !!}</p>
                                                                 <!--Fonction user dans post.php-->
                                                                 <div class="info">
                                                                     Postée par {{$post->user->first_name}} crée
