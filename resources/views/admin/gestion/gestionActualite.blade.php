@@ -98,8 +98,8 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="modal-save" type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button id="modal-save" type="button" class="btn btn-primary">Enregistrer les données</button>
             </div>
         </div>
     </div>
