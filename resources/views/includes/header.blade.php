@@ -24,7 +24,7 @@
                 51000 Châlons-en-Champagne Cedex
             </p>
 
-            <p id="timer">
+            <p id="timer"></p>
                 <script type="text/javascript">
                     function GetClock() {
                         var weekday = new Array(7);
@@ -40,7 +40,7 @@
                         var thisNumber = d.getDay();
                         var thisYear = d.getFullYear();
                         var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
-                        if (nmin <= 9) nmin = "0" + nmin
+                        if (nmin <= 9) nmin = "0" + nmin;
                         if (nsec <= 9) nsec = "0" + nsec;
 
                         document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisYear + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
@@ -52,7 +52,6 @@
                     }
                 </script>
             <div id="clockbox"></div>
-            </p>
         </div>
     </div>
 </div>
@@ -160,7 +159,7 @@
                     <form target="_blank" action="http://www.google.fr/search" method="get" onsubmit="process(); return false;">
                         <p>
                             <a href="http://www.google.fr" target="_blank"></a>
-                            <input maxlength="255" name="q" size="21" type="text">
+                            <input maxlength="255" name="q" size="21" type="text" title="Rechercher">
                             <input name="hl" type="hidden" value="fr">
                             <button class="btn btn-inverse icon-btn" name="btnG" type="submit">
                                 <span class="glyphicon btn-glyphicon glyphicon-search img-circle text-success"></span>

@@ -13,9 +13,7 @@
             </em>
             <div class="row slide-toggle" ng-show="slideToggle3">
                 <em>Votre email doit être validé avant de contacter le Lycée
-                    <select ng-model="selection" ng-options="item for item in items" class="btn icon-btn btn-success">
-                        <i class="glyphicon btn-glyphicon glyphicon-console img-circle text-success"
-                           aria-hidden="true"></i>
+                    <select ng-model="selection" ng-options="item for item in items" class="btn icon-btn btn-success" title="selectMode">
                     </select>
                 </em>
             </div>

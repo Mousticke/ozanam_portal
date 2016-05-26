@@ -1,6 +1,30 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="15">
+            <item index="0" class="java.lang.String" itemvalue="ng-app" />
+            <item index="1" class="java.lang.String" itemvalue="n-controller" />
+            <item index="2" class="java.lang.String" itemvalue="layout-xs" />
+            <item index="3" class="java.lang.String" itemvalue="layout" />
+            <item index="4" class="java.lang.String" itemvalue="flex-gt-xs" />
+            <item index="5" class="java.lang.String" itemvalue="flex-xs" />
+            <item index="6" class="java.lang.String" itemvalue="ng-controller" />
+            <item index="7" class="java.lang.String" itemvalue="ng-click" />
+            <item index="8" class="java.lang.String" itemvalue="ng-show" />
+            <item index="9" class="java.lang.String" itemvalue="ng-options" />
+            <item index="10" class="java.lang.String" itemvalue="ng-model" />
+            <item index="11" class="java.lang.String" itemvalue="ng-switch" />
+            <item index="12" class="java.lang.String" itemvalue="on" />
+            <item index="13" class="java.lang.String" itemvalue="ng-switch-when" />
+            <item index="14" class="java.lang.String" itemvalue="value" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
@@ -30,5 +54,6 @@
       </option>
       <option name="myCustomValuesEnabled" value="true" />
     </inspection_tool>
+    <inspection_tool class="PhpUndefinedClassInspection" enabled="false" level="WARNING" enabled_by_default="false" />
   </profile>
 </component>

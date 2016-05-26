@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Mail;
@@ -17,6 +18,7 @@ class ContactController extends Controller
      */
     public function postContact (Request $request)
     {
+        $menus = Menu::orderBy('created_at', 'desc')->get();
         $input = Input::all();
         Mail::send('email_contact',
             array(
@@ -33,7 +35,7 @@ class ContactController extends Controller
                         'mime' => $input['fileToUpload']->getMimeType()));
                 }
             });
-        return view('confirmContact')
+        return view('confirmContact', ['menus' => $menus,])
             ->with('message', 'Un problème est survenu lors de l\'envoie de l\'email');
     }
 }

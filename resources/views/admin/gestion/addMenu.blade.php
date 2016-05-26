@@ -63,7 +63,6 @@
                     </tbody>
 
                 </table>
-                </article>
             </div><!-- /.box-body -->
         </div><!-- /.box -->
     </div>
@@ -102,7 +101,7 @@
                     <div class="input-group {{ $errors->has('visibiliy') ? 'has-error ' : '' }}">
                     <span class="input-group-addon" id="basic-addon4"><i class="fa fa-user"
                                                                          aria-hidden="true"></i></span>
-                        <select aria-describedby="basic-addon4" name="visibility" class="wpmse_select2">
+                        <select aria-describedby="basic-addon4" name="visibility" class="wpmse_select2" title="Visibilité">
                             <option disabled selected value> -- select an option -- </option>
                             <option value="0">Public</option>
                             <option value="1">Privée</option>
@@ -110,10 +109,10 @@
                     </div>
 
                     <div class="input-group">
-                    <span class="input-group-addon" id="basic-addon4"><i class="fa fa-image"
+                    <span class="input-group-addon" id="basic-addon5"><i class="fa fa-image"
                                                                          aria-hidden="true"></i></span>
-                        <select aria-describedby="basic-addon4" class="form-control"
-                                name="icon_exist" id="icon_exist">
+                        <select aria-describedby="basic-addon5" class="form-control"
+                                name="icon_exist" id="icon_exist" title="Icône existant">
                             <option disabled selected value> -- select an option -- </option>
                             @foreach($faicons as $icon)
                                 <option value="{{$icon->faicon}}" style="background-image: {{URL::to($icon->faicon)}};">

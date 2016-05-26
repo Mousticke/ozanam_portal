@@ -155,6 +155,7 @@ Route::post('/signin', [
 /**
  *                                                  Partie de contact
  */
+
 Route::post('/contact', [
     'uses' => 'ContactController@postContact',
     'as' => 'contact'

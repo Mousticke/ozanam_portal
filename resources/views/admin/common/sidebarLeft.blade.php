@@ -12,7 +12,7 @@
             <h3 class="control-sidebar-heading">Progression du site</h3>
             <ul class="control-sidebar-menu">
                 <li>
-                    <a href="javascript::;">
+                    <a href="javascript:void(0);">
                         <h4 class="control-sidebar-subheading">
                             Template
                             <span class="label label-danger pull-right">60%</span>
@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript::;">
+                    <a href="javascript:void(0);">
                         <h4 class="control-sidebar-subheading">
                             Site général
                             <span class="label label-success pull-right">65%</span>
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript::;">
+                    <a href="javascript:void(0);">
                         <h4 class="control-sidebar-subheading">
                             Back-end
                             <span class="label label-warning pull-right">70%</span>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript::;">
+                    <a href="javascript:void(0);">
                         <h4 class="control-sidebar-subheading">
                             Intégration back-end Admin
                             <span class="label label-primary pull-right">10%</span>

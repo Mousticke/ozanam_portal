@@ -31,10 +31,9 @@
             <div class="row">
                 <section class="content">
                 @include('includes.message-block')
-                <!--include('admin.includes.manageActualite')-->
-                <!--include('admin.includes.manageCarousel')-->
+                @include('admin.includes.timeline')
 
-                <!-- include('admin.includes.timeline') -->
+                    <!--DES EXMPLES DE TAB ET ACCORDION-->
                     <div class="col-md-12">
                         <div class="box box-solid">
                             <div class="box-header with-border">
@@ -53,7 +52,7 @@
                                             </h4>
                                         </div>
                                         <div id="collapseOne" class="panel-collapse collapse" aria-expanded="false"
-                                             style="height: 0px;">
+                                             style="height: 0;">
                                             <div class="box-body">
                                                 Lorem Ipsum is simply dummy text of the printing and typesetting
                                                 industry.
@@ -81,7 +80,7 @@
                                             </h4>
                                         </div>
                                         <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false"
-                                             style="height: 0px;">
+                                             style="height: 0;">
                                             <div class="box-body">
                                                 Lorem Ipsum is simply dummy text of the printing and typesetting
                                                 industry.
@@ -109,7 +108,7 @@
                                             </h4>
                                         </div>
                                         <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false"
-                                             style="height: 0px;">
+                                             style="height: 0;">
                                             <div class="box-body">
                                                 Lorem Ipsum is simply dummy text of the printing and typesetting
                                                 industry.
