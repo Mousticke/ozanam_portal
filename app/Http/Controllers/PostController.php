@@ -17,39 +17,11 @@ class PostController extends Controller
 {
 
     /**
-     * Creation et validation de l'actualité
-     * @param Request $request
-     * @return mixed
-     */
-    public function postCreateActualite (Request $request)
-    {
-
-        $this->validate($request, [
-            'body' => 'required|max:500'
-        ]);
-        /*Validation
-        * name field
-          */
-        $post = new Post();
-        $post->body = $request['body'];
-        $message = 'Il n\' y a une erreur';
-        /*Save the post si c'est un succès c'est bon.*/
-        if ($request->user()->posts()->save($post)) {
-            $message = 'Le post a été ajouté';
-        }
-
-        return redirect()->route('admin_actualite')->with(['message' => $message]);
-    }
-
-    /**
      * Retourne la dashboard avec tous les posts crées suivant l'ordre décroissant
      * @return mixed
      */
     public function getDashboard ()
     {
-
-        //fetch all post with order
-
         $posts = Post::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         $menus = Menu::orderBy('created_at', 'desc')->get();
@@ -66,9 +38,6 @@ class PostController extends Controller
      */
     public function getDashboardIndex ()
     {
-
-        //fetch all post with order
-
         $posts = Post::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         $menus = Menu::orderBy('created_at', 'desc')->get();
@@ -78,17 +47,52 @@ class PostController extends Controller
             'menus' => $menus,
         ]);
     }
+
     /**
+     * On ne supprime qu'un seul post. On le reconnait en passant en paramètre son id
+     * Une fois que le post est supprimé, nous sommes redirigé sur la même page avec un message
      * @param $post_id
      * @return \Illuminate\Http\RedirectResponse
      */
     public function getDeleteActualiteAdmin ($post_id)
     {
-        //chercher un unique post à supprimer par son id
         $post = Post::where('id', $post_id)->first();
         $post->delete();
-
         return redirect()->route('admin_actualite')->with(['message' => 'Post effacé']);
+    }
+
+    /**
+     * Les actualités sont triées par ordre décroissant en fonction de la date.
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getManageActualiteAdmin(){
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('admin.includes.manageActualite',[
+            'posts' => $posts
+        ]);
+    }
+
+    /**
+     * Creation et validation de l'actualité. Une fois qu'il n'y a pas d'erreur au niveau du body
+     * on crée un nouveau post. Si la requête est bien executée, nous avons un message de réussite
+     * Nous sommes ensuite redirigé sur la même page
+     * @param Request $request
+     * @return mixed
+     */
+    public function postCreateActualite (Request $request)
+    {
+        $this->validate($request, [
+            'body' => 'required|max:500'
+        ]);
+
+        $post = new Post();
+        $post->body = $request['body'];
+        $message = 'Il n\' y a une erreur';
+        /*Save the post si c'est un succès c'est bon.*/
+        if ($request->user()->posts()->save($post)) {
+            $message = 'Le post a été ajouté';
+        }
+        return redirect()->route('admin_actualite')->with(['message' => $message]);
     }
 
     /**
@@ -109,16 +113,6 @@ class PostController extends Controller
         $post->body = $request['body'];
         $post->update();
         return response()->json(['new_body' => $post->body], 200);
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function getManageActualiteAdmin(){
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('admin.includes.manageActualite',[
-            'posts' => $posts
-        ]);
     }
 
 

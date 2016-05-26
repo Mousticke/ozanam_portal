@@ -19,13 +19,12 @@ class AdminController extends Controller
 {
 
     /**
+     * Nous définissons les variables nécessaires pour afficher notre page correctement.
      * Retourne la dashboard avec tous les posts crées suivant l'ordre décroissant
      * @return mixed
      */
     public function getPanelAdmin ()
     {
-        //fetch all post with order
-
         $posts = Post::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         $menus = Menu::orderBy('created_at', 'desc')->get();

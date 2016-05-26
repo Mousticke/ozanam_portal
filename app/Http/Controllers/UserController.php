@@ -17,7 +17,16 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 
-
+    /**
+     * On déconnecte l'utilisateur. Sa session est vide. On le redirie vers l'accueil
+     * @return mixed
+     */
+    public function getLogout ()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
+    
     /**
      * Formulaire d'inscription
      * @param Request $request
@@ -79,16 +88,6 @@ class UserController extends Controller
             return redirect()->route('dashboard');
         } else
             return redirect()->back();
-    }
-
-    /**
-     * On déconnecte l'utilisateur. Sa session est vide. On le redirie vers l'accueil
-     * @return mixed
-     */
-    public function getLogout ()
-    {
-        Auth::logout();
-        return redirect()->route('home');
     }
 
 }

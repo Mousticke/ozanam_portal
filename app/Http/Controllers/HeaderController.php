@@ -16,11 +16,12 @@ use Illuminate\Support\Facades\Auth;
 class HeaderController extends Controller
 {
 
+    /**
+     * On retourne le header avec les variables nécessaire pour un affichage correcte
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getHeader ()
     {
-
-        //fetch all post with order
-
         $posts = Post::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         $menus = Menu::orderBy('created_at', 'desc')->get()->where('visibility', 0);

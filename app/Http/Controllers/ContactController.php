@@ -9,25 +9,15 @@ use Illuminate\Validation\Validator;
 
 class ContactController extends Controller
 {
-    /*
-        public function postContact(Request $request)
-        {
-            $files = $request->get('fileToUpload');
-    
-            Mail::send('email_contact', $request->all(), function($message) use ($files)
-            {
-                $message->to('abenchiha@outlook.fr')->subject('Contact');
-    
-                $message->attach($files);
-            });
-    
-            return view('confirmContact');
-        }
-    */
+
+    /**
+     * On envoie un message à abenchiha@outlook.fr avec un nom, un message, un fichier (facultatif) 
+     * @param Request $request
+     * @return $this
+     */
     public function postContact (Request $request)
     {
         $input = Input::all();
-
         Mail::send('email_contact',
             array(
                 'email' => $request->input('email'),
@@ -42,8 +32,6 @@ class ContactController extends Controller
                         'as' => $input['fileToUpload']->getClientOriginalName(),
                         'mime' => $input['fileToUpload']->getMimeType()));
                 }
-
-
             });
         return view('confirmContact')
             ->with('message', 'Un problème est survenu lors de l\'envoie de l\'email');
