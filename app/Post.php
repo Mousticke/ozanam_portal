@@ -10,8 +10,17 @@ class Post extends Model
      * Relation
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user ()
+    public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    /**
+     * Relation
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function timelines()
+    {
+        return $this->hasMany('App\Timeline');
     }
 }

@@ -10,4 +10,9 @@ class Faicon extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function timelines()
+    {
+        return $this->hasMany('App\Timeline');
+    }
 }

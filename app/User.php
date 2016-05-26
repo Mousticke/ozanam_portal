@@ -37,4 +37,13 @@ class User extends Model implements Authenticatable
     {
         return $this->hasMany('App\Faicon');
     }
+
+    /**
+     * Relation
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function timelines ()
+    {
+        return $this->morphMany('App\Timeline', 'user');
+    }
 }

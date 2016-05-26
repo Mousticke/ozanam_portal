@@ -11,6 +11,7 @@ use App\Carousel;
 use App\Faicon;
 use App\Menu;
 use App\Post;
+use App\Timeline;
 
 class AdminController extends Controller
 {
@@ -22,11 +23,13 @@ class AdminController extends Controller
      */
     public function getPanelAdmin ()
     {
+        $timelines = Timeline::orderBy('created_at', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         $menus = Menu::orderBy('created_at', 'desc')->get();
         $faicons = Faicon::orderBy('created_at', 'desc')->get();
         return view('admin.pl_Admin', [
+            'timelines' => $timelines,
             'posts' => $posts,
             'carousels' => $carousels,
             'menus' => $menus,
