@@ -7,6 +7,7 @@
                         @if($key == 0)
                             <div class="info-box card radius shadowDepth1 bg-yellow" data-actuid="{{ $post->id }}">
                                 <div class="card_header_actu bg-blue">
+                                    <div class="bulle_bleu"></div>
                                     <span class="info-box-text"><i
                                                 class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
                                     <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
@@ -55,6 +56,7 @@
                         @elseif($key == 1 )
                             <div class="info-box card radius shadowDepth1 bg-green" data-actuid="{{ $post->id }}">
                                 <div class="card_header_actu bg-blue">
+                                    <div class="bulle_verte"></div>
                                     <span class="info-box-text"><i
                                                 class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
                                     <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
@@ -103,6 +105,7 @@
                         @elseif($key == 2 )
                             <div class="info-box card radius shadowDepth1 bg-red" data-actuid="{{ $post->id }}">
                                 <div class="card_header_actu bg-blue">
+                                    <div class="bulle_rouge"></div>
                                     <span class="info-box-text"><i
                                                 class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
                                     <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
@@ -151,6 +154,7 @@
                         @else
                             <div class="info-box card radius shadowDepth1 bg-yellow" data-actuid="{{ $post->id }}">
                                 <div class="card_header_actu bg-blue">
+                                    <div class="bulle_bleu"></div>
                                     <span class="info-box-text"><i
                                                 class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
                                     <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
@@ -203,7 +207,6 @@
 </div>
 <div class="clearfix"></div>
 
-<div class="clearfix"></div>
 <div class="posts col-lg-offset-4 "><!--col-xs-offset-4 col-md-offset-4 col-sm-offset-4-->
     <!--Actu Facebook-->
     <div id="articleNew" class="col-lg-8 "><!--col-xs-7-->
@@ -214,9 +217,6 @@
                 <div class="progress">
                     <div class="progress-bar" style="width: 100%"></div>
                 </div>
-                <!--<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2FOzanamLyceeChalons%2Fposts%2F1767146926847630&width=600"
-                        width="600" height="auto" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                        allowTransparency="true"></iframe>-->
                 <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FOzanamLyceeChalons%2F%3Ffref%3Dts&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=152007268286" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
             </div>
         </div>
@@ -269,7 +269,7 @@
                 <br>
                 <blockquote class="contentArticle"
                      style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%;">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    <em>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</em><br/><hr/>
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make a type
                     specimen book.

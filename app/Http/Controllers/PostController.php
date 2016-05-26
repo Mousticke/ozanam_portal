@@ -81,7 +81,7 @@ class PostController extends Controller
             $message = 'Le post a été ajouté';
         }
 
-        return redirect()->route('pl_admin')->with(['message' => $message]);
+        return redirect()->route('admin_actualite')->with(['message' => $message]);
     }
 
     /**

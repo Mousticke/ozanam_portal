@@ -38,17 +38,24 @@ Route::get('/admin/pl_Admin', [
     'middleware' => 'auth'
 ]);
 
-Route::get('/admin/includes/manageActualite', [
+Route::get('/admin/pl_Admin/manageNavbar', [
 
-    'uses' => 'AdminController@getGestionActualite',
-    'as' => 'actualite',
+    'uses' => 'AdminController@getMenuAdmin',
+    'as' => 'admin_menu',
     'middleware' => 'auth'
 ]);
 
-Route::get('/admin/includes/manageCarousel', [
+Route::get('/admin/pl_admin/manageActualite', [
 
-    'uses' => 'AdminController@getGestionCarousel',
-    'as' => 'carousel',
+    'uses' => 'AdminController@getManageActualiteAdmin',
+    'as' => 'admin_actualite',
+    'middleware' => 'auth'
+]);
+
+Route::get('/admin/pl_admin/manageCarousel', [
+
+    'uses' => 'AdminController@getManageCarouselAdmin',
+    'as' => 'admin_carousel',
     'middleware' => 'auth'
 ]);
 

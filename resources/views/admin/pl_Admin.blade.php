@@ -31,9 +31,9 @@
             <div class="row">
                 <section class="content">
                 @include('includes.message-block')
-                @include('admin.includes.manageActualite')
-                @include('admin.includes.manageCarousel')
-                @include('admin.includes.manageNavbar')
+                <!--include('admin.includes.manageActualite')-->
+                <!--include('admin.includes.manageCarousel')-->
+
                 <!-- include('admin.includes.timeline') -->
                     <div class="col-md-12">
                         <div class="box box-solid">

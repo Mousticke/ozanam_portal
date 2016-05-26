@@ -39,6 +39,30 @@ class AdminController extends Controller
         ]);
     }
 
+    public function getMenuAdmin ()
+    {
+        $menus = Menu::orderBy('created_at', 'desc')->get();
+        $faicons = Faicon::orderBy('created_at', 'desc')->get();
+        return view('admin.includes.manageNavbar', [
+            'menus' => $menus,
+            'faicons' => $faicons,
+        ]);
+    }
+
+    public function getManageCarouselAdmin(){
+        $carousels = Carousel::orderBy('created_at', 'desc')->get();
+        return view('admin.includes.manageCarousel', [
+           'carousels' => $carousels,
+        ]);
+    }
+
+    public function getManageActualiteAdmin(){
+        $posts = Post::orderBy('created_at', 'desc')->get();
+        return view('admin.includes.manageActualite',[
+            'posts' => $posts
+        ]);
+    }
+
     public function getDeletePostAdmin ($post_id)
     {
 
@@ -50,25 +74,7 @@ class AdminController extends Controller
         $post = Post::where('id', $post_id)->first();
         $post->delete();
 
-        return redirect()->route('pl_admin')->with(['message' => 'Post effacé']);
-    }
-
-    public function getGestionActualite ()
-    {
-        $posts = Post::orderBy('created_at', 'desc')->get();
-        return view('admin.includes.manageActualite', [
-            'posts' => $posts,
-        ]);
-
-    }
-
-    public function getGestionCarousel ()
-    {
-        $carousels = Carousel::orderBy('created_at', 'desc')->get();
-        return view('admin.includes.manageCarousel', [
-            'carousels' => $carousels,
-        ]);
-
+        return redirect()->route('admin_actualite')->with(['message' => 'Post effacé']);
     }
 
     public function postEditPostAdmin (Request $request)

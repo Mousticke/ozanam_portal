@@ -35,6 +35,40 @@ blockquote.contentArticle{
     margin: 0 auto;
 }
 
+div.bulle_bleu{
+   background-image: url("images/bulle-bleu.png");
+}
+
+.bulle_bleu {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    height: 47px;
+    width: 38px;
+}
+div.bulle_verte{
+    background-image: url("images/bulle-vert.png");
+}
+
+.bulle_verte {
+    position: absolute;
+    top: 12px;
+    left: 425px;
+    height: 47px;
+    width: 38px;
+}
+div.bulle_rouge{
+    background-image: url("images/bulle-rouge.png");
+}
+
+.bulle_rouge {
+    position: absolute;
+    top: 12px;
+    left: 840px;
+    height: 47px;
+    width: 38px;
+}
+
 p {
     font-size: smaller;
 }

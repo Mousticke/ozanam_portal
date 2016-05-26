@@ -24,7 +24,7 @@ class MenuController extends Controller
         $menu = Menu::where('id', $menu_id)->first();
         $menu->delete();
 
-        return redirect()->route('pl_admin')->with(['message' => 'Lien du menu effacé']);
+        return redirect()->route('admin_menu')->with(['message' => 'Lien du menu effacé']);
     }
 
     /**
@@ -35,7 +35,7 @@ class MenuController extends Controller
     {
         $icons = Faicon::where('id', $icon_id)->first();
         $icons->delete();
-        return redirect()->route('pl_admin')->with(['message' => 'Icône du menu effacée']);
+        return redirect()->route('admin_menu')->with(['message' => 'Icône du menu effacée']);
     }
 
     /**
@@ -68,7 +68,7 @@ class MenuController extends Controller
             if ($request->user()->menus()->save($menu)) {
                 $message = 'L\'icône est existant dans la base de données. Supression de duplication. L\'élement a bien été ajouté au menu';
             }
-            return redirect()->route('pl_admin')->with(['message' => $message]);
+            return redirect()->route('admin_menu')->with(['message' => $message]);
         }else{
             $file->move('uploads', $file->getClientOriginalName());
             $icons->faicon = 'uploads/' . $file->getClientOriginalName();
@@ -78,7 +78,7 @@ class MenuController extends Controller
             if ($request->user()->faicons()->save($icons) && $request->user()->menus()->save($menu)) {
                 $message = 'L\'icône est bien ajouté à la base de données. L\'élement a bien été ajouté au menu';
             }
-            return redirect()->route('pl_admin')->with(['message' => $message]);
+            return redirect()->route('admin_menu')->with(['message' => $message]);
         }
     }
 
@@ -98,7 +98,7 @@ class MenuController extends Controller
         $filename = 'uploads/' . $file->getClientOriginalName();
         if(File::exists($filename)){
             $error = 'L\'icône existe déjà en base de données. ';
-            return redirect()->route('pl_admin')->with(['error'=>$error]);
+            return redirect()->route('admin_menu')->with(['error'=>$error]);
         }else{
             $file->move('uploads', $file->getClientOriginalName());
             $icons->faicon = 'uploads/' . $file->getClientOriginalName();
@@ -108,7 +108,7 @@ class MenuController extends Controller
 
                 $message = 'L icône est bien ajouté à la base de données';
             }
-            return redirect()->route('pl_admin')->with(['message' => $message]);
+            return redirect()->route('admin_menu')->with(['message' => $message]);
         }
     }
 }

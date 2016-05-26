@@ -33,7 +33,7 @@ class CarouselController extends Controller
         if ($request->user()->carousels()->save($carousel)) {
             $messageCarousel = 'Ajout au carousel reussi';
         }
-        return redirect()->route('pl_admin')->with(['message' => $messageCarousel]);
+        return redirect()->route('admin_carousel')->with(['message' => $messageCarousel]);
     }
 
     /**
@@ -54,7 +54,7 @@ class CarouselController extends Controller
         }
         $carousel->delete();
 
-        return redirect()->route('pl_admin')->with(['message' => 'Carousel effacé']);
+        return redirect()->route('admin_carousel')->with(['message' => 'Carousel effacé']);
     }
 
 

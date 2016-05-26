@@ -39,18 +39,16 @@
                     <i class="fa fa-tv"></i> <span>Carousel</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('pl_admin')}}"><i class="fa fa-circle-o"></i>Ajouter un contenu</a></li>
-                    <li><a href="{{route('pl_admin')}}"><i class="fa fa-circle-o"></i>Gestion du contenu</a></li>
+                    <li><a href="{{route('admin_carousel')}}"><i class="fa fa-circle-o"></i>Gestion du contenu</a></li>
                 </ul>
             </li>
             <li class="treeview">
-                <a href="{{route('pl_admin')}}">
+                <a href="#">
                     <i class="fa fa-newspaper-o"></i> <span>Actualités</span> <i
                             class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('pl_admin')}}"><i class="fa fa-circle-o"></i>Ajouter du contenu</a></li>
-                    <li><a href="{{route('pl_admin')}}"><i class="fa fa-circle-o"></i>Gestion du contenu</a></li>
+                    <li><a href="{{route('admin_actualite')}}"><i class="fa fa-circle-o"></i>Gestion du contenu</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -58,7 +56,7 @@
                     <i class="fa fa-navicon"></i> <span>Menu</span> <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('pl_admin')}}"><i class="fa fa-circle-o"></i>Gestion du menu</a></li>
+                    <li><a href="{{route('admin_menu')}}"><i class="fa fa-circle-o"></i>Gestion du menu</a></li>
                 </ul>
             </li>
         </ul>
