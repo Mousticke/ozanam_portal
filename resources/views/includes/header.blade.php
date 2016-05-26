@@ -27,12 +27,23 @@
             <p id="timer">
                 <script type="text/javascript">
                     function GetClock() {
+                        var weekday = new Array(7);
+                        weekday[0] = "Dimanche" ;
+                        weekday[1] = "Lundi" ;
+                        weekday[2] = "Mardi" ;
+                        weekday[3] = "Mercredi" ;
+                        weekday[4] = "Jeudi" ;
+                        weekday[5] = "Vendredi" ;
+                        weekday[6] = "Samedi" ;
                         var d = new Date();
+                        var thisDay = weekday[d.getDay()];
+                        var thisNumber = d.getDay();
+                        var thisYear = d.getFullYear();
                         var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
                         if (nmin <= 9) nmin = "0" + nmin
                         if (nsec <= 9) nsec = "0" + nsec;
 
-                        document.getElementById('clockbox').innerHTML = "" + nhour + ":" + nmin + ":" + nsec + "";
+                        document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisYear + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
                     }
 
                     window.onload = function () {
