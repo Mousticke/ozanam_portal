@@ -18,10 +18,10 @@ Portail du Lycée F. Ozanam. Utilisation de :
 - [x] Navbar
 - [x] Bloc d'actualité
 - [x] Bloc FaceBook
-- [ ] Répartir les actions du panneau d'administration
+- [x] Répartir les actions du panneau d'administration
 - [ ] 4* bloc d'actualité
 - [ ] Couleurs du bloc d'actualité
-- [ ] Menu public et privé V2
+- [x] Menu public et privé V2
 
 
 
