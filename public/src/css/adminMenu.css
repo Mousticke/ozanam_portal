@@ -2,14 +2,6 @@
     font-family: 'FontAwesome', 'Helvetica', serif;
 }
 
-/* Style à droite
-.select2-results .fa {
-    float: right;
-    position: relative;
-    line-height: 20px;
-}
-*/
-
 .menu td a{
     color : #0c0c0c !important;
 }

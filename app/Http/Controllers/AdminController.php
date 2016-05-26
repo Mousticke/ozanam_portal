@@ -11,9 +11,6 @@ use App\Carousel;
 use App\Faicon;
 use App\Menu;
 use App\Post;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {

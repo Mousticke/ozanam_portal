@@ -39,26 +39,25 @@ div.bulle_bleu{
    background-image: url("images/bulle-bleu.png");
 }
 
+
+div.bulle_verte{
+    background-image: url("images/bulle-vert.png");
+}
+
+div.bulle_rouge{
+    background-image: url("images/bulle-rouge.png");
+}
+
+p {
+    font-size: smaller;
+}
+
 .bulle_bleu {
     position: absolute;
     top: 12px;
     left: 12px;
     height: 47px;
     width: 38px;
-}
-div.bulle_verte{
-    background-image: url("images/bulle-vert.png");
-}
-
-.bulle_verte {
-    position: absolute;
-    top: 12px;
-    left: 425px;
-    height: 47px;
-    width: 38px;
-}
-div.bulle_rouge{
-    background-image: url("images/bulle-rouge.png");
 }
 
 .bulle_rouge {
@@ -69,22 +68,16 @@ div.bulle_rouge{
     width: 38px;
 }
 
-p {
-    font-size: smaller;
-}
-
-.new-post {
-    padding: 16px 0;
-    border-bottom: 1px solid #ccc;
+.bulle_verte {
+    position: absolute;
+    top: 12px;
+    left: 425px;
+    height: 47px;
+    width: 38px;
 }
 
 .contentArticle {
     font-size: smaller;
-}
-
-.new-post header,
-.postArticle .postAdmin header {
-    margin-bottom: 20px;
 }
 
 .posts .postArticle .postAdmin {
@@ -92,6 +85,18 @@ p {
     border-left: 3px solid #a21b24;
     margin-bottom: 30px;
 }
+
+.new-post {
+    padding: 16px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.new-post header,
+.postArticle .postAdmin header {
+    margin-bottom: 20px;
+}
+
+
 
 .posts .postAdmin .postArticle .info {
     color: #aaa;

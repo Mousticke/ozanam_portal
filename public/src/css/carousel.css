@@ -1,29 +1,4 @@
-.carousel-indicators {
-    bottom: 0;
-}
-
-.carousel-indicators li {
-    width: 50px !important;
-    height: auto !important;
-
-}
-
-.carousel-indicators li img {
-    margin-bottom: 1%;
-}
-
-.slide-content {
-    color: darkgrey;
-    margin-top: 5%;
-    color: #34495e;
-}
-
 blockquote {
-    /* background: #f9f9f9;
-     border-left: 10px solid #ccc;
-     margin: 1.5em 10px;
-     padding: 0.5em 10px;
-     quotes: "\201C""\201D""\2018""\2019";*/
     padding: 0 0 0 16px;
     margin: 0 0 30px;
     border-left: 3px solid #e7e9ec;;
@@ -45,37 +20,6 @@ blockquote p {
     font-size: smaller;
 }
 
-.slide-wrapper {
-    margin-top: 2% !important;
-}
-
-.carousel .item {
-    background: #fff repeat !important;
-    padding-bottom: 3% !important;
-}
-
-.house-thumb {
-    float: left;
-    max-height: 300px;
-    margin-top: 2%;
-}
-
-.slide-image {
-    height: 200px;
-}
-
-.slide-content blockquote {
-    background: url(images/bg-white.png) repeat;
-    font-size: smaller;
-    height: 50px;
-    line-height: 66px;
-    padding-left: 20px;
-    position: absolute;
-    top: 250px;
-    width: 945px;
-    text-decoration: none;
-}
-
 .carousel-control {
     top: 50%;
 }
@@ -95,3 +39,56 @@ blockquote p {
     margin-right: -45px;
     color: black;
 }
+
+.carousel-indicators {
+    bottom: 0;
+}
+
+.carousel-indicators li {
+    width: 50px !important;
+    height: auto !important;
+
+}
+
+.carousel-indicators li img {
+    margin-bottom: 1%;
+}
+
+.carousel .item {
+    background: #fff repeat !important;
+    padding-bottom: 3% !important;
+}
+
+.house-thumb {
+    float: left;
+    max-height: 300px;
+    margin-top: 2%;
+}
+
+.slide-wrapper {
+    margin-top: 2% !important;
+}
+
+.slide-content {
+    margin-top: 5%;
+    color: #34495e;
+}
+
+.slide-content blockquote {
+    background: url(images/bg-white.png) repeat;
+    font-size: smaller;
+    height: 50px;
+    line-height: 66px;
+    padding-left: 20px;
+    position: absolute;
+    top: 250px;
+    width: 945px;
+    text-decoration: none;
+}
+
+.slide-image {
+    height: 200px;
+}
+
+
+

@@ -1,6 +1,5 @@
-.navbar-custom {
-    background-color: #0360A0 !important;
-    margin: 0 !important;
+.btn {
+    font-size: smaller !important;
 }
 
 .custom_fa{
@@ -15,12 +14,23 @@
     color: white !important;
 }
 
-#top_link {
-    color: red !important;
+#logo_ozanam {
+    left: 50px;
+    top: 0;
+    position: absolute;
 }
 
 .nav a {
     color: white !important;
+}
+
+.navbar-custom {
+    background-color: #0360A0 !important;
+    margin: 0 !important;
+}
+
+.navbar-right {
+    padding-top: 10px;
 }
 
 .search {
@@ -32,39 +42,17 @@
     transition: all 1.5s;
 }
 
-#logo {
-    width: 100px;
-    height: auto;
-    top: 20%;
-    text-align: center !important;
-}
-
-#logo_ozanam {
-    left: 50px;
-    top: 0;
-    position: absolute;
-}
-
-.navbar-right {
-    padding-top: 10px;
-}
-
 .site > li > a {
     font-size: smaller !important;
 }
 
-.btn {
-    font-size: smaller !important;
+#top_link {
+    color: red !important;
 }
 
-#logo {
-    height: 100%;
-    width: 43%;
-    position: absolute;
-    top: 0;
-    bottom: 5px;
 
-}
+
+
 
 #right-header {
     width: 57%;
