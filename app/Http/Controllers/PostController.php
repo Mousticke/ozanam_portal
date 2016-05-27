@@ -100,7 +100,7 @@ class PostController extends Controller
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
         /*Save the post si c'est un succès c'est bon.*/
-        if ($request->user()->posts()->save($post)) {
+        if ($request->user()->post()->save($post)) {
             $message = 'Le post a été ajouté';
         }
         $timeline->action = 0; //0 Ajout 1 Suppression 2 Edition
@@ -108,7 +108,7 @@ class PostController extends Controller
         $timeline->model = 2; // 0 Carousel 1 Menu 2 Actualités
         $timeline->title = "Ajout d'une actualité";
         $timeline->container = $post->body;
-        if ($request->user()->posts()->save($timeline)) {
+        if ($request->user()->post()->save($timeline)) {
             $message2 = 'Ajout à la timeline réussi';
         }
 
@@ -141,7 +141,7 @@ class PostController extends Controller
 
         $message = 'Il n\' y a une erreur';
         /*Save the action si c'est un succès c'est bon.*/
-        if ($request->user()->posts()->save($timeline)) {
+        if ($request->user()->post()->save($timeline)) {
             $message = 'Ajout à la timeline réussi';
         }
         $post->update();

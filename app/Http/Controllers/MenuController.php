@@ -99,7 +99,7 @@ class MenuController extends Controller
             $icons->faicon = 'uploads/' . $file->getClientOriginalName();
             $message= "Il n'y a une erreur";
             /*Save the post si c'est un succès c'est bon.*/
-            if ($request->user()->faicons()->save($icons)) {
+            if ($request->user()->faicon()->save($icons)) {
 
                 $message = 'L icône est bien ajouté à la base de données';
             }
@@ -108,7 +108,7 @@ class MenuController extends Controller
             $timeline->container = $icons->faicon;
 
 
-            if ($request->user()->faicons()->save($timeline)) {
+            if ($request->user()->faicon()->save($timeline)) {
                 $message2 = 'Ajout à la timeline réussi';
             }
             return redirect()->route('admin_menu')->with(['message' => $message, 'message2' => $message2]);
@@ -152,7 +152,7 @@ class MenuController extends Controller
 
 
             /*Save the post si c'est un succès c'est bon.*/
-            if ($request->user()->menus()->save($menu)) {
+            if ($request->user()->menu()->save($menu)) {
                 $message = 'L\'icône est existant dans la base de données. Supression de duplication. L\'élement a bien été ajouté au menu';
             }
             $message2 = 'Il n\' y a une erreur';
@@ -160,7 +160,7 @@ class MenuController extends Controller
             $timeline->container = $menu->name . "->" . $menu->link . "avec une visibilité : " . $menu->visibility . " symbolisé par l'icône " . $menu->icon;
 
 
-            if ($request->user()->menus()->save($timeline)) {
+            if ($request->user()->menu()->save($timeline)) {
                 $message2 = 'Ajout à la timeline réussi';
             }
             return redirect()->route('admin_menu')->with(['message' => $message, 'message2' => $message2]);
@@ -169,7 +169,7 @@ class MenuController extends Controller
             $icons->faicon = 'uploads/' . $file->getClientOriginalName();
             $menu->icon = 'uploads/' . $file->getClientOriginalName();
 
-            if ($request->user()->faicons()->save($icons) && $request->user()->menus()->save($menu)) {
+            if ($request->user()->faicon()->save($icons) && $request->user()->menu()->save($menu)) {
                 $message = 'L\'icône est bien ajouté à la base de données. L\'élement a bien été ajouté au menu';
             }
 
@@ -190,10 +190,10 @@ class MenuController extends Controller
             $message3 = 'Il n\' y a une erreur';
             $timeline->menu_id = $menu->id;
 
-            if ($request->user()->menus()->save($timeline)) {
+            if ($request->user()->menu()->save($timeline)) {
                 $message2 = 'Ajout à la timeline réussi';
             }
-            if ($request->user()->menus()->save($timeline2)) {
+            if ($request->user()->menu()->save($timeline2)) {
                 $message3 = 'Ajout à la timeline réussi';
             }
             return redirect()->route('admin_menu')->with(['message' => $message, 'message2' => $message2,  'message3' => $message3]);
@@ -229,7 +229,7 @@ class MenuController extends Controller
 
         $message = 'Il n\' y a une erreur';
         /*Save the action si c'est un succès c'est bon.*/
-        if ($request->user()->posts()->save($timeline)) {
+        if ($request->user()->post()->save($timeline)) {
             $message = 'Ajout à la timeline réussi';
         }
 

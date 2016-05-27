@@ -19,7 +19,7 @@ class Post extends Model
      * Relation
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function timelines()
+    public function timeline()
     {
         return $this->hasMany('App\Timeline');
     }

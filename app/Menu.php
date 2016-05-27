@@ -11,7 +11,7 @@ class Menu extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function timelines()
+    public function timeline()
     {
         return $this->hasMany('App\Timeline');
     }

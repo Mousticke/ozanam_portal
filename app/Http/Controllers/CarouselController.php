@@ -65,7 +65,7 @@ class CarouselController extends Controller
         $carousel->body = $request['body'];
         $messageCarousel = 'Il n\' y a une erreur';
         //save le carousel
-        if ($request->user()->carousels()->save($carousel)) {
+        if ($request->user()->carousel()->save($carousel)) {
             $messageCarousel = 'Ajout au carousel reussi';
         }
         return redirect()->route('admin_carousel')->with(['message' => $messageCarousel]);

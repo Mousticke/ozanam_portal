@@ -12,7 +12,7 @@ class User extends Model implements Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function carousels ()
+    public function carousel ()
     {
         return $this->hasMany('App\Carousel');
     }
@@ -20,20 +20,20 @@ class User extends Model implements Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function posts ()
+    public function post ()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post' );
     }
 
-    public function menus ()
+    public function menu ()
     {
-        return $this->hasMany('App\Menu');
+        return $this->hasMany('App\Menu' );
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function faicons ()
+    public function faicon ()
     {
         return $this->hasMany('App\Faicon');
     }
@@ -42,7 +42,7 @@ class User extends Model implements Authenticatable
      * Relation
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function timelines ()
+    public function timeline ()
     {
         return $this->morphMany('App\Timeline', 'user');
     }
