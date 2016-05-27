@@ -20,18 +20,32 @@
                             <i class="fa fa-newspaper-o bg-blue"></i>
                             <div class="timeline-item">
                                 <span class="time"><i class="fa fa-clock-o"></i> {{$timeline->created_at}}</span>
-
-                                <h3 class="timeline-header"><a href="#">{{$timeline->title}}</a> par {{$timeline->user->first_name}}</h3>
-
+                               @if($timeline->user_id != null)
+                                    <h3 class="timeline-header"><a href="#">{{$timeline->title}}</a> par {{$timeline->user->first_name}}</h3>
+                                @else
+                                    <h3 class="timeline-header"><a href="#">{{$timeline->title}}</a></h3>
+                                @endif
                                 <div class="timeline-body">
                                     @if($timeline->action == 0)
-                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a posté :</p> {!! html_entity_decode($timeline->post->body) !!} <br>
+                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}}
+                                            a posté :
+                                        </p>
+                                        {!! html_entity_decode($timeline->post->body) !!}
+                                        <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @elseif($timeline->action == 1)
-                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a supprimé : </p>  {{$timeline->post->body}} <br>
+                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}}
+                                            a supprimé :
+                                        </p>
+                                        {{$timeline->post->body}}
+                                        <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @elseif($timeline->action == 2)
-                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a édité : </p>  {!! html_entity_decode($timeline->post->body) !!} <br>
+                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}}
+                                            a édité :
+                                        </p>
+                                        {!! html_entity_decode($timeline->post->body) !!}
+                                        <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @endif
                                 </div>

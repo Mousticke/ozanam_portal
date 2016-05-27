@@ -58,8 +58,16 @@ class PostController extends Controller
     public function getDeleteActualiteAdmin ($post_id)
     {
         $post = Post::where('id', $post_id)->first();
+        /*$timeline = new Timeline();
+        $timeline->title = "Suppression d'une actualité";
+        $timeline->post_id = $post->id;
+        $timeline->model = 2; // 0 Carousel 1 Menu 2 Actualités
+        $timeline->action = 1; //0 Ajout 1 Suppression 2 Edition
+        $timeline->contents = $post->body;
+        $timeline->user_id = 3;
+        $timeline->save();*/
         $post->delete();
-        return redirect()->route('admin_actualite')->with(['message' => 'Post effacé']);
+        return redirect()->route('admin_actualite')->with(['message' => 'Post effacé et ajouté à la timeline']);
     }
 
     /**
