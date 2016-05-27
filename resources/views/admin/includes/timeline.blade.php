@@ -122,7 +122,7 @@
                                         @elseif($timeline->menu->visiblity == 0)
                                             <span class="label label-success">Public</span>
                                         @endif
-                                        et l'icône est : <img class="custom_fa" src="{{URL::to($timeline->menu->icon)}}">
+                                        , et l'icône est : <img class="custom_fa" src="{{URL::to($timeline->menu->icon)}}">
                                         <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @endif
