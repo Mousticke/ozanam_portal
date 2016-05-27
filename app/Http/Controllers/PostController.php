@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 use App\Carousel;
 use App\Menu;
 use App\Post;
+use App\Timeline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -84,15 +85,25 @@ class PostController extends Controller
         $this->validate($request, [
             'body' => 'required|max:500'
         ]);
-
+        $timeline = new Timeline();
         $post = new Post();
         $post->body = $request['body'];
+
         $message = 'Il n\' y a une erreur';
+        $message2 = 'Il n\' y a une erreur';
         /*Save the post si c'est un succès c'est bon.*/
         if ($request->user()->posts()->save($post)) {
             $message = 'Le post a été ajouté';
         }
-        return redirect()->route('admin_actualite')->with(['message' => $message]);
+        $timeline->action = 0; //0 Ajout 1 Suppression 2 Edition
+        $timeline->post_id = $post->id;
+        $timeline->model = 2; // 0 Carousel 1 Menu 2 Actualités
+        $timeline->title = "Ajout d'une actualité";
+        if ($request->user()->posts()->save($timeline)) {
+            $message2 = 'Ajout à la timeline réussi';
+        }
+
+        return redirect()->route('admin_actualite')->with(['message' => $message, 'message2' =>$message2]);
     }
 
     /**
@@ -110,9 +121,20 @@ class PostController extends Controller
         ]);
 
         $post = Post::find($request['postId']);
+        $timeline = new Timeline();
         $post->body = $request['body'];
+        $timeline->action = 2;
+        $timeline->post_id = $request['postId'];
+        $timeline->model = 2;
+        $timeline->title = "Edition d'une actualité";
+        $message = 'Il n\' y a une erreur';
         $post->update();
-        return response()->json(['new_body' => $post->body], 200);
+
+        /*Save the action si c'est un succès c'est bon.*/
+        if ($request->user()->posts()->save($timeline)) {
+            $message = 'Ajout à la timeline réussi';
+        }
+        return response()->json(['new_body' => $post->body, 'message' => $message], 200);
     }
 
 

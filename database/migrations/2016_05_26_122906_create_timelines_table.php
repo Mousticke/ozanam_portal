@@ -20,7 +20,7 @@ class CreateTimelinesTable extends Migration
             $table->integer('carousel_id');
             $table->integer('menu_id');
             $table->integer('faicon_id');
-            $table->integer('title');
+            $table->string('title');
             $table->integer('action');
             $table->integer('model');
         });

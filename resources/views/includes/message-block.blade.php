@@ -27,6 +27,19 @@
     </div>
 @endif
 
+@if(Session::has('message2'))
+    <div class="row">
+        <div class="col-md-8 col-md-offset-1">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Reussi !</h4>
+                {{Session::get('message2')}}
+            </div>
+        </div>
+
+    </div>
+@endif
+
 @if(Session::has('error'))
     <div class="row">
         <div class="col-md-8 col-md-offset-1">
