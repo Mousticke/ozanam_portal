@@ -28,7 +28,7 @@
 
     var editor_config = {
         path_absolute: "{{URL::to('/')}}",
-        selector: "textarea#new-post",
+        selector: "textarea",
         plugins: [
             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars code fullscreen",
@@ -59,6 +59,12 @@
                 resizable: "yes",
                 close_previous: "no"
             });
+        },
+        setup: function(editor){
+            editor.on('change', function () {
+                tinymce.triggerSave();
+
+            })
         }
     };
 

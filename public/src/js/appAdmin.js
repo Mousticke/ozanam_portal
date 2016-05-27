@@ -8,9 +8,13 @@ $('.post').find('.interaction').find('.editAdmin').on('click', function (event) 
     event.preventDefault();
 
     postBodyElement = event.target.parentNode.parentNode.childNodes[1];
-    var postBody = postBodyElement.textContent;
+    //var postBody = postBodyElement.textContent;
+    var postIdMCE = event.target.parentNode.parentNode.dataset['content'];
+    var postBodyMCE = tinyMCE.activeEditor.setContent(postIdMCE); // overall text
+    console.log(postBodyMCE);
     postId = event.target.parentNode.parentNode.dataset['postid'];
-    $("#post-body").val(postBody);
+    //$("#post-body").val(postBody);
+    $("#post-body").val(postBodyMCE);
     $('#edit-modal').modal();
 });
 
