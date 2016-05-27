@@ -9,6 +9,7 @@ class Timeline extends Model
     
     public function user(){
         return $this->belongsTo('App\User');
+        //return $this->morphTo();
     }
 
     public function post(){
