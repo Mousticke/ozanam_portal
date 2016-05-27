@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Faicon;
 use App\Menu;
+use App\Timeline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -102,30 +103,70 @@ class MenuController extends Controller
 
         $menu = new Menu();
         $icons = new Faicon();
+        $timeline = new Timeline();
 
         $menu->name = $request['name'];
         $menu->link = $request['link'];
         $menu->visibility = $request['visibility'];
+
+        $timeline->action = 0; //0 Ajout 1 Suppression 2 Edition
+        $timeline->model = 1; // 0 Carousel 1 Menu 2 Actualités
+        $timeline->title = "Ajout d'un lien dans le menu";
+
         $file = $request->file('icon');
         $filename = 'uploads/' . $file->getClientOriginalName();
+
         if(File::exists($filename)){
             $menu->icon = 'uploads/' . $file->getClientOriginalName();
             $message = 'Il y a une erreur';
+
+
             /*Save the post si c'est un succès c'est bon.*/
             if ($request->user()->menus()->save($menu)) {
                 $message = 'L\'icône est existant dans la base de données. Supression de duplication. L\'élement a bien été ajouté au menu';
             }
-            return redirect()->route('admin_menu')->with(['message' => $message]);
+            $message2 = 'Il n\' y a une erreur';
+            $timeline->menu_id = $menu->id;
+            $timeline->container = $menu->name . "->" . $menu->link . "avec une visibilité : " . $menu->visibility . " symbolisé par l'icône " . $menu->icon;
+
+
+            if ($request->user()->menus()->save($timeline)) {
+                $message2 = 'Ajout à la timeline réussi';
+            }
+            return redirect()->route('admin_menu')->with(['message' => $message, 'message2' => $message2]);
         }else{
             $file->move('uploads', $file->getClientOriginalName());
             $icons->faicon = 'uploads/' . $file->getClientOriginalName();
             $menu->icon = 'uploads/' . $file->getClientOriginalName();
 
-            $message = 'Il y a une erreur';
             if ($request->user()->faicons()->save($icons) && $request->user()->menus()->save($menu)) {
                 $message = 'L\'icône est bien ajouté à la base de données. L\'élement a bien été ajouté au menu';
             }
-            return redirect()->route('admin_menu')->with(['message' => $message]);
+
+            $timeline->container = $menu->name . "->" . $menu->link . "avec une visibilité : " . $menu->visibility . " symbolisé par l'icône " . $menu->icon;
+            $timeline->faicon_id = $icons->id;
+
+            $timeline2 = new Timeline();
+            $timeline2->action = 0; //0 Ajout 1 Suppression 2 Edition
+            $timeline2->faicon_id = $icons->id;
+            $timeline2->model = 1; // 0 Carousel 1 Menu 2 Actualités
+
+            $timeline2->faicon_id = $icons->id;
+            $timeline2->container = $icons->faicon;
+            $timeline2->title = "Ajout d'une icône";
+
+            $message = 'Il y a une erreur';
+            $message2 = 'Il n\' y a une erreur';
+            $message3 = 'Il n\' y a une erreur';
+            $timeline->menu_id = $menu->id;
+
+            if ($request->user()->menus()->save($timeline)) {
+                $message2 = 'Ajout à la timeline réussi';
+            }
+            if ($request->user()->menus()->save($timeline2)) {
+                $message3 = 'Ajout à la timeline réussi';
+            }
+            return redirect()->route('admin_menu')->with(['message' => $message, 'message2' => $message2,  'message3' => $message3]);
         }
     }
     

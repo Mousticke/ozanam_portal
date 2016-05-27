@@ -21,6 +21,7 @@ class CreateTimelinesTable extends Migration
             $table->integer('menu_id');
             $table->integer('faicon_id');
             $table->string('title');
+            $table->string('container');
             $table->integer('action');
             $table->integer('model');
         });

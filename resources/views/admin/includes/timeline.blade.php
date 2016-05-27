@@ -14,7 +14,7 @@
                                 <span class="bg-red">{{date('d M Y' ,strtotime($timeline->created_at))}}</span>
                             </li>
                         @endif
-                    @if($timeline->post_id != null)
+                    @if($timeline->post_id != null && isset($timeline->post->id))
                         <li>
                             <!-- Icone de la timeline -->
                             <i class="fa fa-newspaper-o bg-blue"></i>
@@ -28,19 +28,20 @@
                                 <div class="timeline-body">
                                     @if($timeline->action == 0)
                                         <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a posté :</p>
-                                        {!! html_entity_decode($timeline->post->body) !!}
+                                        {!! html_entity_decode($timeline->container) !!}
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->created_at))}}</p>
                                     @elseif($timeline->action == 1)
                                         <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}}
                                             a supprimé :
                                         </p>
-                                        {{$timeline->post->body}}
+                                        {!! html_entity_decode($timeline->container) !!}
                                         <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @elseif($timeline->action == 2)
                                         <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}}
                                             a édité :
                                         </p>
+                                        {!! html_entity_decode($timeline->container) !!} <p>en : </p>
                                         {!! html_entity_decode($timeline->post->body) !!}
                                         <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>

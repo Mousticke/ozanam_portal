@@ -58,14 +58,14 @@ class PostController extends Controller
     public function getDeleteActualiteAdmin ($post_id)
     {
         $post = Post::where('id', $post_id)->first();
-        /*$timeline = new Timeline();
+        $timeline = new Timeline();
         $timeline->title = "Suppression d'une actualité";
-        $timeline->post_id = $post->id;
+        $timeline->post_id = 1;
         $timeline->model = 2; // 0 Carousel 1 Menu 2 Actualités
         $timeline->action = 1; //0 Ajout 1 Suppression 2 Edition
-        $timeline->contents = $post->body;
+        $timeline->container = $post->body;
         $timeline->user_id = 3;
-        $timeline->save();*/
+        $timeline->save();
         $post->delete();
         return redirect()->route('admin_actualite')->with(['message' => 'Post effacé et ajouté à la timeline']);
     }
@@ -107,6 +107,7 @@ class PostController extends Controller
         $timeline->post_id = $post->id;
         $timeline->model = 2; // 0 Carousel 1 Menu 2 Actualités
         $timeline->title = "Ajout d'une actualité";
+        $timeline->container = $post->body;
         if ($request->user()->posts()->save($timeline)) {
             $message2 = 'Ajout à la timeline réussi';
         }
@@ -130,11 +131,14 @@ class PostController extends Controller
 
         $post = Post::find($request['postId']);
         $timeline = new Timeline();
+        $timeline->container = $post->body;
+
         $post->body = $request['body'];
         $timeline->action = 2;
         $timeline->post_id = $request['postId'];
         $timeline->model = 2;
         $timeline->title = "Edition d'une actualité";
+
         $message = 'Il n\' y a une erreur';
         /*Save the action si c'est un succès c'est bon.*/
         if ($request->user()->posts()->save($timeline)) {
