@@ -28,7 +28,7 @@
                                 <div class="timeline-body">
                                     @if($timeline->action == 0)
                                         <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a posté :</p>
-                                        {!! html_entity_decode($timeline->container) !!}
+                                        {!! html_entity_decode($timeline->post->body) !!}
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->created_at))}}</p>
                                     @elseif($timeline->action == 1)
                                         <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}}
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                         </li>
-                    @elseif($timeline->carousel_id != null)
+                    @elseif($timeline->carousel_id != null && isset($timeline->carousel->id))
 
                         <li>
                             <!-- Icone de la timeline -->
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                         </li>
-                    @elseif($timeline->menu_id != null)
+                    @elseif($timeline->menu_id != null && isset($timeline->menu->id))
                         <li>
                             <!-- Icone de la timeline -->
                             <i class="fa fa-navicon bg-aqua"></i>
@@ -103,7 +103,7 @@
                                         <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @elseif($timeline->action == 1)
-                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a supprimé : </p>  {{$timeline->menu->name}}
+                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a supprimé le lien : </p>  {{$timeline->container}}
                                         <br/>
                                         avec une visibilité  :
                                         @if($timeline->menu->visiblity == 1)
@@ -122,6 +122,7 @@
                                         @elseif($timeline->menu->visiblity == 0)
                                             <span class="label label-success">Public</span>
                                         @endif
+                                        et l'icône est : <img class="custom_fa" src="{{URL::to($timeline->menu->icon)}}">
                                         <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @endif
@@ -132,7 +133,7 @@
                                 </div>
                             </div>
                         </li>
-                    @elseif($timeline->faicon_id != null)
+                    @elseif($timeline->faicon_id != null && isset($timeline->faicon->id))
 
                         <li>
                             <!-- Icone de la timeline -->
@@ -149,7 +150,8 @@
                                         <br>
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @elseif($timeline->action == 1)
-                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a supprimé : </p>  {{$timeline->faicon->faicon}} <br>
+                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a supprimé : </p>  {{$timeline->container}} <br>
+                                        <img class="custom_fa" src="{{URL::to($timeline->container)}}">
                                         <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
                                     @elseif($timeline->action == 2)
                                         <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a édité : </p>  {{$timeline->faicon->faicon}}

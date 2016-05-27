@@ -24,8 +24,16 @@ class MenuController extends Controller
     public function getDeleteIconAdmin ($icon_id)
     {
         $icons = Faicon::where('id', $icon_id)->first();
+        $timeline = new Timeline();
+        $timeline->title = "Suppression d'une icône";
+        $timeline->faicon_id = 1;
+        $timeline->model = 1; // 0 Carousel 1 Menu 2 Actualités
+        $timeline->action = 1; //0 Ajout 1 Suppression 2 Edition
+        $timeline->container = $icons->faicon;
+        $timeline->user_id = 3;
+        $timeline->save();
         $icons->delete();
-        return redirect()->route('admin_menu')->with(['message' => 'Icône du menu effacée']);
+        return redirect()->route('admin_menu')->with(['message' => 'Icône du menu effacée et ajouté à la timeline']);
     }
     
     /**
@@ -36,8 +44,16 @@ class MenuController extends Controller
     public function getDeleteLinkAdmin ($menu_id)
     {
         $menu = Menu::where('id', $menu_id)->first();
+        $timeline = new Timeline();
+        $timeline->title = "Suppression d'un lien";
+        $timeline->menu_id = 1;
+        $timeline->model = 1; // 0 Carousel 1 Menu 2 Actualités
+        $timeline->action = 1; //0 Ajout 1 Suppression 2 Edition
+        $timeline->container = $menu->name;
+        $timeline->user_id = 3;
+        $timeline->save();
         $menu->delete();
-        return redirect()->route('admin_menu')->with(['message' => 'Lien du menu effacé']);
+        return redirect()->route('admin_menu')->with(['message' => 'Lien du menu effacé et ajouté à la timeline']);
     }
 
     /**
@@ -67,6 +83,12 @@ class MenuController extends Controller
         ]);
 
         $icons = new Faicon();
+        $timeline = new Timeline();
+
+        $timeline->action = 0; //0 Ajout 1 Suppression 2 Edition
+        $timeline->model = 1; // 0 Carousel 1 Menu 2 Actualités
+        $timeline->title = "Ajout d'une icône";
+
         $file = $request->file('icon_new');
         $filename = 'uploads/' . $file->getClientOriginalName();
         if(File::exists($filename)){
@@ -81,7 +103,15 @@ class MenuController extends Controller
 
                 $message = 'L icône est bien ajouté à la base de données';
             }
-            return redirect()->route('admin_menu')->with(['message' => $message]);
+            $message2 = 'Il n\' y a une erreur';
+            $timeline->faicon_id = $icons->id;
+            $timeline->container = $icons->faicon;
+
+
+            if ($request->user()->faicons()->save($timeline)) {
+                $message2 = 'Ajout à la timeline réussi';
+            }
+            return redirect()->route('admin_menu')->with(['message' => $message, 'message2' => $message2]);
         }
     }
 
@@ -185,13 +215,26 @@ class MenuController extends Controller
             'new_visibility_site'  => 'required',
         ]);
         $menu = Menu::find($request['postId']);
+        $timeline = new Timeline();
+        $timeline->container = $menu->name . " " . $menu->link . " " . $menu->icon . " " . $menu->visibility;
         $menu->name = $request['new_name_site'];
         $menu->link = $request['new_link_site'];
         $menu->icon = $request['new_icon_site'];
         $menu->visibility = $request['new_visibility_site'];
 
+        $timeline->action = 2;
+        $timeline->menu_id = $request['postId'];
+        $timeline->model = 1;
+        $timeline->title = "Edition d'un lien du menu";
+
+        $message = 'Il n\' y a une erreur';
+        /*Save the action si c'est un succès c'est bon.*/
+        if ($request->user()->posts()->save($timeline)) {
+            $message = 'Ajout à la timeline réussi';
+        }
+
         $menu->update();
-        return response()->json(['new_name_update' => $menu->name, 'new_link_update' => $menu->link, 'new_icon_update' => $menu->icon, 'new_visibility_update' => $menu->visibility], 200);
+        return response()->json(['new_name_update' => $menu->name, 'new_link_update' => $menu->link, 'new_icon_update' => $menu->icon, 'new_visibility_update' => $menu->visibility, 'message' => $message], 200);
     }
     
 
