@@ -136,12 +136,13 @@ class PostController extends Controller
         $timeline->model = 2;
         $timeline->title = "Edition d'une actualité";
         $message = 'Il n\' y a une erreur';
-        $post->update();
-
         /*Save the action si c'est un succès c'est bon.*/
         if ($request->user()->posts()->save($timeline)) {
             $message = 'Ajout à la timeline réussi';
         }
+        $post->update();
+
+
         return response()->json(['new_body' => $post->body, 'message' => $message], 200);
     }
 

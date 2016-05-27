@@ -27,12 +27,9 @@
                                 @endif
                                 <div class="timeline-body">
                                     @if($timeline->action == 0)
-                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}}
-                                            a posté :
-                                        </p>
+                                        <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}} a posté :</p>
                                         {!! html_entity_decode($timeline->post->body) !!}
-                                        <br>
-                                        <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->updated_at))}}</p>
+                                        <p class="time-label"><i class="fa fa-clock-o"></i> le {{date('d M Y - H:m:s' ,strtotime($timeline->created_at))}}</p>
                                     @elseif($timeline->action == 1)
                                         <p style="color : darkblue; font-weight:bold;">{{$timeline->user->first_name}}
                                             a supprimé :
