@@ -35,15 +35,31 @@
                         weekday[4] = "Jeudi" ;
                         weekday[5] = "Vendredi" ;
                         weekday[6] = "Samedi" ;
+
+                        var month = new Array(12);
+                        month[0] = "Janvier";
+                        month[1] = "Fevrier";
+                        month[2] = "Mars";
+                        month[3] = "Avril";
+                        month[4] = "Mai";
+                        month[5] = "Juin";
+                        month[6] = "Juillet";
+                        month[7] = "Aout";
+                        month[8] = "Septembre";
+                        month[9] = "Octobre";
+                        month[10] = "Novembre";
+                        month[11] = "Décembre";
+
                         var d = new Date();
                         var thisDay = weekday[d.getDay()];
                         var thisNumber = d.getDay();
                         var thisYear = d.getFullYear();
+                        var thisMonth = month[d.getMonth()];
                         var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
                         if (nmin <= 9) nmin = "0" + nmin;
                         if (nsec <= 9) nsec = "0" + nsec;
 
-                        document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisYear + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
+                        document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisMonth + " " + thisYear + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
                     }
 
                     window.onload = function () {
@@ -55,6 +71,7 @@
         </div>
     </div>
 </div>
+
 <nav class="navbar navbar-custom">
     <div class="container-fluid navbar-inner">
         <div class="navbar-header">
@@ -66,7 +83,6 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <!--TODO : faire pour tous-->
         <div id="navbar" class="navbar-collapse collapse-1">
             <ul class="nav navbar-nav site">
                 @foreach($menus as $menu)
@@ -74,77 +90,205 @@
                         @if($menu->visibility == 1 && Auth::check())
                             @if(str_contains($menu->link , '.fr') || str_contains($menu->link , '.com') || str_contains($menu->link , '.org') || str_contains($menu->link , '.net'))
                                 @if(starts_with($menu->link , 'wwww.'))
-                                    <li><a class="custom-color-a" href="http://{{$menu->link}}" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="http://{{$menu->link}}" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(starts_with($menu->link , 'http://'))
-                                    <li><a class="custom-color-a" href="{{$menu->link}}" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="{{$menu->link}}" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(starts_with($menu->link , 'https://'))
-                                    <li><a class="custom-color-a" href="{{$menu->link}}" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="{{$menu->link}}" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                    <li><a class="custom-color-a" href="http://www.{{$menu->link}}" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="http://www.{{$menu->link}}" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @endif
                             @else
                                 @if(starts_with($menu->link , 'wwww'))
-                                    <li><a class="custom-color-a" href="http://{{$menu->link}}.fr" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="http://{{$menu->link}}.fr" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(starts_with($menu->link , 'http://'))
-                                    <li><a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(starts_with($menu->link , 'https://'))
-                                    <li><a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                    <li><a class="custom-color-a" href="http://www.{{$menu->link}}.fr" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="http://www.{{$menu->link}}.fr" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @endif
                             @endif
                         @elseif($menu->visibility == 0)
                             @if(str_contains($menu->link , '.fr') || str_contains($menu->link , '.com') || str_contains($menu->link , '.org') || str_contains($menu->link , '.net'))
                                 @if(starts_with($menu->link , 'wwww.'))
-                                    <li><a class="custom-color-a" href="http://{{$menu->link}}" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="http://{{$menu->link}}" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(starts_with($menu->link , 'http://'))
-                                    <li><a class="custom-color-a" href="{{$menu->link}}" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="{{$menu->link}}" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(starts_with($menu->link , 'https://'))
-                                    <li><a class="custom-color-a" href="{{$menu->link}}" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="{{$menu->link}}" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                    <li><a class="custom-color-a" href="http://www.{{$menu->link}}" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="http://www.{{$menu->link}}" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @endif
                             @else
                                 @if(starts_with($menu->link , 'wwww'))
-                                    <li><a class="custom-color-a" href="http://{{$menu->link}}.fr" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="http://{{$menu->link}}.fr" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(starts_with($menu->link , 'http://'))
-                                    <li><a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(starts_with($menu->link , 'https://'))
-                                    <li><a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                    <li><a class="custom-color-a" href="http://www.{{$menu->link}}.fr" target="_blank"><span
+                                    <li>
+                                        <a class="custom-color-a" href="http://www.{{$menu->link}}.fr" target="_blank">
+                                            <div id="border_menu_link">
+                                                <span
                                                     data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true"><img class="custom_fa" src="{{URL::to($menu->icon)}}"></span></a></li>
+                                                    class="fa" aria-hidden="true">
+                                                    <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @endif
                             @endif
                         @endif
@@ -159,7 +303,7 @@
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="search" style="margin-right: 25px">
-                    <form target="_blank" action="http://www.google.fr/search" method="get" onsubmit="process(); return false;">
+                    <form target="_blank" action="http://www.google.fr/search" method="get">
                         <p>
                             <a href="http://www.google.fr" target="_blank"></a>
                             <input maxlength="255" name="q" size="21" type="text" title="Rechercher">
