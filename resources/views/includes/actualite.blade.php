@@ -7,20 +7,19 @@
                         @if($post->id != 1)
                             @if($key == 0)
                                 <div class="info-box card radius shadowDepth1 bg-yellow" data-actuid="{{ $post->id }}">
-                                    <div class="card_header_actu bg-blue">
-                                        <div class="bulle_bleu"></div>
-                                    <span class="info-box-text"><i
-                                                class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
-                                        <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                    </div>
-
                                     <div class="bg-yellow actu_content">
-                                        <a href="#" class="img-actu card__image border-tlr-radius">
-                                            <!--TODO : lien comme pour le saoir plus -->
-                                            <img src="{{URL::to('slider/slider1.jpg')}}" alt="image"
-                                                 class="border-tlr-radius">
-                                        </a>
-                                        <div class="card__content card__padding ">
+                                        <div class="card_header_actu bg-blue">
+                                            <div class="bulle_bleu"></div>
+                                            <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
+                                            <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
+                                        </div>
+                                        <div class="resume_bio">
+                                            <a class="img-actu card__image border-tlr-radius">
+                                                <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image" class="border-tlr-radius">
+                                                <!--TODO : lien comme pour le saoir plus -->
+                                            </a>
+                                        </div>
+                                        <div class="card__content card__padding">
                                             <div class="card__share">
                                                 <div class="card__social">
                                                     <a class="share-icon facebook" href="#"><span
@@ -33,25 +32,24 @@
 
                                                 <a id="share" class="share-toggle share-icon" href="#"></a>
                                             </div>
-
-                                            <article class="card__article">
-                                                <div class="contentArticle">{!! html_entity_decode($post->body) !!}</div>
-                                            </article>
                                         </div>
 
-                                        <div class="card__action">
-                                            <div class="card__author">
-                                                <img src="{{URL::to('slider/slider1.jpg')}}" alt="user">
-                                                <div class="card__author-content">
-                                                    <p><em>Postée par {{$post->user->first_name}} mis à jour
-                                                            le {{date('d M Y' ,strtotime($post->updated_at))}}</em></p>
-                                                </div>
-                                            </div>
+                                        <article class="card__article">
+                                            @if(strlen(html_entity_decode($post->body))>47)
+                                                {{--*/ $resume = substr(html_entity_decode($post->body),0, 100) /*--}}
+                                                <div class="contentArticle">
+                                                    {!! html_entity_decode($resume) !!}  <em>...</em> </div>
+                                                <div></div>
+                                            @else
+                                                <div style="text-indent: 20px !important;" class="contentArticle">{!! html_entity_decode($post->body) !!}</div>
+                                            @endif
+                                        </article>
+                                        <div class="readme_center">
+                                            <a href="#" class="btn icon-btn btn-info readmore">
+                                                <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
+                                                Lire plus
+                                            </a>
                                         </div>
-                                        <a href="#" class="btn icon-btn btn-info readmore">
-                                            <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
-                                            Lire plus
-                                        </a>
                                     </div>
                                 </div>
                             @elseif($key == 1 )
@@ -66,7 +64,7 @@
                                     <div class="bg-green actu_content">
                                         <a href="#" class="img-actu card__image border-tlr-radius">
                                             <!--TODO : lien comme pour le saoir plus -->
-                                            <img src="{{URL::to('slider/slider1.jpg')}}" alt="image"
+                                            <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image"
                                                  class="border-tlr-radius">
                                         </a>
                                         <div class="card__content card__padding ">
@@ -90,10 +88,8 @@
 
                                         <div class="card__action">
                                             <div class="card__author">
-                                                <img src="{{URL::to('slider/slider1.jpg')}}" alt="user">
                                                 <div class="card__author-content">
-                                                    <p><em>Postée par {{$post->user->first_name}} mis à jour
-                                                            le {{date('d M Y' ,strtotime($post->updated_at))}}</em></p>
+                                                    <p><em>Postée par {{$post->user->first_name}}</em></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +111,7 @@
                                     <div class="bg-red actu_content">
                                         <a href="#" class="img-actu card__image border-tlr-radius">
                                             <!--TODO : lien comme pour le saoir plus -->
-                                            <img src="{{URL::to('slider/slider1.jpg')}}" alt="image"
+                                            <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image"
                                                  class="border-tlr-radius">
                                         </a>
                                         <div class="card__content card__padding ">
@@ -139,10 +135,8 @@
 
                                         <div class="card__action">
                                             <div class="card__author">
-                                                <img src="{{URL::to('slider/slider1.jpg')}}" alt="user">
                                                 <div class="card__author-content">
-                                                    <p><em>Postée par {{$post->user->first_name}} mis à jour
-                                                            le {{date('d M Y' ,strtotime($post->updated_at))}}</em></p>
+                                                    <p><em>Postée par {{$post->user->first_name}}</em></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,7 +158,7 @@
                                     <div class="bg-yellow actu_content">
                                         <a href="#" class="img-actu card__image border-tlr-radius">
                                             <!--TODO : lien comme pour le saoir plus -->
-                                            <img src="{{URL::to('slider/slider1.jpg')}}" alt="image"
+                                            <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image"
                                                  class="border-tlr-radius">
                                         </a>
                                         <div class="card__content card__padding ">
@@ -186,10 +180,8 @@
                                         </div>
                                         <div class="card__action">
                                             <div class="card__author">
-                                                <img src="{{URL::to('slider/slider1.jpg')}}" alt="user">
                                                 <div class="card__author-content">
-                                                    <p><em>Postée par {{$post->user->first_name}} mis à jour
-                                                            le {{date('d M Y' ,strtotime($post->updated_at))}}</em></p>
+                                                    <p><em>Postée par {{$post->user->first_name}}</em></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -271,7 +263,7 @@
                 </div>
                 <br>
                 <blockquote class="contentArticle"
-                     style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%;">
+                            style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%;">
                     <em>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</em><br/><hr/>
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make a type

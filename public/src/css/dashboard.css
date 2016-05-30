@@ -35,47 +35,6 @@ blockquote.contentArticle{
     margin: 0 auto;
 }
 
-div.bulle_bleu{
-   background-image: url("images/bulle-bleu.png");
-}
-
-
-div.bulle_verte{
-    background-image: url("images/bulle-vert.png");
-}
-
-div.bulle_rouge{
-    background-image: url("images/bulle-rouge.png");
-}
-
-p {
-    font-size: smaller;
-}
-
-.bulle_bleu {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    height: 47px;
-    width: 38px;
-}
-
-.bulle_rouge {
-    position: absolute;
-    top: 12px;
-    left: 840px;
-    height: 47px;
-    width: 38px;
-}
-
-.bulle_verte {
-    position: absolute;
-    top: 12px;
-    left: 425px;
-    height: 47px;
-    width: 38px;
-}
-
 .contentArticle {
     font-size: smaller;
 }
@@ -95,7 +54,6 @@ p {
 .postArticle .postAdmin header {
     margin-bottom: 20px;
 }
-
 
 
 .posts .postAdmin .postArticle .info {
@@ -315,6 +273,11 @@ header h3 {
 
 .readmore{
     color : white !important;
+}
+
+.readme_center{
+    margin:auto;
+    width: 50%;
 }
 
 .share-toggle {

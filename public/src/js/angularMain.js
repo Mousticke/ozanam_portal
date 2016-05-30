@@ -57,6 +57,3 @@ app.controller('EmailCtrl', ['$scope', function ($scope) {
     $scope.items = ['contact', 'validation'];
     $scope.selection = $scope.items[0];
 }]);
-
-
-

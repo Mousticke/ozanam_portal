@@ -13,6 +13,7 @@ endsection
 
     @include('includes.actualite')
 
+
     <script>
         var token = '{{ Session::token() }}';
         var urlEdit = '{{ route('edit') }}';
