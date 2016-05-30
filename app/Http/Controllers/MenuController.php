@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+
 use App\Faicon;
 use App\Menu;
 use App\Timeline;
@@ -62,11 +63,13 @@ class MenuController extends Controller
      */
     public function getMenuAdmin ()
     {
+
         $menus = Menu::orderBy('created_at', 'desc')->get();
         $faicons = Faicon::orderBy('created_at', 'desc')->get();
         return view('admin.includes.manageNavbar', [
             'menus' => $menus,
             'faicons' => $faicons,
+
         ]);
     }
 

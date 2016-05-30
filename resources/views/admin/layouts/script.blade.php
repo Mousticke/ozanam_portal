@@ -63,8 +63,13 @@
         setup: function(editor){
             editor.on('change', function () {
                 tinymce.triggerSave();
-
-            })
+            });
+            editor.on('keyup', function (e) {
+               /* console.log('Modification du contenu. Nouveau Contenu: ' + editor.getContent()); */
+                var value = tinymce.get('new-post').getContent();
+                var change = document.getElementById('target_actu');
+                change.innerHTML = value;
+            });
         }
     };
 

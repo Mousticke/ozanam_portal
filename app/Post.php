@@ -23,4 +23,8 @@ class Post extends Model
     {
         return $this->hasMany('App\Timeline');
     }
+
+    public function color(){
+        return $this->belongsTo('App\Color');
+    }
 }

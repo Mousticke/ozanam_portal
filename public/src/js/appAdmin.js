@@ -78,3 +78,21 @@ $('#modal-saveMenu').on('click', function () {
 
 
 $('.wpmse_select2').select2();
+
+var selectedColor = 'bg-aqua';
+$('#color_actu').change(function (){
+   $('.result_color').removeClass(selectedColor).addClass('bg-'+$(this).val());
+    selectedColor = 'bg-'+$(this).val();
+});
+/*
+$('.text_actu').keyup(function (e) {
+   var key_statut = $(this).get('body').getContent();
+    $('#target_actu').html(key_statut);
+});*/
+/*
+function Refresh_actu() {
+   //var value = document.getElementById('new-post').value;
+    var value = tinymce.get('new-post').getContent();
+    var change = document.getElementById('target_actu');
+    change.innerHTML = value;
+}*/

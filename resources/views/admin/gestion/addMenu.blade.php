@@ -11,7 +11,7 @@
                 <header><h3>Ajout de l'icône : </h3></header>
                 <form action="{{route('post.icon.create')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                     <div class="input-group {{ $errors->has('icon_new') ? 'has-error ' : '' }}">
-                    <span class="input-group-addon" id="basic-addon3"><i class="fa fa-image"
+                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-image"
                                                                          aria-hidden="true"></i></span>
                         <input aria-describedby="basic-addon1" placeholder="Icone (.png uniquement)" class="form-control" type="file"
                                name="icon_new" id="icon_new" value="{{ Request::old('icon_new') }}">

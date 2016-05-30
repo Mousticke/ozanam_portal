@@ -7,6 +7,7 @@
  */
 namespace App\Http\Controllers;
 
+use App\Color;
 use App\Carousel;
 use App\Menu;
 use App\Post;
@@ -75,9 +76,11 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getManageActualiteAdmin(){
+        $colors = Color::orderBy('name', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('admin.includes.manageActualite',[
-            'posts' => $posts
+            'posts' => $posts,
+            'colors' => $colors,
         ]);
     }
 
@@ -91,12 +94,13 @@ class PostController extends Controller
     public function postCreateActualite (Request $request)
     {
         $this->validate($request, [
-            'body' => 'required|max:500'
+            'body' => 'required|max:500',
+            'color_actu' => 'required',
         ]);
         $timeline = new Timeline();
         $post = new Post();
         $post->body = $request['body'];
-
+        $post->color = $request['color_actu'];
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
         /*Save the post si c'est un succès c'est bon.*/
@@ -111,7 +115,6 @@ class PostController extends Controller
         if ($request->user()->post()->save($timeline)) {
             $message2 = 'Ajout à la timeline réussi';
         }
-
         return redirect()->route('admin_actualite')->with(['message' => $message, 'message2' =>$message2]);
     }
 
