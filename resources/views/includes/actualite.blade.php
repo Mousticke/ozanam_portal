@@ -5,18 +5,15 @@
                 <div flex-xs flex-gt-xs="100" layout="row">
                     @foreach($posts as $key=>$post)
                         @if($post->id != 1)
-                            @if($key == 0)
-                                <div class="info-box card radius shadowDepth1 bg-yellow" data-actuid="{{ $post->id }}">
-                                    <div class="bg-yellow actu_content">
+                                <div class="info-box card radius shadowDepth1 bg-{{$post->color}}" data-actuid="{{ $post->id }}">
+                                    <div class="bg-{{$post->color}} actu_content">
                                         <div class="card_header_actu bg-blue">
-                                            <div class="bulle_bleu"></div>
                                             <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
                                             <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
                                         </div>
                                         <div class="resume_bio">
                                             <a class="img-actu card__image border-tlr-radius">
                                                 <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image" class="border-tlr-radius">
-                                                <!--TODO : lien comme pour le saoir plus -->
                                             </a>
                                         </div>
                                         <div class="card__content card__padding">
@@ -33,167 +30,26 @@
                                                 <a id="share" class="share-toggle share-icon" href="#"></a>
                                             </div>
                                         </div>
-
                                         <article class="card__article">
                                             @if(strlen(html_entity_decode($post->body))>47)
                                                 {{--*/ $resume = substr(html_entity_decode($post->body),0, 100) /*--}}
-                                                <div class="contentArticle">
+                                                <div style="text-indent: 20px !important;" class="contentArticle">
                                                     {!! html_entity_decode($resume) !!}  <em>...</em> </div>
                                                 <div></div>
                                             @else
                                                 <div style="text-indent: 20px !important;" class="contentArticle">{!! html_entity_decode($post->body) !!}</div>
                                             @endif
                                         </article>
-                                        <div class="readme_center">
-                                            <a href="#" class="btn icon-btn btn-info readmore">
-                                                <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
-                                                Lire plus
-                                            </a>
-                                        </div>
+
                                     </div>
-                                </div>
-                            @elseif($key == 1 )
-                                <div class="info-box card radius shadowDepth1 bg-green" data-actuid="{{ $post->id }}">
-                                    <div class="card_header_actu bg-blue">
-                                        <div class="bulle_verte"></div>
-                                    <span class="info-box-text"><i
-                                                class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
-                                        <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                    </div>
-
-                                    <div class="bg-green actu_content">
-                                        <a href="#" class="img-actu card__image border-tlr-radius">
-                                            <!--TODO : lien comme pour le saoir plus -->
-                                            <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image"
-                                                 class="border-tlr-radius">
-                                        </a>
-                                        <div class="card__content card__padding ">
-                                            <div class="card__share">
-                                                <div class="card__social">
-                                                    <a class="share-icon facebook" href="#"><span
-                                                                class="fa fa-facebook"></span></a>
-                                                    <a class="share-icon twitter" href="#"><span
-                                                                class="fa fa-twitter"></span></a>
-                                                    <a class="share-icon googleplus" href="#"><span
-                                                                class="fa fa-google-plus"></span></a>
-                                                </div>
-
-                                                <a id="share" class="share-toggle share-icon" href="#"></a>
-                                            </div>
-
-                                            <article class="card__article">
-                                                <div class="contentArticle">{!! html_entity_decode($post->body) !!}</div>
-                                            </article>
-                                        </div>
-
-                                        <div class="card__action">
-                                            <div class="card__author">
-                                                <div class="card__author-content">
-                                                    <p><em>Postée par {{$post->user->first_name}}</em></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="readme_center">
                                         <a href="#" class="btn icon-btn btn-info readmore">
                                             <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
                                             Lire plus
                                         </a>
                                     </div>
                                 </div>
-                            @elseif($key == 2 )
-                                <div class="info-box card radius shadowDepth1 bg-red" data-actuid="{{ $post->id }}">
-                                    <div class="card_header_actu bg-blue">
-                                        <div class="bulle_rouge"></div>
-                                    <span class="info-box-text"><i
-                                                class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
-                                        <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                    </div>
-
-                                    <div class="bg-red actu_content">
-                                        <a href="#" class="img-actu card__image border-tlr-radius">
-                                            <!--TODO : lien comme pour le saoir plus -->
-                                            <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image"
-                                                 class="border-tlr-radius">
-                                        </a>
-                                        <div class="card__content card__padding ">
-                                            <div class="card__share">
-                                                <div class="card__social">
-                                                    <a class="share-icon facebook" href="#"><span
-                                                                class="fa fa-facebook"></span></a>
-                                                    <a class="share-icon twitter" href="#"><span
-                                                                class="fa fa-twitter"></span></a>
-                                                    <a class="share-icon googleplus" href="#"><span
-                                                                class="fa fa-google-plus"></span></a>
-                                                </div>
-
-                                                <a id="share" class="share-toggle share-icon" href="#"></a>
-                                            </div>
-
-                                            <article class="card__article">
-                                                <div class="contentArticle">{!! html_entity_decode($post->body) !!}</div>
-                                            </article>
-                                        </div>
-
-                                        <div class="card__action">
-                                            <div class="card__author">
-                                                <div class="card__author-content">
-                                                    <p><em>Postée par {{$post->user->first_name}}</em></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="btn icon-btn btn-info readmore">
-                                            <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
-                                            Lire plus
-                                        </a>
-                                    </div>
-                                </div>
-                            @else
-                                <div class="info-box card radius shadowDepth1 bg-yellow" data-actuid="{{ $post->id }}">
-                                    <div class="card_header_actu bg-blue">
-                                        <div class="bulle_bleu"></div>
-                                    <span class="info-box-text"><i
-                                                class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
-                                        <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                    </div>
-
-                                    <div class="bg-yellow actu_content">
-                                        <a href="#" class="img-actu card__image border-tlr-radius">
-                                            <!--TODO : lien comme pour le saoir plus -->
-                                            <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image"
-                                                 class="border-tlr-radius">
-                                        </a>
-                                        <div class="card__content card__padding ">
-                                            <div class="card__share">
-                                                <div class="card__social">
-                                                    <a class="share-icon facebook" href="#"><span
-                                                                class="fa fa-facebook"></span></a>
-                                                    <a class="share-icon twitter" href="#"><span
-                                                                class="fa fa-twitter"></span></a>
-                                                    <a class="share-icon googleplus" href="#"><span
-                                                                class="fa fa-google-plus"></span></a>
-                                                </div>
-
-                                                <a id="share" class="share-toggle share-icon" href="#"></a>
-                                            </div>
-                                            <article class="card__article">
-                                                <div class="contentArticle">{!! html_entity_decode($post->body) !!}</div>
-                                            </article>
-                                        </div>
-                                        <div class="card__action">
-                                            <div class="card__author">
-                                                <div class="card__author-content">
-                                                    <p><em>Postée par {{$post->user->first_name}}</em></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="btn icon-btn btn-info readmore">
-                                            <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
-                                            Lire plus
-                                        </a>
-                                    </div>
-                                </div>
-                            @endif
                         @endif
-
                     @endforeach
                 </div>
             </div>
