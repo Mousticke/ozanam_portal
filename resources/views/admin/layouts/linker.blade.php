@@ -21,6 +21,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet"/>
 
 <link rel="stylesheet" href="{{URL::to('src/css/adminMenu.css')}}">
+<link rel="stylesheet" href="{{URL::to('src/css/adminActu.css')}}">
 <link rel="stylesheet" href="{{URL::to('src/css/dashboard.css')}}">
 <link rel="stylesheet" href="{{URL::to('src/css/carousel.css')}}">
 <link rel="stylesheet" href="{{URL::to('src/css/header.css')}}">
