@@ -89,7 +89,7 @@ $('#color_actu').change(function (){
 $('a[rel=popover_facebook]').popover({
     html: true,
     content : function () {
-     return $('#tooltip_facebook').html();
+        return $('#tooltip_facebook').html();
     }
 });
 $('a[rel=popover_twitter]').popover({
@@ -105,13 +105,13 @@ $('a[rel=popover_google]').popover({
     }
 });
 /*
-$('.popper').popover({
-    placement: 'bottom',
-    html: true,
-    content: function () {
-        return $(this).next('.popover-content').html();
-    }
-});*/
+ $('.popper').popover({
+ placement: 'bottom',
+ html: true,
+ content: function () {
+ return $(this).next('.popover-content').html();
+ }
+ });*/
 
 /*
  $('.text_actu').keyup(function (e) {
@@ -125,3 +125,39 @@ $('.popper').popover({
  var change = document.getElementById('target_actu');
  change.innerHTML = value;
  }*/
+
+var MAX_LINK = 10;
+$('#ajout_actu').on('click', '.addButton', function() {
+    var $template = $('#external_links_template'),
+        $clone = $template
+            .clone()
+            .removeClass('hide')
+            .removeAttr('id')
+            .insertBefore($template),
+        $option = $clone.find('[name="external_link"]');
+})
+    .on('click', '.removeButton', function() {
+        var $row    = $(this).parents('.input-group'),
+            $option = $row.find('[name="external_link"]');
+        // Remove element containing the option
+        $row.remove();
+    })
+    .on('removed.field.fv', function(e, data) {
+        if (data.field === 'option[]') {
+            if ($('#ajout_actu').find(':visible[name="external_link"]').length < MAX_LINK) {
+                $('#ajout_actu').find('.addButton').removeAttr('disabled');
+            }
+        }
+    })
+    .on('added.field.fv', function(e, data) {
+        // data.field   --> The field name
+        // data.element --> The new field element
+        // data.options --> The new field options
+
+        if (data.field === 'external_link') {
+            if ($('#ajout_actu').find(':visible[name="external_link"]').length >= MAX_LINK) {
+                $('#ajout_actu').find('.addButton').attr('disabled', 'disabled');
+            }
+        }
+    });
+
