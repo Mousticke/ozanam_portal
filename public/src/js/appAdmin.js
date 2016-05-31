@@ -80,6 +80,7 @@ $('#modal-saveMenu').on('click', function () {
 $('.wpmse_select2').select2();
 
 var selectedColor = 'bg-aqua';
+
 $('#color_actu').change(function (){
    $('.result_color').removeClass(selectedColor).addClass('bg-'+$(this).val());
     selectedColor = 'bg-'+$(this).val();

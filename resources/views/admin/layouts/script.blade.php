@@ -68,7 +68,15 @@
                /* console.log('Modification du contenu. Nouveau Contenu: ' + editor.getContent()); */
                 var value = tinymce.get('new-post').getContent();
                 var change = document.getElementById('target_actu');
-                change.innerHTML = value;
+                var change_modal = document.getElementById('content_actu_preview');
+                if(value.length < 108){
+                    change.innerHTML = value;
+                    change_modal.innerHTML = value;
+                }
+                else{
+                    change.innerHTML = value.substring(0,106) + "...";
+                    change_modal.innerHTML = value;
+                }
             });
         }
     };
