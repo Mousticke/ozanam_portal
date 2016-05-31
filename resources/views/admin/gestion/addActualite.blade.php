@@ -9,12 +9,12 @@
         <div class="box-body">
             <header><h3>Actualités du moment : </h3></header>
             <form action="{{route('post.create')}}" method="post">
-                <div class="input-group {{ $errors->has('icon_new') ? 'has-error ' : '' }}">
+                <div class="input-group {{ $errors->has('color_actu') ? 'has-error ' : '' }}">
                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-paint-brush"
                                                                          aria-hidden="true"></i></span>
                     <select  aria-describedby="basic-addon1" class="form-control"
                              name="color_actu" id="color_actu" title="Choix de la couleure" >
-                        <option disabled selected value> -- select an option -- </option>
+                        <option disabled selected value> -- Selectionner une couleure -- </option>
                         @foreach($colors as $color)
                             <option name="color" class="bg-{{$color->name}}" value="{{$color->name}}">
                                 <p style="background: {{$color->name}};"> {{$color->name}}</p>
@@ -22,6 +22,28 @@
                         @endforeach
                     </select>
                 </div>
+
+                <div class="input-group {{ $errors->has('facebook_actu') ? 'has-error ' : '' }}">
+                    <span style="background-color: #3b5998; color: white;" class="input-group-addon" id="basic-addon2"><i class="fa fa-facebook"
+                                                                         aria-hidden="true"></i></span>
+                    <input type="url" aria-describedby="basic-addon2" class="form-control"
+                             name="facebook_actu" id="facebook_actu" title="Lier un post Facebook : " placeholder="Lier un post Facebook : ex: https://www.facebook.com/OzanamLyceeChalons/posts/1771994209696235:0">
+                </div>
+
+                <div class="input-group {{ $errors->has('twitter_actu') ? 'has-error ' : '' }}">
+                    <span style="background-color: #1da1f2; color: white;" class="input-group-addon" id="basic-addon3"><i class="fa fa-twitter"
+                                                                                                                          aria-hidden="true"></i></span>
+                    <input type="url" aria-describedby="basic-addon3" class="form-control"
+                           name="twitter_actu" id="twitter_actu" title="Lier un post Twitter : " placeholder="Lier un post Twitter : ex: https://twitter.com/Exemple/status/Exemple">
+                </div>
+
+                <div class="input-group {{ $errors->has('google_actu') ? 'has-error ' : '' }}">
+                    <span style="background-color: #d32f2f; color: white;" class="input-group-addon" id="basic-addon4"><i class="fa fa-google-plus"
+                                                                                                                          aria-hidden="true"></i></span>
+                    <input type="url" aria-describedby="basic-addon4" class="form-control"
+                           name="google_actu" id="google_actu" title="Lier un post Google + : " placeholder="Lier un post Google + : ex: https://plus.google.com/exemple/posts/exemple">
+                </div>
+
                 <div class="form-group bg-">
                     <textarea class="form-control text_actu" name="body" id="new-post" rows="5"
                               placeholder="Quoi de neuf..."></textarea>

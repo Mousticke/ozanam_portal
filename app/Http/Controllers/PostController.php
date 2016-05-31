@@ -96,11 +96,17 @@ class PostController extends Controller
         $this->validate($request, [
             'body' => 'required|max:500',
             'color_actu' => 'required',
+            'facebook_actu',
+            'twitter_actu',
+            'google_actu',
         ]);
         $timeline = new Timeline();
         $post = new Post();
         $post->body = $request['body'];
         $post->color = $request['color_actu'];
+        $post->facebook_post = $request['facebook_actu'];
+        $post->twitter_post = $request['twitter_actu'];
+        $post->google_post = $request['google_actu'];
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
         /*Save the post si c'est un succès c'est bon.*/

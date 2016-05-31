@@ -17,6 +17,9 @@ class CreatePostsTable extends Migration
             $table->timestamps();
             $table->text('body');
             $table->string('color');
+            $table->string('facebook_post');
+            $table->string('twitter_post');
+            $table->string('google_post');
             $table->integer('user_id');
         });
     }
