@@ -27,88 +27,91 @@
 
                                 <tbody>
                                 @foreach($menus as $menu)
-                                    <tr class="menu" data-postid="{{ $menu->id }}">
-                                        <td>{{$menu->id}}</td>
-                                        <td class="name_site">{{$menu->name}}</td>
-                                        @if(str_contains($menu->link , '.fr') || str_contains($menu->link , '.com') || str_contains($menu->link , '.org') || str_contains($menu->link , '.net'))
-                                            @if(starts_with($menu->link , 'wwww.'))
-                                                <td><a class="link-site" href="http://{{$menu->link}}"
-                                                       target="_blank">http://{{$menu->link}}</a></td>
-                                            @elseif(starts_with($menu->link , 'http://'))
-                                                <td><a class="link-site" href="{{$menu->link}}" target="_blank">{{$menu->link}}</a></td>
-                                            @elseif(starts_with($menu->link , 'https://'))
-                                                <td><a class="link-site" href="{{$menu->link}}" target="_blank">{{$menu->link}}</a></td>
-                                            @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                                <td><a class="link-site" href="http://www.{{$menu->link}}"
-                                                       target="_blank">http://www.{{$menu->link}}</a></td>
+                                    @if($menu->id != 1)
+                                        <tr class="menu" data-postid="{{ $menu->id }}">
+                                            <td>{{$menu->id}}</td>
+                                            <td class="name_site">{{$menu->name}}</td>
+                                            @if(str_contains($menu->link , '.fr') || str_contains($menu->link , '.com') || str_contains($menu->link , '.org') || str_contains($menu->link , '.net'))
+                                                @if(starts_with($menu->link , 'wwww.'))
+                                                    <td><a class="link-site" href="http://{{$menu->link}}"
+                                                           target="_blank">http://{{$menu->link}}</a></td>
+                                                @elseif(starts_with($menu->link , 'http://'))
+                                                    <td><a class="link-site" href="{{$menu->link}}" target="_blank">{{$menu->link}}</a></td>
+                                                @elseif(starts_with($menu->link , 'https://'))
+                                                    <td><a class="link-site" href="{{$menu->link}}" target="_blank">{{$menu->link}}</a></td>
+                                                @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
+                                                    <td><a class="link-site" href="http://www.{{$menu->link}}"
+                                                           target="_blank">http://www.{{$menu->link}}</a></td>
+                                                @endif
+                                            @else
+                                                @if(starts_with($menu->link , 'wwww'))
+                                                    <td><a class="link-site" href="http://{{$menu->link}}.fr"
+                                                           target="_blank">http://{{$menu->link}}.fr</a></td>
+                                                @elseif(starts_with($menu->link , 'http://'))
+                                                    <td><a class="link-site" href="{{$menu->link}}.fr" target="_blank">{{$menu->link}}.fr</a>
+                                                    </td>
+                                                @elseif(starts_with($menu->link , 'https://'))
+                                                    <td><a class="link-site" href="{{$menu->link}}.fr" target="_blank">{{$menu->link}}.fr</a>
+                                                    </td>
+                                                @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
+                                                    <td><a class="link-site" href="http://www.{{$menu->link}}.fr"
+                                                           target="_blank">http://www.{{$menu->link}}.fr</a></td>
+                                                @endif
                                             @endif
-                                        @else
-                                            @if(starts_with($menu->link , 'wwww'))
-                                                <td><a class="link-site" href="http://{{$menu->link}}.fr"
-                                                       target="_blank">http://{{$menu->link}}.fr</a></td>
-                                            @elseif(starts_with($menu->link , 'http://'))
-                                                <td><a class="link-site" href="{{$menu->link}}.fr" target="_blank">{{$menu->link}}.fr</a>
-                                                </td>
-                                            @elseif(starts_with($menu->link , 'https://'))
-                                                <td><a class="link-site" href="{{$menu->link}}.fr" target="_blank">{{$menu->link}}.fr</a>
-                                                </td>
-                                            @elseif(!starts_with($menu->link , 'https://') && !starts_with($menu->link , 'http://') && !starts_with($menu->link , 'www.'))
-                                                <td><a class="link-site" href="http://www.{{$menu->link}}.fr"
-                                                       target="_blank">http://www.{{$menu->link}}.fr</a></td>
-                                            @endif
-                                        @endif
-                                        <td class="icon-site">
-                                            <select class="wpmse_select2">
-                                                @foreach($faicons as $icon)
-                                                    <option value="{{$icon->faicon}}" style="background-image: {{URL::to($icon->faicon)}};"><i class="fa {{$icon->faicon}}"
-                                                                                         aria-hidden="true"></i>{{$icon->faicon}}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </td>
-                                        <td><img class="custom_fa" src="{{URL::to($menu->icon)}}"></td>
-                                        <td class="menu_visibility">
-                                            @if($menu->visibility == 0)
-                                                <span class="label label-success">Public</span>
-                                            @elseif($menu->visibility == 1)
-                                                <span class="label label-danger">Privée</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <div id="articleNew"
-                                                 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-1 col-md-offset-1 col-sm-offset-1">
-                                                <div class="panel panel-primary">
-                                                    <div class="panel panel-heading">Choix de l'action</div>
-                                                    <div class="panel panel-body">
-                                                        <div>
-                                                            <article>
-                                                                <p>{{$menu->name}} -> {{$menu->link}}
-                                                                    -> {{$menu->icon}} -> sa visibilité est :
-                                                                    @if($menu->visibility == 1)
-                                                                        <span style="text-decoration: underline;">Privée</span>
-                                                                    @else
-                                                                        <span style="text-decoration: underline;">Public</span>
-                                                                    @endif
-                                                                </p>
-                                                                <div class="interaction">
-                                                                    <a class="btn icon-btn btn-success editMenu">
-                                                                        <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
-                                                                        Edition
-                                                                    </a> |
+                                            <td class="icon-site">
+                                                <select class="wpmse_select2">
+                                                    @foreach($faicons as $icon)
+                                                        <option value="{{$icon->faicon}}" style="background-image: {{URL::to($icon->faicon)}};"><i class="fa {{$icon->faicon}}"
+                                                                                                                                                   aria-hidden="true"></i>{{$icon->faicon}}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </td>
+                                            <td><img class="custom_fa" src="{{URL::to($menu->icon)}}"></td>
+                                            <td class="menu_visibility">
+                                                @if($menu->visibility == 0)
+                                                    <span class="label label-success">Public</span>
+                                                @elseif($menu->visibility == 1)
+                                                    <span class="label label-danger">Privée</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <div id="articleNew"
+                                                     class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-1 col-md-offset-1 col-sm-offset-1">
+                                                    <div class="panel panel-primary">
+                                                        <div class="panel panel-heading">Choix de l'action</div>
+                                                        <div class="panel panel-body">
+                                                            <div>
+                                                                <article>
+                                                                    <p>{{$menu->name}} -> {{$menu->link}}
+                                                                        -> {{$menu->icon}} -> sa visibilité est :
+                                                                        @if($menu->visibility == 1)
+                                                                            <span style="text-decoration: underline;">Privée</span>
+                                                                        @else
+                                                                            <span style="text-decoration: underline;">Public</span>
+                                                                        @endif
+                                                                    </p>
+                                                                    <div class="interaction">
+                                                                        <a class="btn icon-btn btn-success editMenu">
+                                                                            <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span>
+                                                                            Edition
+                                                                        </a> |
 
-                                                                    <a class="btn icon-btn btn-danger"
-                                                                       href="{{ route('link.delete.admin', ['menu_id' => $menu->id]) }}">
-                                                                        <span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>
-                                                                        Supprimmer
-                                                                    </a>
-                                                                </div>
-                                                            </article>
+                                                                        <a class="btn icon-btn btn-danger"
+                                                                           href="{{ route('link.delete.admin', ['menu_id' => $menu->id]) }}">
+                                                                            <span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>
+                                                                            Supprimmer
+                                                                        </a>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                            </td>
+                                        </tr>
+                                    @endif
+
                                 @endforeach
                                 </tbody>
                             </table>

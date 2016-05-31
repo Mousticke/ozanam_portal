@@ -25,7 +25,8 @@
 
                                 <tbody>
                                 @foreach($posts as $post)
-                                    <tr>
+                                    @if($post->id != 1)
+                                        <tr>
                                         <td>{{ $post->id }}</td>
                                         <td>{{$post->user->first_name}}</td>
                                         <td>{{date('d M Y' ,strtotime($post->user->created_at))}}</td>
@@ -67,7 +68,7 @@
                                             </div>
                                         </td>
                                     </tr>
-
+                                    @endif
                                 @endforeach
                                 </tbody>
                             </table>

@@ -2,7 +2,7 @@
  * Created by Akim on 03/05/2016.
  */
 var postId, actuId = 0;
-var postBodyElement, actuBodyElement = null;
+var postBodyElement, actuBodyElement, ArticleContent = null;
 /*
  $('.postArticle').find('.interaction').find('.edit').on('click', function(event){
  event.preventDefault();
@@ -30,8 +30,20 @@ var postBodyElement, actuBodyElement = null;
  });
  });
  */
+/*
 $('.shadowDepth1').find('.actu_content').find('.readmore').on('click', function (event) {
+    alert('ouverture');
     event.preventDefault();
+    $('#actualite_display').modal();
+});
+*/
+$('.readmore').on('click', function (event) {
+    event.preventDefault();
+    ArticleContent = event.target.parentNode.parentNode.dataset['content'];
+    console.log(ArticleContent);
+    //alert('ouverture');
+    $(".modal_contentArticle").find('#content_actu').html(ArticleContent);
+    console.log($(".modal_contentArticle").find('#content_actu').html(ArticleContent));
     $('#actualite_display').modal();
 });
 
