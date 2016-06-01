@@ -6,11 +6,11 @@
     </div>
 </div>
 
-<div class="input-group {{ $errors->has('img_actu') ? 'has-error ' : '' }}">
+<div class="input-group {{ $errors->has('image_actu') ? 'has-error ' : '' }}">
     <span class="input-group-addon" id="basic-addon5"><i class="fa fa-file-picture-o" aria-hidden="true"></i></span>
     <div class="col-lg-8">
         <input type="file" aria-describedby="basic-addon5" class="form-control"
-               name="img_actu" id="img_actu" title="Image de l'actualité" placeholder="Image de l'actualité "/>
+               name="image_actu" id="image_actu" title="Image de l'actualité" placeholder="Image de l'actualité "/>
     </div>
 </div>
 

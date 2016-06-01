@@ -99,7 +99,7 @@ class PostController extends Controller
 
         $this->validate($request, [
             'titre' => 'required',
-            'img_actu',
+            'image_actu',
             'external_link',
             'body' => 'required|max:500',
             'color_actu' => 'required',
@@ -107,11 +107,6 @@ class PostController extends Controller
             'twitter_actu',
             'google_actu',
         ]);
-
-        
-
-
-
 
         $timeline = new Timeline();
         $post = new Post();
@@ -124,6 +119,8 @@ class PostController extends Controller
         $post->twitter_post = $request['twitter_actu'];
         $post->google_post = $request['google_actu'];
 
+        $imgactu = $request->file('image_actu');
+        $post->image_actu = 'uploads/' . $imgactu->getClientOriginalName();
 
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
@@ -159,7 +156,6 @@ class PostController extends Controller
             $file_post->post_id = $post->id;
             if($request->user()->post()->save($file_post))
                 $message4 = 'Fichier ajouté';
-
         }
 
         return redirect()->route('admin_actualite')->with(['message' => $message, 'message2' =>$message2, 'message3' =>$message3, 'message4'=> $message4]);

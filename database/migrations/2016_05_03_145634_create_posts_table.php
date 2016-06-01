@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->string('twitter_post');
             $table->string('google_post');
             $table->integer('user_id');
+            $table->string('image_actu');
         });
     }
 
