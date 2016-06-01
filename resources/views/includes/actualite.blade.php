@@ -68,7 +68,7 @@
                                          style="background-color: #FFFFFF !important; color : #5D9CEC !important;">
                                         <div class="attach_media">
                                             <img style="max-height: 400px; max-width: 500px;"
-                                                 src="{{URL::to('slider/slider1.jpg')}}" alt="img_modal" class="center_image_modal">
+                                                 src="{{URL::to($post->image_actu)}}" alt="img_modal" class="center_image_modal">
                                         </div>
                                         <div class="row">
                                             <!-- Custom Tabs (Pulled to the right) -->
