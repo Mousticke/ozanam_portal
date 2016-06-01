@@ -13,7 +13,7 @@
                                     </div>
                                     <div class="resume_bio">
                                         <a class="img-actu card__image border-tlr-radius">
-                                            <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image" class="border-tlr-radius">
+                                            <img style="height: 250px;" src="{{URL::to($post->image_actu)}}" alt="image" class="border-tlr-radius">
                                         </a>
                                     </div>
                                     <div class="card__content card__padding">

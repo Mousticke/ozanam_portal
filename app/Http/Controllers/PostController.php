@@ -120,7 +120,7 @@ class PostController extends Controller
         $post->google_post = $request['google_actu'];
 
         $imgactu = $request->file('image_actu');
-        $post->image_actu = 'uploads/' . $imgactu->getClientOriginalName();
+        $post->image_actu = 'files/shares/actualite/' . $imgactu->getClientOriginalName();
 
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
