@@ -161,3 +161,39 @@ $('#ajout_actu').on('click', '.addButton', function() {
         }
     });
 
+
+
+var MAX_FILES = 10;
+$('#ajout_actu').on('click', '.addButton_files', function() {
+    var $template = $('#external_files_template'),
+        $clone = $template
+            .clone()
+            .removeClass('hide')
+            .removeAttr('id')
+            .insertBefore($template),
+        $option = $clone.find('[name="external_file"]');
+})
+    .on('click', '.removeButton_files', function() {
+        var $row    = $(this).parents('.input-group'),
+            $option = $row.find('[name="external_file"]');
+        // Remove element containing the option
+        $row.remove();
+    })
+    .on('removed.field.fv', function(e, data) {
+        if (data.field === 'option[]') {
+            if ($('#ajout_actu').find(':visible[name="external_file"]').length < MAX_FILES) {
+                $('#ajout_actu').find('.addButton_files').removeAttr('disabled');
+            }
+        }
+    })
+    .on('added.field.fv', function(e, data) {
+        // data.field   --> The field name
+        // data.element --> The new field element
+        // data.options --> The new field options
+
+        if (data.field === 'external_link') {
+            if ($('#ajout_actu').find(':visible[name="external_file"]').length >= MAX_FILES) {
+                $('#ajout_actu').find('.addButton_files').attr('disabled', 'disabled');
+            }
+        }
+    });

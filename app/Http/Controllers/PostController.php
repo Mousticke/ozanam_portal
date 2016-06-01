@@ -9,6 +9,8 @@ namespace App\Http\Controllers;
 
 use App\Color;
 use App\Carousel;
+use App\File;
+use App\Link;
 use App\Menu;
 use App\Post;
 use App\Timeline;
@@ -94,19 +96,46 @@ class PostController extends Controller
     public function postCreateActualite (Request $request)
     {
         $this->validate($request, [
+            'titre' => 'required',
+            'img_actu',
+            'external_link',
+            'external_file',
             'body' => 'required|max:500',
             'color_actu' => 'required',
             'facebook_actu',
             'twitter_actu',
             'google_actu',
         ]);
+
+        $link_post = new Link();
+        $file_post  = new File();
         $timeline = new Timeline();
         $post = new Post();
+
+        $post->titre = $request['titre'];
         $post->body = $request['body'];
         $post->color = $request['color_actu'];
         $post->facebook_post = $request['facebook_actu'];
         $post->twitter_post = $request['twitter_actu'];
         $post->google_post = $request['google_actu'];
+
+        $message3 = 'Il n\' y a une erreur';
+        if(count($request['external_link'])>1){
+            foreach ($request['external_link'] as $key=>$links){
+                $link_post->body = $links['exteranl_link'];
+                $link_post->user_id = 3;
+                if ($request->user()->post()->save($link_post)) {
+                    $message3 = 'Le lien numéro ' . $key . ' a été ajouté' ;
+                }
+            }
+        }else{
+            $link_post->body = $request['exteranl_link'];
+            $link_post->user_id = 3;
+            if ($request->user()->post()->save($link_post)) {
+                $message3 = 'Le lien a été ajouté' ;
+            }
+        }
+        
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
         /*Save the post si c'est un succès c'est bon.*/
@@ -121,7 +150,7 @@ class PostController extends Controller
         if ($request->user()->post()->save($timeline)) {
             $message2 = 'Ajout à la timeline réussi';
         }
-        return redirect()->route('admin_actualite')->with(['message' => $message, 'message2' =>$message2]);
+        return redirect()->route('admin_actualite')->with(['message' => $message, 'message2' =>$message2, 'message3' =>$message3]);
     }
 
     /**
