@@ -126,74 +126,109 @@ $('a[rel=popover_google]').popover({
  change.innerHTML = value;
  }*/
 
-var MAX_LINK = 10;
-$('#ajout_actu').on('click', '.addButton', function() {
-    var $template = $('#external_links_template'),
-        $clone = $template
-            .clone()
-            .removeClass('hide')
-            .removeAttr('id')
-            .insertBefore($template),
-        $option = $clone.find('[name="external_link"]');
-})
-    .on('click', '.removeButton', function() {
-        var $row    = $(this).parents('.input-group'),
-            $option = $row.find('[name="external_link"]');
-        // Remove element containing the option
+$('#ajout_actu')
+    //LINKS
+    .on('click', '.addButton', function() {
+        $('#external_links').
+        after(
+            '<div id="external_links" class="input-group"> ' +
+            '<span class="input-group-addon" id="basic-addon6"><i class="fa fa-internet-explorer" aria-hidden="true"></i></span> ' +
+            '<div class="col-lg-8"> ' +
+            '<input type="text" aria-describedby="basic-addon6" class="form-control"' +
+            ' name="external_link[]" id="external_link" title="Liens externes" placeholder="Liens externes "/> ' +
+            '</div> ' +
+            '<div class="append col-xs-4"> ' +
+            '<button type="button" class="btn btn-default removeButton_link"><i class="fa fa-minus"></i></button> ' +
+            '</div> ' +
+            '</div>');
+    })
+    .on('click', '.removeButton_link', function() {
+        var $row = $(this).parents('#external_links');
         $row.remove();
     })
-    .on('removed.field.fv', function(e, data) {
-        if (data.field === 'option[]') {
-            if ($('#ajout_actu').find(':visible[name="external_link"]').length < MAX_LINK) {
-                $('#ajout_actu').find('.addButton').removeAttr('disabled');
-            }
-        }
+
+    //FILES
+    .on('click', '.addButton_files', function() {
+        $('#external_files').
+        after(
+            '<div id="external_files" class="input-group"> ' +
+            '<span class="input-group-addon" id="basic-addon7"><i class="fa fa-file" aria-hidden="true"></i></span> ' +
+            '<div class="col-lg-8"> ' +
+            '<input type="file" aria-describedby="basic-addon7" class="form-control"' +
+            ' name="external_file[]" id="external_file" title="Fichier externe" placeholder="Fichier externe "/> ' +
+            '</div> ' +
+            '<div class="append col-xs-4"> ' +
+            '<button type="button" class="btn btn-default removeButton_files"><i class="fa fa-minus"></i></button> ' +
+            '</div> ' +
+            '</div>');
     })
-    .on('added.field.fv', function(e, data) {
-        // data.field   --> The field name
-        // data.element --> The new field element
-        // data.options --> The new field options
-
-        if (data.field === 'external_link') {
-            if ($('#ajout_actu').find(':visible[name="external_link"]').length >= MAX_LINK) {
-                $('#ajout_actu').find('.addButton').attr('disabled', 'disabled');
-            }
-        }
-    });
-
-
-
-var MAX_FILES = 10;
-$('#ajout_actu').on('click', '.addButton_files', function() {
-    var $template = $('#external_files_template'),
-        $clone = $template
-            .clone()
-            .removeClass('hide')
-            .removeAttr('id')
-            .insertBefore($template),
-        $option = $clone.find('[name="external_file"]');
-})
     .on('click', '.removeButton_files', function() {
-        var $row    = $(this).parents('.input-group'),
-            $option = $row.find('[name="external_file"]');
-        // Remove element containing the option
+        var $row = $(this).parents('#external_files');
         $row.remove();
-    })
-    .on('removed.field.fv', function(e, data) {
-        if (data.field === 'option[]') {
-            if ($('#ajout_actu').find(':visible[name="external_file"]').length < MAX_FILES) {
-                $('#ajout_actu').find('.addButton_files').removeAttr('disabled');
-            }
-        }
-    })
-    .on('added.field.fv', function(e, data) {
-        // data.field   --> The field name
-        // data.element --> The new field element
-        // data.options --> The new field options
-
-        if (data.field === 'external_link') {
-            if ($('#ajout_actu').find(':visible[name="external_file"]').length >= MAX_FILES) {
-                $('#ajout_actu').find('.addButton_files').attr('disabled', 'disabled');
-            }
-        }
     });
+
+
+/*
+ var MAX_LINK = 10;
+ $('#ajout_actu').on('click', '.addButton', function() {
+ var $template = $('#external_links_template'),
+ $clone = $template
+ .clone()
+ .removeClass('hide')
+ .removeAttr('id')
+ .insertBefore($template),
+ $option = $clone.find('[name="external_link"]');
+ })
+
+ .on('removed.field.fv', function(e, data) {
+ if (data.field === 'option[]') {
+ if ($('#ajout_actu').find(':visible[name="external_link"]').length < MAX_LINK) {
+ $('#ajout_actu').find('.addButton').removeAttr('disabled');
+ }
+ }
+ })
+ .on('added.field.fv', function(e, data) {
+ if (data.field === 'external_link') {
+ if ($('#ajout_actu').find(':visible[name="external_link"]').length >= MAX_LINK) {
+ $('#ajout_actu').find('.addButton').attr('disabled', 'disabled');
+ }
+ }
+ });
+
+
+
+ var MAX_FILES = 10;
+ $('#ajout_actu').on('click', '.addButton_files', function() {
+ var $template = $('#external_files_template'),
+ $clone = $template
+ .clone()
+ .removeClass('hide')
+ .removeAttr('id')
+ .insertBefore($template),
+ $option = $clone.find('[name="external_file"]');
+ })
+ .on('click', '.removeButton_files', function() {
+ var $row    = $(this).parents('.input-group'),
+ $option = $row.find('[name="external_file"]');
+ // Remove element containing the option
+ $row.remove();
+ })
+ .on('removed.field.fv', function(e, data) {
+ if (data.field === 'option[]') {
+ if ($('#ajout_actu').find(':visible[name="external_file"]').length < MAX_FILES) {
+ $('#ajout_actu').find('.addButton_files').removeAttr('disabled');
+ }
+ }
+ })
+ .on('added.field.fv', function(e, data) {
+ // data.field   --> The field name
+ // data.element --> The new field element
+ // data.options --> The new field options
+
+ if (data.field === 'external_link') {
+ if ($('#ajout_actu').find(':visible[name="external_file"]').length >= MAX_FILES) {
+ $('#ajout_actu').find('.addButton_files').attr('disabled', 'disabled');
+ }
+ }
+ });
+ */

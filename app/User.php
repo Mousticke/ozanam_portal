@@ -25,6 +25,11 @@ class User extends Model implements Authenticatable
         return $this->hasMany('App\Post' );
     }
 
+    public function link ()
+    {
+        return $this->hasMany('App\Link' );
+    }
+
     public function menu ()
     {
         return $this->hasMany('App\Menu' );

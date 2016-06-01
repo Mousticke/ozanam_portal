@@ -8,7 +8,7 @@
         </div><!-- /.box-header -->
         <div class="box-body">
             <header><h3>Actualités du moment : </h3></header>
-            <form action="{{route('post.create')}}" method="post" id="ajout_actu">
+            <form action="{{route('post.create')}}" method="post" id="ajout_actu" enctype="multipart/form-data">
                 @include('admin.gestion.includes.actuElements')
                 @include('admin.gestion.includes.actuSocial')
                 <div class="form-group bg-">

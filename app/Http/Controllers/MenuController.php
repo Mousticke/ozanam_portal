@@ -152,8 +152,7 @@ class MenuController extends Controller
         if(File::exists($filename)){
             $menu->icon = 'uploads/' . $file->getClientOriginalName();
             $message = 'Il y a une erreur';
-
-
+            
             /*Save the post si c'est un succès c'est bon.*/
             if ($request->user()->menu()->save($menu)) {
                 $message = 'L\'icône est existant dans la base de données. Supression de duplication. L\'élement a bien été ajouté au menu';

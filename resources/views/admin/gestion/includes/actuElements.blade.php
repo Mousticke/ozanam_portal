@@ -18,46 +18,26 @@
     <span class="input-group-addon" id="basic-addon6"><i class="fa fa-internet-explorer" aria-hidden="true"></i></span>
     <div class="col-lg-8">
         <input type="text" aria-describedby="basic-addon6" class="form-control"
-               name="external_link" id="external_link" title="Liens externes" placeholder="Liens externes "/>
+               name="external_link[]" id="external_link" title="Liens externes" placeholder="Liens externes "/>
     </div>
-    <div class="col-xs-4">
+    <div class="append col-xs-4">
         <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
     </div>
 </div>
-
-<div id="external_links_template" class="input-group {{ $errors->has('external_link') ? 'has-error ' : '' }} hide">
-    <span class="input-group-addon" id="basic-addon6"><i class="fa fa-internet-explorer" aria-hidden="true"></i></span>
-    <div class="col-lg-8">
-        <input type="text" aria-describedby="basic-addon6" class="form-control"
-               name="external_link" id="external_link" title="Liens externes" placeholder="Liens externes "/>
-    </div>
-    <div class="col-xs-4">
-        <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
-    </div>
-</div>
+<div class="clearfix"></div>
 
 <div id="external_files" class="input-group {{ $errors->has('external_file') ? 'has-error ' : '' }}">
     <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file" aria-hidden="true"></i></span>
     <div class="col-lg-8">
         <input type="file" aria-describedby="basic-addon7" class="form-control"
-               name="external_file" id="external_file" title="Fichiers externes" placeholder="Fichiers externes "/>
+               name="external_file[]" id="external_file" title="Fichiers externes" placeholder="Fichiers externes "/>
     </div>
     <div class="col-xs-4">
         <button type="button" class="btn btn-default addButton_files"><i class="fa fa-plus"></i></button>
     </div>
 </div>
 
-
-<div id="external_files_template" class="input-group {{ $errors->has('external_file') ? 'has-error ' : '' }} hide">
-    <span class="input-group-addon" id="basic-addon7"><i class="fa fa-file" aria-hidden="true"></i></span>
-    <div class="col-lg-8">
-        <input type="file" aria-describedby="basic-addon7" class="form-control"
-               name="external_file" id="external_file" title="Fichiers externes" placeholder="Fichiers externes "/>
-    </div>
-    <div class="col-xs-4">
-        <button type="button" class="btn btn-default removeButton_files"><i class="fa fa-minus"></i></button>
-    </div>
-</div>
+<div class="clearfix"></div>
 
 <div class="input-group {{ $errors->has('color_actu') ? 'has-error ' : '' }}">
     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-paint-brush" aria-hidden="true"></i></span>

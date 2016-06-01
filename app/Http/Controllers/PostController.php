@@ -16,6 +16,7 @@ use App\Post;
 use App\Timeline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class PostController extends Controller
 {
@@ -95,11 +96,11 @@ class PostController extends Controller
      */
     public function postCreateActualite (Request $request)
     {
+
         $this->validate($request, [
             'titre' => 'required',
             'img_actu',
             'external_link',
-            'external_file',
             'body' => 'required|max:500',
             'color_actu' => 'required',
             'facebook_actu',
@@ -107,10 +108,14 @@ class PostController extends Controller
             'google_actu',
         ]);
 
-        $link_post = new Link();
-        $file_post  = new File();
+        
+
+
+
+
         $timeline = new Timeline();
         $post = new Post();
+        $files = Input::file('external_file');
 
         $post->titre = $request['titre'];
         $post->body = $request['body'];
@@ -119,23 +124,7 @@ class PostController extends Controller
         $post->twitter_post = $request['twitter_actu'];
         $post->google_post = $request['google_actu'];
 
-        $message3 = 'Il n\' y a une erreur';
-        if(count($request['external_link'])>1){
-            foreach ($request['external_link'] as $key=>$links){
-                $link_post->body = $links['exteranl_link'];
-                $link_post->user_id = 3;
-                if ($request->user()->post()->save($link_post)) {
-                    $message3 = 'Le lien numéro ' . $key . ' a été ajouté' ;
-                }
-            }
-        }else{
-            $link_post->body = $request['exteranl_link'];
-            $link_post->user_id = 3;
-            if ($request->user()->post()->save($link_post)) {
-                $message3 = 'Le lien a été ajouté' ;
-            }
-        }
-        
+
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
         /*Save the post si c'est un succès c'est bon.*/
@@ -150,7 +139,30 @@ class PostController extends Controller
         if ($request->user()->post()->save($timeline)) {
             $message2 = 'Ajout à la timeline réussi';
         }
-        return redirect()->route('admin_actualite')->with(['message' => $message, 'message2' =>$message2, 'message3' =>$message3]);
+
+        $message3 = 'Il y a une erreur';
+        for ($i=0; $i<count($request->external_link); $i++){
+            $link_post = new Link();
+            $link_post->body = $request->external_link[$i];
+            $link_post->user_id = 3;
+            $link_post->post_id = $post->id;
+            if($request->user()->post()->save($link_post))
+                $message3 = 'Lien ajouté';
+        }
+
+        $message4 = 'Il y a une erreur';
+        foreach($files as $file) {
+            $file_post = new File();
+            $file->move('files/shares/', $file->getClientOriginalName());
+            $file_post->body = 'files/shares/' . $file->getClientOriginalName();
+            $file_post->user_id = 3;
+            $file_post->post_id = $post->id;
+            if($request->user()->post()->save($file_post))
+                $message4 = 'Fichier ajouté';
+
+        }
+
+        return redirect()->route('admin_actualite')->with(['message' => $message, 'message2' =>$message2, 'message3' =>$message3, 'message4'=> $message4]);
     }
 
     /**
@@ -194,9 +206,9 @@ class PostController extends Controller
 
 
     /**
-     *                                      PARTIE OBSOLETE 
+     *                                      PARTIE OBSOLETE
      */
-    
+
     /**
      * On ne peut supprimer que notre post. Même via l'url, on ne peut pas supprimer si on n'est pas
      * le propriétaire
