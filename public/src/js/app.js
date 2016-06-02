@@ -2,7 +2,7 @@
  * Created by Akim on 03/05/2016.
  */
 var postId, actuId = 0;
-var postBodyElement, actuBodyElement, ArticleContent, ArticleTitle, ArticleImage, ArticleLink, ArticleDate = null;
+var postBodyElement, actuBodyElement, ArticleContent, ArticleTitle, ArticleImage, ArticleLink, ArticleDate, ArticleFile = null;
 /*
  $('.postArticle').find('.interaction').find('.edit').on('click', function(event){
  event.preventDefault();
@@ -40,7 +40,6 @@ $('.shadowDepth1').find('.actu_content').find('.readmore').on('click', function 
 $(".modal").on("hidden.bs.modal", function(){
     $(".modal_contentArticle").find('#title_actu').html("");
     $(".modal_contentArticle").find('#content_actu').html("");
-    $(".tab-content").find('a.link_actualite').remove();
 });
 
 $('.readmore').on('click', function (event) {
@@ -52,12 +51,21 @@ $('.readmore').on('click', function (event) {
     ArticleImage = event.target.parentNode.parentNode.getAttribute('data-img');
 
     ArticleLink = event.target.parentNode.parentNode.getAttribute('data-link');
-    var arr = ArticleLink.split(',')
+    var arr = ArticleLink.split(',');
 
+    ArticleFile = event.target.parentNode.parentNode.getAttribute('data-file');
+    var arr2 = ArticleFile.split(',');
+    
     for (var i = 0; i < arr.length; i++) {
         console.log(arr[i]);
         $('#link_actu').attr('href', ArticleLink);
         $('#link_actu').text('Lien numéro : '+ i +'.');
+    }
+
+    for (var j = 0; j < arr2.length; j++) {
+        console.log(arr2[j]);
+        $('#file_actu').attr('href', ArticleFile);
+        $('#file_actu').text('Ficher : '+ j +'.');
     }
 
     console.log(ArticleContent);
