@@ -5,116 +5,140 @@
                 <div flex-xs flex-gt-xs="100" layout="row">
                     @foreach($posts as $key=>$post)
                         @if($post->id != 1)
-                            <div class="info-box card radius shadowDepth1 bg-{{$post->color}}" data-actuid="{{ $post->id }}" data-content="{{$post->body}}">
-                                <div class="bg-{{$post->color}} actu_content">
-                                    <div class="card_header_actu bg-blue">
-                                        <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
-                                        <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                    </div>
-                                    <div class="resume_bio">
-                                        <a class="img-actu card__image border-tlr-radius">
-                                            <img style="height: 250px;" src="{{URL::to($post->image_actu)}}" alt="image" class="border-tlr-radius">
-                                        </a>
-                                    </div>
-                                    <div class="card__content card__padding">
-                                        <div class="card__share">
-                                            <div class="card__social">
-                                                <a class="share-icon facebook" href="#"><span
-                                                            class="fa fa-facebook"></span></a>
-                                                <a class="share-icon twitter" href="#"><span
-                                                            class="fa fa-twitter"></span></a>
-                                                <a class="share-icon googleplus" href="#"><span
-                                                            class="fa fa-google-plus"></span></a>
-                                            </div>
-                                            <a id="share" class="share-toggle share-icon" href="#"></a>
-                                        </div>
-                                    </div>
-                                    <article class="card__article">
-                                        @if(strlen(html_entity_decode($post->body))>47)
-                                            {{--*/ $resume = substr(html_entity_decode($post->body),0, 100) /*--}}
-                                            <div style="text-indent: 20px !important;" class="contentArticle article_cut">
-                                                {!! html_entity_decode($resume) !!}  <em>...</em> </div>
-                                            <div style="display: none;text-indent: 20px !important;" class="contentArticle article_full">
-                                                {!! html_entity_decode($post->body) !!}  <em>...</em> </div>
-                                        @else
-                                            <div style="text-indent: 20px !important;" class="contentArticle article_full">{!! html_entity_decode($post->body) !!}</div>
-                                        @endif
-                                    </article>
-
+                            <div class="info-box card radius shadowDepth1 bg-{{$post->color}}" data-actuid="{{ $post->id }}"
+                                 data-title="{{$post->titre}}" data-img="{{$post->image_actu}}" data-content="{{$post->body}}"
+                                 data-date="{{date('d M Y' ,strtotime($post->created_at))}}" data-link = "@foreach($links as $link)
+                            @if($link->post_id == $post->id)
+                                @if(str_contains($link->body , '.fr') || str_contains($link->body , '.com') || str_contains($link->body , '.org') || str_contains($link->body , '.net'))
+                                    @if(starts_with($link->body , 'wwww.'))
+                                        'http://{{$link->body}}'}}  ,
+                                    @elseif(starts_with($link->body , 'http://'))
+                                        'http://{{$link->body}}',
+                                    @elseif(starts_with($link->body , 'https://'))
+                                        'http://{{$link->body}}',
+                                    @elseif(!starts_with($link->body , 'https://') && !starts_with($link->body , 'http://') && !starts_with($link->body , 'www.'))
+                                        'http://{{$link->body}}',
+                                    @endif
+                                    @else
+                                        @if(starts_with($link->body , 'wwww'))
+                                            'http://{{$link->body}}.fr'
+                                        @elseif(starts_with($link->body , 'http://'))
+                                            'http://{{$link->body}}.fr',
+                                        @elseif(starts_with($link->body , 'https://'))
+                                            'http://{{$link->body}}.fr',
+                                        @elseif(!starts_with($link->body , 'https://') && !starts_with($link->body , 'http://') && !starts_with($link->body , 'www.'))
+                                            'http://www.{{$link->body}}.fr',
+                                    @endif
+                                @endif
+                            @endif
+                    @endforeach ">
+                    <div class="bg-{{$post->color}} actu_content">
+                        <div class="card_header_actu bg-blue">
+                            <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
+                            <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
+                        </div>
+                        <div class="resume_bio">
+                            <a class="img-actu card__image border-tlr-radius">
+                                <img style="height: 250px;" src="{{URL::to($post->image_actu)}}" alt="image" class="border-tlr-radius">
+                            </a>
+                        </div>
+                        <div class="card__content card__padding">
+                            <div class="card__share">
+                                <div class="card__social">
+                                    <a class="share-icon facebook" href="#"><span
+                                                class="fa fa-facebook"></span></a>
+                                    <a class="share-icon twitter" href="#"><span
+                                                class="fa fa-twitter"></span></a>
+                                    <a class="share-icon googleplus" href="#"><span
+                                                class="fa fa-google-plus"></span></a>
                                 </div>
-                                <div class="readme_center">
-                                    <a href="#" class="btn icon-btn btn-info readmore">
-                                        <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
-                                        Lire plus
-                                    </a>
-                                </div>
-                                <!--MODAL-->
-
+                                <a id="share" class="share-toggle share-icon" href="#"></a>
                             </div>
-                        @endif
-                        <div class="modal fade modal-wide modal-primary" id="actualite_display">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                            ×
-                                        </button>
-                                        <h4 class="modal-title">
-                                            <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
-                                            <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
-                                        </h4>
-                                    </div>
-                                    <div class="modal-body"
-                                         style="background-color: #FFFFFF !important; color : #5D9CEC !important;">
-                                        <div class="attach_media">
-                                            <img style="max-height: 400px; max-width: 500px;"
-                                                 src="{{URL::to($post->image_actu)}}" alt="img_modal" class="center_image_modal">
-                                        </div>
-                                        <div class="row">
-                                            <!-- Custom Tabs (Pulled to the right) -->
-                                            <div class="nav-tabs-custom">
-                                                <ul class="nav nav-tabs pull-right">
-                                                    <li class="active annexes_link"><a href="#tab_1-1" data-toggle="tab" aria-expanded="true"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens</a>
-                                                    </li>
-                                                    <li class="annexes_files"><a href="#tab_2-2" data-toggle="tab" aria-expanded="false"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichiers</a></li>
-                                                    <li class="annexes_facebook"><a href="#tab_3-2" data-toggle="tab" aria-expanded="false"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp Facebook</a></li>
-                                                    <li class="pull-left header"><i class="fa fa-th"></i>Liens/Fichiers Utiles</li>
-                                                </ul>
-                                                <div class="tab-content">
-                                                    <div class="tab-pane active" id="tab_1-1">
-                                                        <a href="http://www.google.fr" class="link_modal"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens 1</a>
-                                                        <a href="http://www.google.fr" class="link_modal"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens 2</a>
-                                                    </div><!-- /.tab-pane -->
-                                                    <div class="tab-pane" id="tab_2-2">
-                                                        <a href="http://www.google.fr" class="files_modal"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichier 1</a>
-                                                        <a href="http://www.google.fr" class="files_modal"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichier 2</a>
-                                                    </div><!-- /.tab-pane -->
-                                                    <div class="tab-pane" id="tab_3-2">
-                                                        <a href="http://www.google.fr" class="facebook_modal"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp Facebook</a>
-                                                    </div><!-- /.tab-pane -->
-                                                </div><!-- /.tab-content -->
-                                            </div><!-- nav-tabs-custom -->
-                                        </div>
-                                        <br>
-                                        <blockquote class="modal_contentArticle"
-                                                    style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%;">
-                                            <em>Un titre</em><br/><hr/>
-                                            <div id="content_actu"></div>
-                                        </blockquote>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-info">Précédent</button>
-                                        <button type="button" class="btn btn-success">Suivant</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div><!-- /.modal-content -->
-                            </div><!-- /.modal-dialog -->
-                        </div><!-- /.modal -->
-                    @endforeach
+                        </div>
+                        <article class="card__article">
+                            @if(strlen(html_entity_decode($post->body))>47)
+                                {{--*/ $resume = substr(html_entity_decode($post->body),0, 100) /*--}}
+                                <div style="text-indent: 20px !important;" class="contentArticle article_cut">
+                                    {!! html_entity_decode($resume) !!}  <em>...</em> </div>
+                                <div style="display: none;text-indent: 20px !important;" class="contentArticle article_full">
+                                    {!! html_entity_decode($post->body) !!}  <em>...</em> </div>
+                            @else
+                                <div style="text-indent: 20px !important;" class="contentArticle article_full">{!! html_entity_decode($post->body) !!}</div>
+                            @endif
+                        </article>
+
+                    </div>
+                    <div class="readme_center">
+                        <a href="#" class="btn icon-btn btn-info readmore">
+                            <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
+                            Lire plus
+                        </a>
+                    </div>
+                    <!--MODAL-->
+
                 </div>
+                @endif
+                <div class="modal fade modal-wide modal-primary" id="actualite_display">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×
+                                </button>
+                                <h4 class="modal-title">
+                                    <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
+                                    <span id="date" class="info-box-number"></span>
+                                </h4>
+                            </div>
+                            <div class="modal-body"
+                                 style="background-color: #FFFFFF !important; color : #5D9CEC !important;">
+                                <div class="attach_media">
+                                    <img src="" id="image_actu" style="max-height: 400px; max-width: 500px;" alt="img_modal" class="center_image_modal">
+                                </div>
+                                <div class="row">
+                                    <!-- Custom Tabs (Pulled to the right) -->
+                                    <div class="nav-tabs-custom">
+                                        <ul class="nav nav-tabs pull-right">
+                                            <li class="active annexes_link"><a href="#tab_1-1" data-toggle="tab" aria-expanded="true"><i class="fa fa-internet-explorer" aria-hidden="true"></i>&nbsp Liens</a>
+                                            </li>
+                                            <li class="annexes_files"><a href="#tab_2-2" data-toggle="tab" aria-expanded="false"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichiers</a></li>
+                                            <li class="annexes_facebook"><a href="#tab_3-2" data-toggle="tab" aria-expanded="false"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp Facebook</a></li>
+                                            <li class="pull-left header"><i class="fa fa-th"></i>Liens/Fichiers Utiles</li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab_1-1">
+                                                <a href="" id="link_actu" class="custom-color-a-link"></a>
+                                            </div><!-- /.tab-pane -->
+                                            <div class="tab-pane" id="tab_2-2">
+                                                <a href="http://www.google.fr" class="files_modal"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichier 1</a>
+                                                <a href="http://www.google.fr" class="files_modal"><i class="fa fa-file" aria-hidden="true"></i>&nbsp Fichier 2</a>
+                                            </div><!-- /.tab-pane -->
+                                            <div class="tab-pane" id="tab_3-2">
+                                                <a href="http://www.google.fr" class="facebook_modal"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp Facebook</a>
+                                            </div><!-- /.tab-pane -->
+                                        </div><!-- /.tab-content -->
+                                    </div><!-- nav-tabs-custom -->
+                                </div>
+                                <br>
+                                <blockquote class="modal_contentArticle"
+                                            style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%;">
+                                    <em id="title_actu"></em><br/><hr/>
+                                    <div id="content_actu"></div>
+                                </blockquote>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-info">Précédent</button>
+                                <button type="button" class="btn btn-success">Suivant</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+                @endforeach
             </div>
         </div>
     </div>
+</div>
 </div>
 <div class="clearfix"></div>
 <div class="row">

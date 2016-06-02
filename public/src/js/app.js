@@ -2,7 +2,7 @@
  * Created by Akim on 03/05/2016.
  */
 var postId, actuId = 0;
-var postBodyElement, actuBodyElement, ArticleContent = null;
+var postBodyElement, actuBodyElement, ArticleContent, ArticleTitle, ArticleImage, ArticleLink, ArticleDate = null;
 /*
  $('.postArticle').find('.interaction').find('.edit').on('click', function(event){
  event.preventDefault();
@@ -37,11 +37,43 @@ $('.shadowDepth1').find('.actu_content').find('.readmore').on('click', function 
     $('#actualite_display').modal();
 });
 */
+$(".modal").on("hidden.bs.modal", function(){
+    $(".modal_contentArticle").find('#title_actu').html("");
+    $(".modal_contentArticle").find('#content_actu').html("");
+    $(".tab-content").find('a.link_actualite').remove();
+});
+
 $('.readmore').on('click', function (event) {
     event.preventDefault();
+    ArticleDate = event.target.parentNode.parentNode.dataset['date'];
     ArticleContent = event.target.parentNode.parentNode.dataset['content'];
+    ArticleTitle = event.target.parentNode.parentNode.dataset['title'];
+    //ArticleImage = event.target.parentNode.parentNode.dataset['img'];
+    ArticleImage = event.target.parentNode.parentNode.getAttribute('data-img');
+
+    ArticleLink = event.target.parentNode.parentNode.getAttribute('data-link');
+    var arr = ArticleLink.split(',')
+
+    for (var i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+        $('#link_actu').attr('href', ArticleLink);
+        $('#link_actu').text('Lien numéro : '+ i +'.');
+    }
+
     console.log(ArticleContent);
+    console.log(ArticleTitle);
+    console.log(ArticleImage);
+    console.log(ArticleDate);
     //alert('ouverture');
+    $('#image_actu').attr('src', ArticleImage);
+
+    /*$(".modal_contentArticle").find('#attach_media').append('<img src="' + ArticleImage + '" id="image_actu" ' +
+        'style="max-height: 400px; max-width: 500px;" ' +
+        'alt="img_modal" ' +
+        'class="center_image_modal">'
+    );*/
+    $(".modal-title").find('#date').text(ArticleDate);
+    $(".modal_contentArticle").find('#title_actu').html(ArticleTitle);
     $(".modal_contentArticle").find('#content_actu').html(ArticleContent);
     console.log($(".modal_contentArticle").find('#content_actu').html(ArticleContent));
     $('#actualite_display').modal();

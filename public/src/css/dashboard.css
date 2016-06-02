@@ -39,6 +39,12 @@ blockquote.contentArticle{
     font-size: smaller;
 }
 
+.custom-color-a-link{
+    color: #8E0000 !important;
+}
+.link_actualite{
+    display: block;
+}
 .posts .postArticle .postAdmin {
     padding-left: 10px;
     border-left: 3px solid #a21b24;

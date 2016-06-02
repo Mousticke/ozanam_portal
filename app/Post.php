@@ -28,11 +28,11 @@ class Post extends Model
         return $this->belongsTo('App\Color');
     }
 
-    public function file_post(){
+    public function file(){
         return $this->hasMany('App\File');
     }
 
-    public function link_post(){
+    public function link(){
         return $this->hasMany('App\Link');
     }
 }

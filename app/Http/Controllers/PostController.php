@@ -28,12 +28,14 @@ class PostController extends Controller
     public function getDashboard ()
     {
         $posts = Post::orderBy('created_at', 'desc')->get();
+        $links = Link::orderBy('created_at', 'desc')->where('post_id', $posts->id);
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         $menus = Menu::orderBy('created_at', 'desc')->get();
         return view('dashboard', [
             'posts' => $posts,
             'carousels' => $carousels,
             'menus' => $menus,
+            'links' => $links,
         ]);
     }
 
@@ -43,6 +45,7 @@ class PostController extends Controller
      */
     public function getDashboardIndex ()
     {
+        $links = Link::orderBy('created_at', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         $menus = Menu::orderBy('created_at', 'desc')->get();
@@ -50,6 +53,7 @@ class PostController extends Controller
             'posts' => $posts,
             'carousels' => $carousels,
             'menus' => $menus,
+            'links' => $links,
         ]);
     }
 
