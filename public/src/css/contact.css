@@ -13,6 +13,11 @@
     pointer-events: none !important;
 }
 
+/* add padding  */
+.left-addon input {
+    padding-left: 30px !important;
+}
+
 /* align icon */
 .left-addon .glyphicon {
     left: 0px !important;
@@ -20,11 +25,6 @@
 
 .right-addon .glyphicon {
     right: 0px !important;
-}
-
-/* add padding  */
-.left-addon input {
-    padding-left: 30px !important;
 }
 
 .right-addon input {
