@@ -1,3 +1,15 @@
+#rss_tabs>li.active>a, #rss_tabs>li.active>a:focus, #rss_tabs>li.active>a:hover{
+    color: #555 !important;
+    cursor: default !important;
+    background-color: orangered !important;
+    border: 1px solid #ddd !important;
+    border-bottom-color: transparent !important;
+}
+
+#rss_tabs>li>a:hover, #rss_tabs>li>a:active, #rss_tabs>li>a:focus {
+    color: #444;
+    background: orangered !important;
+}
 blockquote.contentArticle{
     display: block;
     margin: 0 auto;
