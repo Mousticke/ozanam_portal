@@ -1,10 +1,5 @@
 @extends('layouts.master')
 
-<!--
-section('carouselGestion')
-    include('includes.gestion')
-endsection
--->
 @section('carousel')
     @include('includes.carousel')
 @endsection

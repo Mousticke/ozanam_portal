@@ -4,8 +4,6 @@
     Portail Ozanam
 @endsection
 
-
-
 @section('carousel')
     @include('includes.carousel')
 @endsection

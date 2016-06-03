@@ -12,7 +12,6 @@
             @include('admin.common.footerAdmin')
             @include('admin.common.sidebarLeft')
             <div class="control-sidebar-bg"></div>
-
         </div>
     @include('admin.layouts.script')
 

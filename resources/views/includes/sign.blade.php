@@ -1,9 +1,7 @@
 <div class="container-fluid" id="signform">
 
     <div class="col-lg-4 col-md-6 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-lg-offset-1">
-
         @include('includes.message-block')
-
         <h3>S'enregistrer</h3>
         <form action="{{route('signup')}}" method="POST">
 
@@ -30,11 +28,8 @@
         </form>
     </div>
 
-
     <div class=" col-lg-4 col-md-6 col-sm-5 col-xs-5 col-md-offset-1 col-sm-offset-1 col-lg-offset-1">
-
         @include('includes.message-block')
-
         <h3>S'Authentifier</h3>
         <form action="{{route('signin')}}" method="POST">
             <div class="form-group {{ $errors->has('email') ? 'has-error ' : '' }}">

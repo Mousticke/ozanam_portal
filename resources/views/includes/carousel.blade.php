@@ -19,14 +19,8 @@
                                      alt="First slide">
                             </a>
                         </div>
-                        <!--CONTROLLER ANGULAR MODAL-->
                         <div class="slide-content">
                             <blockquote><p>Vu des chambres du Lycée Ozanam</p></blockquote>
-                            <!-- <button class="btn icon-btn btn-info">
-                                <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
-                                Lire plus
-                            </button> -->
-                            <!--TODO : Modal boostrap lire plus-->
                         </div>
                     </div>
                 </div>
@@ -41,11 +35,12 @@
                                          alt="First slide">
                                 </a>
                             </div>
-                            <!--CONTROLLER ANGULAR MODAL-->
                             <div class="slide-content">
-                                <blockquote><p>{!! html_entity_decode($carousel->body) !!}.
-                                        <em>Par {{$carousel->user->first_name}}</em></p></blockquote>
-                                <!--TODO : Modal boostrap lire plus-->
+                                <blockquote>
+                                    <p>{!! html_entity_decode($carousel->body) !!}.
+                                        <em>Par {{$carousel->user->first_name}}</em>
+                                    </p>
+                                </blockquote>
                             </div>
                         </div>
                     </div>

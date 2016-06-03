@@ -1,8 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
-
     @include('includes.message-block')
     <div>
         <header><h3>Nouveautés : </h3></header>
@@ -28,6 +26,4 @@
             @endforeach
         </section>
     </div>
-
-
 @endsection
