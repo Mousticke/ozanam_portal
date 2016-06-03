@@ -40,6 +40,8 @@ $('.shadowDepth1').find('.actu_content').find('.readmore').on('click', function 
 $(".modal").on("hidden.bs.modal", function(){
     $(".modal_contentArticle").find('#title_actu').html("");
     $(".modal_contentArticle").find('#content_actu').html("");
+    $(".tab-content").find('#tab_1-1').html("");
+    $(".tab-content").find('#tab_2-2').html("");
 });
 
 $('.readmore').on('click', function (event) {
@@ -55,19 +57,17 @@ $('.readmore').on('click', function (event) {
 
     ArticleFile = event.target.parentNode.parentNode.getAttribute('data-file');
     var arr2 = ArticleFile.split(',');
-    
+   
     for (var i = 0; i < arr.length; i++) {
         console.log(arr[i]);
-        $('#link_actu').attr('href', ArticleLink);
-        $('#link_actu').text('Lien numéro : '+ i +'.');
+        $(".tab-content").find('#tab_1-1').append(arr[i] + '<br>');
     }
 
     for (var j = 0; j < arr2.length; j++) {
         console.log(arr2[j]);
-        $('#file_actu').attr('href', ArticleFile);
-        $('#file_actu').text('Ficher : '+ j +'.');
+        $(".tab-content").find('#tab_2-2').append(arr2[j] + '<br>');
     }
-
+    
     console.log(ArticleContent);
     console.log(ArticleTitle);
     console.log(ArticleImage);

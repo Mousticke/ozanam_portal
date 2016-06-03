@@ -1,43 +1,42 @@
 <div class="col-lg-8 col-lg-offset-2"><!---->
     <div class="row posts">
         <div ng-cloak>
-            <div class="md-padding" layout-xs="column" layout="row">
+                <div class="md-padding" layout-xs="column" layout="row">
                 <div flex-xs flex-gt-xs="100" layout="row">
                     @foreach($posts as $key=>$post)
-                        @if($post->id != 1)
+                        @if($post->id != 1 && $key<=4)
                             <div class="info-box card radius shadowDepth1 bg-{{$post->color}}" data-actuid="{{ $post->id }}"
                                  data-title="{{$post->titre}}" data-img="{{$post->image_actu}}" data-content="{{$post->body}}"
                                  data-date="{{date('d M Y' ,strtotime($post->created_at))}}" data-link = " @foreach($links as $link)
                             @if($link->post_id == $post->id)
                             @if(str_contains($link->body , '.fr') || str_contains($link->body , '.com') || str_contains($link->body , '.org') || str_contains($link->body , '.net'))
                             @if(starts_with($link->body , 'wwww.'))
-                                    'http://{{$link->body}}'}}  ,
+                                    <a class='custom-color-a-link' href='http://{{$link->body}}'>http://{{$link->body}}</a>,
                                     @elseif(starts_with($link->body , 'http://'))
-                                    'http://{{$link->body}}',
+                                    <a class='custom-color-a-link' href='http://{{$link->body}}'>http://{{$link->body}}</a>,
                                     @elseif(starts_with($link->body , 'https://'))
-                                    'http://{{$link->body}}',
+                                    <a class='custom-color-a-link' href='http://{{$link->body}}'>http://{{$link->body}}</a>,
                                     @elseif(!starts_with($link->body , 'https://') && !starts_with($link->body , 'http://') && !starts_with($link->body , 'www.'))
-                                    'http://{{$link->body}}',
+                                    <a class='custom-color-a-link' href='http://{{$link->body}}'>http://{{$link->body}}</a>,
                                     @endif
                             @else
                             @if(starts_with($link->body , 'wwww'))
-                                    'http://{{$link->body}}.fr'
+                                    <a class='custom-color-a-link' href='http://{{$link->body}}.fr'>http://{{$link->body}}.fr</a>,
                                         @elseif(starts_with($link->body , 'http://'))
-                                    'http://{{$link->body}}.fr',
+                                    <a class='custom-color-a-link' href='http://{{$link->body}}.fr'>http://{{$link->body}}.fr</a>,
                                         @elseif(starts_with($link->body , 'https://'))
-                                    'http://{{$link->body}}.fr',
+                                    <a class='custom-color-a-link' href='http://{{$link->body}}.fr'>http://{{$link->body}}.fr</a>,
                                         @elseif(!starts_with($link->body , 'https://') && !starts_with($link->body , 'http://') && !starts_with($link->body , 'www.'))
-                                    'http://www.{{$link->body}}.fr',
+                                    <a class='custom-color-a-link' href='http://www.{{$link->body}}.fr'>http://www.{{$link->body}}.fr</a>,
                                     @endif
                             @endif
                             @endif
                             @endforeach "
-                            data-file = "@foreach($files as $file)
+                            data-file = "@foreach($files as $key3=>$file)
                                 @if($file->post_id == $post->id)
-                                    {{$file->body}},
+                                    <a class='custom-color-a-file' href='{{URL::to($file->body)}}'>Fichier joint {{$key3}}</a>,
                                  @endif
-                            @endforeach
-                                    "
+                            @endforeach "
                             >
                                 <div class="bg-{{$post->color}} actu_content">
                                     <div class="card_header_actu bg-blue">
@@ -114,10 +113,8 @@
                                                 </ul>
                                                 <div class="tab-content">
                                                     <div class="tab-pane active" id="tab_1-1">
-                                                        <a href="" id="link_actu" class="custom-color-a-link"></a>
                                                     </div><!-- /.tab-pane -->
                                                     <div class="tab-pane" id="tab_2-2">
-                                                        <a href="" id="file_actu" class="custom-color-a-link"></a>
                                                     </div><!-- /.tab-pane -->
                                                     <div class="tab-pane" id="tab_3-2">
                                                         <a href="http://www.google.fr" class="facebook_modal"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp Facebook</a>
