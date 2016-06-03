@@ -43,11 +43,19 @@
                                         <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
                                         <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
                                     </div>
-                                    <div class="resume_bio">
-                                        <a class="img-actu card__image border-tlr-radius">
-                                            <img style="height: 250px;" src="{{URL::to($post->image_actu)}}" alt="image" class="border-tlr-radius">
-                                        </a>
-                                    </div>
+                                    @if($post->image_actu != null)
+                                        <div class="resume_bio">
+                                            <a class="img-actu card__image border-tlr-radius">
+                                                <img style="height: 250px;" src="{{URL::to($post->image_actu)}}" alt="image" class="border-tlr-radius">
+                                            </a>
+                                        </div>
+                                    @else
+                                        <div class="resume_bio">
+                                            <a class="img-actu card__image border-tlr-radius">
+                                                <img style="height: 250px;" src="{{URL::to('slider/slider1.jpg')}}" alt="image" class="border-tlr-radius">
+                                            </a>
+                                        </div>
+                                    @endif
                                     <div class="card__content card__padding">
                                         <div class="card__share">
                                             <div class="card__social">
