@@ -66,5 +66,6 @@
             });
         }
     };
+
     tinymce.init(editor_config);
 </script>
