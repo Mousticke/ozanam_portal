@@ -23,13 +23,15 @@ Route::get('/', [
 ]);
 
 /**
- * Partie Connectée
+ *                                                      Partie Connectée
  */
 Route::get('/dashboard', [
     'uses' => 'PostController@getDashboard',
     'as' => 'dashboard',
     'middleware' => 'auth'
 ]);
+
+
 
 /**
  *                                                  Partie admin

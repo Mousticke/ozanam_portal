@@ -155,14 +155,19 @@
                     <div class="progress">
                         <div class="progress-bar" style="width: 100%"></div>
                     </div>
-                    FLUX RSS 1
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 100%"></div>
-                    </div>
-                    FLUX RSS 2
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 100%"></div>
-                    </div>
+                    <ul>
+                        @foreach($xml as $feeds)
+                            <li>
+                                <strong>{{$feeds->title}}</strong>
+                                <blockquote>{{$feeds->description}}</blockquote>
+                                <strong>Date : {{$feeds->pubDate}}</strong>
+                                <strong>Source : {{$feeds->link}}</strong>
+                            </li>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
