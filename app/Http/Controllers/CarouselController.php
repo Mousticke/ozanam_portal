@@ -25,10 +25,6 @@ class CarouselController extends Controller
     public function getDeleteCarousel ($carousel_id)
     {
 
-        /*Alternative :
-         * $post = Post::find($post_id)->first();
-         */
-        //chercher un unique post à supprimer par son id
         $carousel = Carousel::where('id', $carousel_id)->first();
         if (Auth::user() != $carousel->user) {
             return redirect()->back();

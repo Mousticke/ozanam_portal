@@ -69,7 +69,6 @@ class MenuController extends Controller
         return view('admin.includes.manageNavbar', [
             'menus' => $menus,
             'faicons' => $faicons,
-
         ]);
     }
 

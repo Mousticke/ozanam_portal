@@ -28,13 +28,6 @@ class PostController extends Controller
      */
     public function getDashboard ()
     {
-        /*
-        $feed = simplexml_load_file('http://0511147v.esidoc.fr/search.php?action=Basket&method=admin_view_rss&pid=2260&view=rss&image_type=large&count=10');
-        $xml_file_content = file_get_contents('http://0511147v.esidoc.fr/search.php?action=Basket&method=admin_view_rss&pid=2260&view=rss&image_type=large&count=10');
-
-
-        var_dump($xml_file_content);die;
-        */
         $string = <<<XML
         <rss xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:exist="http://exist.sourceforge.net/NS/exist" xmlns:marc="http://www.loc.gov/MARC21/slim" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" version="2.0">
             <channel>
@@ -1292,7 +1285,6 @@ XML;
      */
     public function postCreateActualite (Request $request)
     {
-
         $this->validate($request, [
             'titre' => 'required',
             'image_actu',
@@ -1383,7 +1375,7 @@ XML;
         $timeline->title = "Edition d'une actualité";
 
         $message = 'Il n\' y a une erreur';
-        /*Save the action si c'est un succès c'est bon.*/
+    
         if ($request->user()->post()->save($timeline)) {
             $message = 'Ajout à la timeline réussi';
         }
