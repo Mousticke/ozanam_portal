@@ -4,8 +4,8 @@
             <h3 class="box-title">Ajout dans le Carousel</h3>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
+            </div>
+        </div>
         <div class="box-body">
             <header><h3>Gestion du carousel </h3></header>
             <form action="{{route('carousel.create')}}" method="post">
@@ -19,6 +19,6 @@
                 </button>
                 <input type="hidden" value="{{Session::token()}}" name="_token">
             </form>
-        </div><!-- /.box-body -->
-    </div><!-- /.box -->
+        </div>
+    </div>
 </div>

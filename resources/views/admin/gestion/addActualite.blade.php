@@ -4,8 +4,8 @@
             <h3 class="box-title">Ajout d'une actualité</h3>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            </div><!-- /.box-tools -->
-        </div><!-- /.box-header -->
+            </div>
+        </div>
         <div class="box-body">
             <header><h3>Actualités du moment : </h3></header>
             <form action="{{route('post.create')}}" method="post" id="ajout_actu" enctype="multipart/form-data">
@@ -22,6 +22,6 @@
                 <input type="hidden" value="{{Session::token()}}" name="_token">
             </form>
             @include('admin.gestion.includes.actuPreview')
-        </div><!-- /.box-body -->
-    </div><!-- /.box -->
+        </div>
+    </div>
 </div>
