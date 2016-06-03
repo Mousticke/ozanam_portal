@@ -9,18 +9,6 @@ app.controller('pl_adminController', function ($scope) {
     };
 });
 
-
-/*app.config(function($routeProvider){
- $routeProvider
- .when('/actualite', {
- templateUrl : 'includes/manageActualite',
- controller : 'pl_adminController'
- });
- });
- app.controller('pl_adminController', function ($scope) {
- $scope.message =  "Reussi";
- });*/
-
 app.animation('.slide-toggle', ['$animateCss', function ($animateCss) {
     return {
         addClass: function (element, className, doneFn) {
