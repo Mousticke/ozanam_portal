@@ -54,6 +54,12 @@ div.nav li{
     border-top-right-radius: 2px;
 }
 
+.book_summary{
+    margin: 10px 10px 10px 10px;
+    box-sizing: border-box;
+    height: 100px;
+}
+
 .btn-glyphicon {
     padding: 8px !important;
     background: #ffffff !important;
@@ -366,6 +372,10 @@ div.nav li{
 
 .text-center {
     text-align: center;
+}
+
+div.tooltip-inner {
+    max-width: 500px;
 }
 
 .twitter {

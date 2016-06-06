@@ -44,6 +44,21 @@ Route::get('/admin/pl_Admin', [
     'middleware' => 'auth'
 ]);
 
+/*******************************************************RSS*******************************************************/
+Route::get('/admin/pl_Admin/RSSfeed', [
+
+    'uses' => 'RSSController@getRSSfeed',
+    'as' => 'admin_rss',
+    'middleware' => 'auth'
+]);
+
+Route::post('/admin/pl_Admin/createrss', [
+
+    'uses' => 'RSSController@postCreateRSS',
+    'as' => 'post.rss.create',
+    'middleware' => 'auth'
+]);
+
 /*******************************************************MENU*******************************************************/
 Route::get('/admin/pl_Admin/manageNavbar', [
 

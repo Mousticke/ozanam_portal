@@ -65,4 +65,9 @@ $(".modal-wide").on("show.bs.modal", function() {
     $(this).find(".modal-body").css("max-height", height);
 });
 
+$('div[data-toggle="tooltip_rss"]').tooltip({
+    animated: 'fade',
+    placement: 'top',
+    html: true,
+});
 
