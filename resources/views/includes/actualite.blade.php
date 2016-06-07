@@ -1,11 +1,11 @@
-<div class="col-lg-8 col-lg-offset-2"><!---->
+<div class="col-lg-9 col-lg-offset-2"><!---->
     <div class="row posts">
         <div ng-cloak>
-            <div class="md-padding" layout-xs="column" layout="row">
-                <div flex-xs flex-gt-xs="100" layout="row">
+            <div layout="row" layout-wrap>
+                <!--<div flex="100" flex-gt-xs="100" flex-sm="50" >-->
                     @foreach($posts as $key=>$post)
                         @if($post->id != 1)
-                            <div class="info-box card radius shadowDepth1 bg-{{$post->color}}" data-actuid="{{ $post->id }}"
+                            <div flex-gt-sm="30" flex-md="30" flex-lg="30" flex-sm="30" class="info-box card radius shadowDepth1 bg-{{$post->color}}" data-actuid="{{ $post->id }}"
                                  data-title="{{$post->titre}}" data-img="{{$post->image_actu}}" data-content="{{$post->body}}"
                                  data-date="{{date('d M Y' ,strtotime($post->created_at))}}" data-link = " @foreach($links as $link)
                             @if($link->post_id == $post->id)
@@ -40,8 +40,8 @@
                             >
                                 <div class="bg-{{$post->color}} actu_content">
                                     <div class="card_header_actu bg-blue">
-                                        <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du :</span>
-                                        <span class="info-box-number">{{date('d M Y' ,strtotime($post->created_at))}}</span>
+                                        <span class="info-box-text"><i class="fa fa-calendar"></i>&nbsp; Actualité du : {{date('d M Y' ,strtotime($post->created_at))}}</span>
+                                        <span class="info-box-number">{{$post->titre}}</span>
                                     </div>
                                     @if($post->image_actu != null)
                                         <div class="resume_bio">
@@ -89,12 +89,9 @@
                                     </a>
                                 </div>
                                 <!--MODAL-->
-
                             </div>
                         @endif
-
                     @endforeach
-                </div>
             </div>
         </div>
     </div>

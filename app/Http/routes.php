@@ -41,7 +41,7 @@ Route::get('/admin/pl_Admin', [
 
     'uses' => 'AdminController@getPanelAdmin',
     'as' => 'pl_admin',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 /*******************************************************RSS*******************************************************/
@@ -49,14 +49,14 @@ Route::get('/admin/pl_Admin/RSSfeed', [
 
     'uses' => 'RSSController@getRSSfeed',
     'as' => 'admin_rss',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 Route::post('/admin/pl_Admin/createrss', [
 
     'uses' => 'RSSController@postCreateRSS',
     'as' => 'post.rss.create',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 /*******************************************************MENU*******************************************************/
@@ -64,7 +64,7 @@ Route::get('/admin/pl_Admin/manageNavbar', [
 
     'uses' => 'MenuController@getMenuAdmin',
     'as' => 'admin_menu',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 Route::post('/admin/pl_Admin/editMenu', [
 
@@ -76,28 +76,28 @@ Route::post('/admin/pl_Admin/createmenu', [
 
     'uses' => 'MenuController@postCreateIcon',
     'as' => 'post.icon.create',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 Route::post('/admin/pl_Admin/createicon', [
 
     'uses' => 'MenuController@postCreateMenu',
     'as' => 'post.menu.create',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 Route::get('/admin/pl_Admin/delete-link-admin/{menu_id}', [
 
     'uses' => 'MenuController@getDeleteLinkAdmin',
     'as' => 'link.delete.admin',
-    'middleware' => 'auth',
+    'middleware' => 'admin',
 ]);
 
 Route::get('/admin/pl_Admin/delete-icon-admin/{icon_id}', [
 
     'uses' => 'MenuController@getDeleteIconAdmin',
     'as' => 'icon.delete.admin',
-    'middleware' => 'auth',
+    'middleware' => 'admin',
 ]);
 
 /*******************************************************ACTUALITE*******************************************************/
@@ -105,27 +105,28 @@ Route::get('/admin/pl_admin/manageActualite', [
 
     'uses' => 'PostController@getManageActualiteAdmin',
     'as' => 'admin_actualite',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 Route::get('/admin/pl_Admin/delete-post-admin/{post_id}', [
 
     'uses' => 'PostController@getDeleteActualiteAdmin',
     'as' => 'post.delete.admin',
-    'middleware' => 'auth',
+    'middleware' => 'admin',
 ]);
 
 Route::post('/admin/pl_Admin/editAdmin', [
 
     'uses' => 'PostController@postEditActualiteAdmin',
     'as' => 'edit.admin',
+    'middleware' => 'admin'
 ]);
 
 Route::post('/admin/pl_Admin/createpost', [
 
     'uses' => 'PostController@postCreateActualite',
     'as' => 'post.create',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 /*******************************************************CAROUSEL*******************************************************/
@@ -133,21 +134,21 @@ Route::get('/admin/pl_admin/manageCarousel', [
 
     'uses' => 'CarouselController@getManageCarouselAdmin',
     'as' => 'admin_carousel',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 Route::post('/admin/pl_Admin/createcarousel', [
 
     'uses' => 'CarouselController@postCreateCarousel',
     'as' => 'carousel.create',
-    'middleware' => 'auth'
+    'middleware' => 'admin'
 ]);
 
 Route::get('/admin/pl_Admin/delete-carousel/{carousel_id}', [
 
     'uses' => 'CarouselController@getDeleteCarousel',
     'as' => 'carousel.delete',
-    'middleware' => 'auth',
+    'middleware' => 'admin',
 ]);
 
 /**
@@ -186,13 +187,14 @@ Route::post('/edit', [
 
     'uses' => 'PostController@postEditPost',
     'as' => 'edit',
+    'middleware' => 'admin'
 ]);
 
 Route::get('/delete-post/{post_id}', [
 
     'uses' => 'PostController@getDeletePost',
     'as' => 'post.delete',
-    'middleware' => 'auth',
+    'middleware' => 'admin',
 ]);
 
 

@@ -25,48 +25,48 @@
             </p>
 
             <p id="timer"></p>
-                <script type="text/javascript">
-                    function GetClock() {
-                        var weekday = new Array(7);
-                        weekday[0] = "Dimanche" ;
-                        weekday[1] = "Lundi" ;
-                        weekday[2] = "Mardi" ;
-                        weekday[3] = "Mercredi" ;
-                        weekday[4] = "Jeudi" ;
-                        weekday[5] = "Vendredi" ;
-                        weekday[6] = "Samedi" ;
+            <script type="text/javascript">
+                function GetClock() {
+                    var weekday = new Array(7);
+                    weekday[0] = "Dimanche" ;
+                    weekday[1] = "Lundi" ;
+                    weekday[2] = "Mardi" ;
+                    weekday[3] = "Mercredi" ;
+                    weekday[4] = "Jeudi" ;
+                    weekday[5] = "Vendredi" ;
+                    weekday[6] = "Samedi" ;
 
-                        var month = new Array(12);
-                        month[0] = "Janvier";
-                        month[1] = "Fevrier";
-                        month[2] = "Mars";
-                        month[3] = "Avril";
-                        month[4] = "Mai";
-                        month[5] = "Juin";
-                        month[6] = "Juillet";
-                        month[7] = "Aout";
-                        month[8] = "Septembre";
-                        month[9] = "Octobre";
-                        month[10] = "Novembre";
-                        month[11] = "Décembre";
+                    var month = new Array(12);
+                    month[0] = "Janvier";
+                    month[1] = "Fevrier";
+                    month[2] = "Mars";
+                    month[3] = "Avril";
+                    month[4] = "Mai";
+                    month[5] = "Juin";
+                    month[6] = "Juillet";
+                    month[7] = "Aout";
+                    month[8] = "Septembre";
+                    month[9] = "Octobre";
+                    month[10] = "Novembre";
+                    month[11] = "Décembre";
 
-                        var d = new Date();
-                        var thisDay = weekday[d.getDay()];
-                        var thisNumber = d.getDay();
-                        var thisYear = d.getFullYear();
-                        var thisMonth = month[d.getMonth()];
-                        var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
-                        if (nmin <= 9) nmin = "0" + nmin;
-                        if (nsec <= 9) nsec = "0" + nsec;
+                    var d = new Date();
+                    var thisDay = weekday[d.getDay()];
+                    var thisNumber = d.getDay();
+                    var thisYear = d.getFullYear();
+                    var thisMonth = month[d.getMonth()];
+                    var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
+                    if (nmin <= 9) nmin = "0" + nmin;
+                    if (nsec <= 9) nsec = "0" + nsec;
 
-                        document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisMonth + " " + thisYear + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
-                    }
+                    document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisMonth + " " + thisYear + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
+                }
 
-                    window.onload = function () {
-                        GetClock();
-                        setInterval(GetClock, 1000);
-                    }
-                </script>
+                window.onload = function () {
+                    GetClock();
+                    setInterval(GetClock, 1000);
+                }
+            </script>
             <div id="clockbox"></div>
         </div>
     </div>
@@ -94,8 +94,8 @@
                                         <a class="custom-color-a" href="http://{{$menu->link}}" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -106,8 +106,8 @@
                                         <a class="custom-color-a" href="{{$menu->link}}" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -118,8 +118,8 @@
                                         <a class="custom-color-a" href="{{$menu->link}}" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -130,8 +130,8 @@
                                         <a class="custom-color-a" href="http://www.{{$menu->link}}" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -144,8 +144,8 @@
                                         <a class="custom-color-a" href="http://{{$menu->link}}.fr" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -156,8 +156,8 @@
                                         <a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -168,8 +168,8 @@
                                         <a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -180,8 +180,8 @@
                                         <a class="custom-color-a" href="http://www.{{$menu->link}}.fr" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -196,8 +196,8 @@
                                         <a class="custom-color-a" href="http://{{$menu->link}}" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -208,8 +208,8 @@
                                         <a class="custom-color-a" href="{{$menu->link}}" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -220,8 +220,8 @@
                                         <a class="custom-color-a" href="{{$menu->link}}" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -232,8 +232,8 @@
                                         <a class="custom-color-a" href="http://www.{{$menu->link}}" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -246,8 +246,8 @@
                                         <a class="custom-color-a" href="http://{{$menu->link}}.fr" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -258,8 +258,8 @@
                                         <a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -270,8 +270,8 @@
                                         <a class="custom-color-a" href="{{$menu->link}}.fr" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -282,8 +282,8 @@
                                         <a class="custom-color-a" href="http://www.{{$menu->link}}.fr" target="_blank">
                                             <div id="border_menu_link">
                                                 <span
-                                                    data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
-                                                    class="fa" aria-hidden="true">
+                                                        data-toggle="tooltip_menu" data-original-title="{{$menu->name}}"
+                                                        class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
                                             </div>
@@ -296,7 +296,9 @@
 
                 @endforeach
                 @if(Auth::check())
-                    <li><a class="custom-color-a" href="{{route('pl_admin')}}">Admin</a></li>
+                    @if (Auth::user()->isAdmin())
+                        <li><a class="custom-color-a" href="{{route('pl_admin')}}">Admin</a></li>
+                    @endif
                 @endif
             </ul>
 

@@ -19,6 +19,10 @@ $(".readmore").on('click', function (event) {
     //ArticleImage = event.target.parentNode.parentNode.dataset['img'];
     ArticleImage = event.target.parentNode.parentNode.getAttribute("data-img");
 
+    if(event.target.parentNode.parentNode.getAttribute("data-img") == ""){
+        ArticleImage = 'slider/slider1.jpg';
+    }
+
     ArticleLink = event.target.parentNode.parentNode.getAttribute("data-link");
     var arr = ArticleLink.split(',');
 

@@ -9,6 +9,16 @@ class User extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
 
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role');
+    }
+
+    public function isAdmin()
+    {
+        return in_array(1, $this->roles()->pluck('role_id')->all());
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

@@ -7,12 +7,14 @@
  */
 namespace App\Http\Controllers;
 
+use DB;
 use App\Color;
 use App\Carousel;
 use App\File;
 use App\Link;
 use App\Menu;
 use App\Post;
+use App\Rss;
 use App\Timeline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -123,18 +125,22 @@ class PostController extends Controller
 
     public function getRSSmangas(){
         return file_get_contents('http://0511147v.esidoc.fr/search.php?action=Basket&method=admin_view_rss&pid=2260&view=rss&image_type=large&count=10');
+
     }
 
     public function getRSSmagazines(){
         return file_get_contents('http://0511147v.esidoc.fr/search.php?filter[]=format%3A%22newspaper%22&filter[]=&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&expert=T&filter[]=&filter[]=&filter[]=&filter[]=&filter[]=noticeType%3A%22Notice+g%C3%A9n%C3%A9rale%22&filter[]=&filter[]=&multifilter[]=format%3A%22newspaper%22&sort=year_desc&view=rss&image_type=large&count=15&imagesonly=T');
+
     }
 
     public function getRSSliteratures(){
         return file_get_contents('http://0511147v.esidoc.fr/search.php?action=Basket&method=admin_view_rss&pid=3399&view=rss&image_type=large&count=10');
+
     }
 
     public function getRSSpacks(){
         return file_get_contents('http://0511147v.esidoc.fr/search.php?action=Basket&method=admin_view_rss&pid=3398&view=rss&image_type=large&count=10');
+
     }
 
     /**
@@ -150,6 +156,7 @@ class PostController extends Controller
             'titre' => 'required',
             'image_actu',
             'external_link',
+            'external_files',
             'body' => 'required|max:500',
             'color_actu' => 'required',
             'facebook_actu',
@@ -168,9 +175,12 @@ class PostController extends Controller
         $post->twitter_post = $request['twitter_actu'];
         $post->google_post = $request['google_actu'];
 
-        $imgactu = $request->file('image_actu');
-        $imgactu->move('files/shares/actualite/', $imgactu->getClientOriginalName());
-        $post->image_actu = 'files/shares/actualite/' . $imgactu->getClientOriginalName();
+        if(Input::has('image_actu')){
+            $imgactu = $request->file('image_actu');
+            $imgactu->move('files/shares/actualite/', $imgactu->getClientOriginalName());
+            $post->image_actu = 'files/shares/actualite/' . $imgactu->getClientOriginalName();
+        }
+
 
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
@@ -198,14 +208,17 @@ class PostController extends Controller
         }
 
         $message4 = 'Il y a une erreur';
-        foreach($files as $file) {
-            $file_post = new File();
-            $file->move('files/shares/', $file->getClientOriginalName());
-            $file_post->body = 'files/shares/' . $file->getClientOriginalName();
-            $file_post->user_id = 3;
-            $file_post->post_id = $post->id;
-            if($request->user()->post()->save($file_post))
-                $message4 = 'Fichier ajouté';
+        if(Input::has('external_files')){
+            foreach($files as $file) {
+                $file_post = new File();
+                $file->move('files/shares/', $file->getClientOriginalName());
+                $file_post->body = 'files/shares/' . $file->getClientOriginalName();
+                $file_post->user_id = 3;
+                $file_post->post_id = $post->id;
+                if($request->user()->post()->save($file_post))
+                    $message4 = 'Fichier ajouté';
+            }
+
         }
 
         return redirect()->route('admin_actualite')->with(['message' => $message, 'message2' =>$message2, 'message3' =>$message3, 'message4'=> $message4]);
