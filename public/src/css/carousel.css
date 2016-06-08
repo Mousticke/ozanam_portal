@@ -88,6 +88,7 @@ blockquote p {
 
 .slide-image {
     height: 200px;
+    object-fit: cover;
 }
 
 

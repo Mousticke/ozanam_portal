@@ -1,8 +1,8 @@
-<div layout="row" class="col-lg-offset-2">
+<div layout="row" class="col-lg-offset-2" >
     <div  show-gt-sm flex="40" ><!--class="posts col-lg-offset-2"-->
         <!--Flux RSS-->
         <div id="articleNew" ><!--col-xs-7--><!--class="col-lg-5 col-sm-6"-->
-            <div class="small-box info-box bg-orange">
+            <div class="small-box info-box bg-orange" style="border-top-right-radius: 1em;">
                 <span class="info-box-icon"><i class="fa fa-rss"></i></span>
                 <div class="info-box-content">
                     <div class="panel-heading">Flux RSS</div>
@@ -17,7 +17,7 @@
     <div show-gt-sm flex="40" ><!--col-xs-offset-4 col-md-offset-4 col-sm-offset-4--><!--class="posts col-lg-offset-6"-->
         <!--Actu Facebook-->
         <div id="articleNew" ><!--col-xs-7--><!--class="col-lg-8 col-sm-6"-->
-            <div class="small-box info-box bg-blue">
+            <div class="small-box info-box bg-blue" style="border-top-right-radius: 1em;">
                 <span class="info-box-icon"><i class="fa fa-facebook"></i></span>
                 <div class="info-box-content">
                     <div class="panel-heading">Fil d'actualité Facebook</div>

@@ -1,4 +1,3 @@
-<!--APP ANGULAR POUR LA DIV DU LOGIN-->
 <div id="header">
     <div id="logo">
         <a href="{{route('dashboard')}}"><img id="logo_ozanam" src="{{URL::to('src/img/logo.png')}}"></a>
@@ -35,7 +34,6 @@
                     weekday[4] = "Jeudi" ;
                     weekday[5] = "Vendredi" ;
                     weekday[6] = "Samedi" ;
-
                     var month = new Array(12);
                     month[0] = "Janvier";
                     month[1] = "Fevrier";
@@ -49,7 +47,6 @@
                     month[9] = "Octobre";
                     month[10] = "Novembre";
                     month[11] = "Décembre";
-
                     var d = new Date();
                     var thisDay = weekday[d.getDay()];
                     var thisNumber = d.getDay();
@@ -58,10 +55,8 @@
                     var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
                     if (nmin <= 9) nmin = "0" + nmin;
                     if (nsec <= 9) nsec = "0" + nsec;
-
                     document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisMonth + " " + thisYear + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
                 }
-
                 window.onload = function () {
                     GetClock();
                     setInterval(GetClock, 1000);
@@ -71,8 +66,7 @@
         </div>
     </div>
 </div>
-
-<nav class="navbar navbar-custom">
+<nav class="navbar navbar-custom nav-head">
     <div class="container-fluid navbar-inner">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -293,7 +287,6 @@
                             @endif
                         @endif
                     @endif
-
                 @endforeach
                 @if(Auth::check())
                     @if (Auth::user()->isAdmin())
@@ -301,9 +294,7 @@
                     @endif
                 @endif
             </ul>
-
             <ul class="nav navbar-nav navbar-right">
-
                 <li class="search" style="margin-right: 25px">
                     <form target="_blank" action="http://www.google.fr/search" method="get">
                         <p>
@@ -317,49 +308,41 @@
                         </p>
                     </form>
                 </li>
-                <!--Bouton de toggle-->
                 @if(!Auth::check())
                     <li>
-                        <a ng-click="slideToggle=! slideToggle" class="btn icon-btn btn-success custom_btn" href="#">
+                        <button ng-click="slideToggle=! slideToggle" class="btn icon-btn btn-success custom_btn" href="#">
                             <i class="glyphicon btn-glyphicon glyphicon-user img-circle text-primary"
                                aria-hidden="true"></i>
                             Se Connecter
-                        </a>
+                        </button>
                     </li>
                 @endif
-            <!--<li><a ng-click="slideToggle=! slideToggle" class="custom-color-a" href="#"><span class="fa fa-user" aria-hidden="true"></span>&nbsp Se Connecter</a></li>-->
                 @if(Auth::check())
                     <li>
                         <a class="btn icon-btn btn-danger custom_btn" href="{{route('logout')}}">
                             <i class="glyphicon btn-glyphicon glyphicon-log-out img-circle text-info"
                                aria-hidden="true"></i>
-                            Se Déconnecter</a>
+                            Se Déconnecter
+                        </a>
                     </li>
                 @endif
-
                 <li>
-                    <a ng-click="slideToggle2=! slideToggle2" class="btn icon-btn btn-warning custom_btn" href="#">
+                    <button ng-click="slideToggle2=! slideToggle2" class="btn icon-btn btn-warning custom_btn" href="#">
                         <i class="glyphicon btn-glyphicon glyphicon-phone img-circle text-primary"
                            aria-hidden="true"></i>
-                        Contacter</a>
+                        Contacter
+                    </button>
+
                 </li>
             </ul>
-
         </div>
-
     </div>
-
-    <md-progress-linear md-mode="indeterminate"></md-progress-linear>
 </nav>
-
-<!--TOOGLE LOGIN-->
-<div class="row box-info slide-toggle" ng-show="slideToggle">
-    @include('includes.sign')
+<div class="slide-toggle col-lg-8" ng-show="slideToggle" style="position: absolute; right: 10px; z-index: 20; box-sizing: border-box;">
+    @include('includes.navbar.sign')
 </div>
-
-<!--TOGGLE Contact -->
-<div class="row box box-info slide-toggle" ng-show="slideToggle2">
-    @include('includes.contact')
+<div class="slide-toggle col-lg-8" ng-show="slideToggle2" style="position: absolute; right: 50px; z-index: 20; box-sizing: border-box;">
+    @include('includes.navbar.contact')
 </div>
 <script type="text/javascript">
     process = function () {

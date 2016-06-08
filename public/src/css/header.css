@@ -1,3 +1,4 @@
+
 .custom_fa{
     width: 25px;
 }
@@ -15,6 +16,13 @@
     height: 100px;
 }
 
+.btn-success-custom {
+    background-color: #007d34;
+    border-color: #007d34;
+}
+#left-side-sign{
+    border-right: 1px solid #d3d3d3;
+}
 #logo_ozanam {
     left: 50px;
     top: 0;
@@ -75,6 +83,17 @@
     float: right;
 }
 
+.title-sign{
+    background: url(images/bar-h2-bleu.png) no-repeat bottom left;
+    display: block;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 20px;
+    margin: 0 0 20px;
+    padding: 5px 0 9px 0;
+}
+
 .top_info a {
     font-size: 12px;
 }
@@ -112,3 +131,12 @@ p.top_info:before {
     padding-bottom: 20px;
 }
 
+.nav-head {
+    background-color: #fff;
+    box-shadow: 0 0 8px #565656;
+    box-sizing: border-box;
+    position: relative;
+    top: 0!important;
+    width: 100%;
+    z-index: 100;
+}

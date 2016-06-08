@@ -38,7 +38,7 @@
                 </div>
                 <br>
                 <blockquote class="modal_contentArticle"
-                            style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%;">
+                            style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%; margin: auto">
                     <em id="title_actu"></em><br/><hr/>
                     <div id="content_actu"></div>
                 </blockquote>

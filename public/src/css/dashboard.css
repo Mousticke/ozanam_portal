@@ -44,7 +44,10 @@ div.tab-content a.link_modal, a.files_modal, a.facebook_modal{
 div.nav li{
     font-size: smaller;
 }
+.actu_content{
+    border-top-right-radius: 1em;
 
+}
 #articleNew {
     margin-left: 1px !important;
 }
@@ -52,6 +55,32 @@ div.nav li{
 .border-tlr-radius {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
+}
+.resume_bio img {
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -o-transition: all 1s ease; /* IE 9 */
+    -ms-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+}
+.resume_bio:hover img{
+    -webkit-transform:scale(1.12); /* Safari and Chrome */
+    -moz-transform:scale(1.12); /* Firefox */
+    -ms-transform:scale(1.12); /* IE 9 */
+    -o-transform:scale(1.12); /* Opera */
+    transform:scale(1.12);
+}
+
+.resume_bio{
+    overflow: hidden;
+}
+
+.image img {
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -o-transition: all 1s ease; /* IE 9 */
+    -ms-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
 }
 
 .book_summary{
@@ -151,6 +180,7 @@ div.nav li{
     color: white;
     text-align: center;
     font-family: 'Roboto', sans-serif;
+    border-top-right-radius: 1em;
 }
 
 .card__share {
@@ -229,7 +259,7 @@ div.nav li{
 }
 
 .facebook {
-    background-color: #3b5998;
+    background-color: #3b5998 !important;
 }
 
 .facebook,
@@ -245,7 +275,7 @@ div.nav li{
 }
 
 .googleplus {
-    background-color: #d3492c;
+    background-color: #d3492c !important;
 }
 
 .icon-btn {
@@ -303,10 +333,6 @@ div.nav li{
     color : white !important;
 }
 
-.readme_center{
-    margin:auto;
-    width: 50%;
-}
 
 #signform {
     margin-top: 0;
@@ -327,6 +353,8 @@ div.nav li{
 .shadowDepth1 {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
     0 1px 2px rgba(0, 0, 0, 0.24);
+    border-bottom-left-radius: 1em;
+    border-top-right-radius: 1em;
 }
 
 .share-toggle {
@@ -381,6 +409,3 @@ div.tooltip-inner {
 .twitter {
     background-color: #00abe3;
 }
-
-
-

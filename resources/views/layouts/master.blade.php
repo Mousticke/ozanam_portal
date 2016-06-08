@@ -6,9 +6,10 @@
     </head>
     <body ng-app="mainApp">
         @include('includes.header')
+        @yield('carousel')
         <div class="container">
             @yield('carouselGestion')
-            @yield('carousel')
+
         </div>
         @yield('content')
         @include('layouts.script')
