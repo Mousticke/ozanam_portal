@@ -33,15 +33,15 @@
                             <div class="tab-pane" id="tab_3-2">
                                 <a href="http://www.google.fr" class="facebook_modal"><i class="fa fa-facebook" aria-hidden="true"></i>&nbsp Facebook</a>
                             </div><!-- /.tab-pane -->
+                            <blockquote class="modal_contentArticle"
+                                        style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%; margin: auto">
+                                <em id="title_actu"></em><br/><hr/>
+                                <div id="content_actu"></div>
+                            </blockquote>
                         </div><!-- /.tab-content -->
                     </div><!-- nav-tabs-custom -->
                 </div>
                 <br>
-                <blockquote class="modal_contentArticle"
-                            style="color : #000 !important; border: 1px solid lightgrey; border-radius: 4px; width: 60%; margin: auto">
-                    <em id="title_actu"></em><br/><hr/>
-                    <div id="content_actu"></div>
-                </blockquote>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-info">Précédent</button>

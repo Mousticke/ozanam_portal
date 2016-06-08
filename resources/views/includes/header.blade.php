@@ -66,7 +66,7 @@
         </div>
     </div>
 </div>
-<nav class="navbar navbar-custom nav-head">
+<nav id="navbar-main" class="navbar-custom nav-head navbar-fixed-top">
     <div class="container-fluid navbar-inner">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -78,7 +78,7 @@
             </button>
         </div>
         <div id="navbar" class="navbar-collapse collapse-1">
-            <ul class="nav navbar-nav site">
+            <ul class="nav nav-center navbar-nav site">
                 @foreach($menus as $menu)
                     @if($menu->id != 1)
                         @if($menu->visibility == 1 && Auth::check())

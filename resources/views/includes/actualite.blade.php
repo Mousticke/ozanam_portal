@@ -1,7 +1,14 @@
 <div class="col-lg-9 col-lg-offset-2"><!---->
     <div class="row posts">
         <div ng-cloak>
-            <div layout="row" layout-wrap>
+            <div>
+                <h5 style="border-bottom: 4.0px solid rgb(1,88,157);background-image: none;padding-bottom: 0;">
+                    <span style="width: 90.0%;max-width: 210.0px;padding: 10.0px 0 6.0px 15.0px;display: block;color: white;
+                        background-color: rgb(1,88,157);">Actualités
+                    </span>
+                </h5>
+            </div>
+            <div layout="row" layout-wrap class="col-lg-offset-1">
                 <!--<div flex="100" flex-gt-xs="100" flex-sm="50" >-->
                 @foreach($posts as $key=>$post)
                     @if($post->id != 1)
@@ -71,6 +78,7 @@
                                     </div>
                                 </div>
                                 <article class="card__article">
+                                    <span class="info-box-number">{{$post->titre}}</span>
                                     @if(strlen(html_entity_decode($post->body))>47)
                                         {{--*/ $resume = substr(html_entity_decode($post->body),0, 100) /*--}}
                                         <div style="text-indent: 20px !important;" class="contentArticle article_cut">
@@ -81,8 +89,8 @@
                                         <div style="text-indent: 20px !important;" class="contentArticle article_full">{!! html_entity_decode($post->body) !!}</div>
                                     @endif
                                 </article>
-
                             </div>
+                            <div style="padding-top: 90px;"></div>
                             <div class="readme_center small-box-footer">
                                 <a href="#" class="readmore">
                                     <i class="glyphicon btn-glyphicon glyphicon-book img-circle text-info"></i>
@@ -101,8 +109,17 @@
 @include('includes.actualite_includes.modal_actu')
 
 <div class="clearfix"></div>
-<div class="row">
+<div class="col-lg-9 col-lg-offset-2">
+<div class="row" style="background-color: #ededed;">
+
+    <div>
+        <h5 style="border-bottom: 4.0px solid rgb(1,88,157);background-image: none;padding-bottom: 0;">
+                    <span style="width: 90.0%;max-width: 210.0px;padding: 10.0px 0 6.0px 15.0px;display: block;color: white;
+                        background-color: rgb(1,88,157);">Social
+                    </span>
+        </h5>
+    </div>
     @include('includes.actualite_includes.social_actu')
 </div>
-
+</div>
 <div class="clearfix"></div>
