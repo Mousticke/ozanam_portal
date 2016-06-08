@@ -1,4 +1,13 @@
-<div layout="row" class="col-lg-offset-1" layout-sm="column" layout-xs="column">
+<div>
+    <div class="box-tools pull-right">
+        <button style="color: red;" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+    </div>
+    <h5 style="border-bottom: 4.0px solid rgb(1,88,157);background-image: none;padding-bottom: 0;">
+            <span style="width: 90.0%;max-width: 210.0px;padding: 10.0px 0 6.0px 15.0px;display: block;color: white;
+                        background-color: rgb(1,88,157);">Social</span>
+    </h5>
+</div>
+<div layout="row" class="col-lg-offset-1 box-body" layout-sm="column" layout-xs="column">
     <div flex-md="60" flex-xl="50" flex-xs="100" flex-sm="100"  flex="50" style=" margin-right: 45px;"><!--class="posts col-lg-offset-2"-->
         <!--Flux RSS-->
         <div id="articleNew" ><!--col-xs-7--><!--class="col-lg-5 col-sm-6"-->
