@@ -7,8 +7,9 @@
                     <button style="color: red;" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 </div>
                 <h5 style="border-bottom: 4.0px solid rgb(1,88,157);background-image: none;padding-bottom: 0;">
+
                     <span style="width: 90.0%;max-width: 210.0px;padding: 10.0px 0 6.0px 15.0px;display: block;color: white;
-                        background-color: rgb(1,88,157);">Actualités
+                        background-color: rgb(1,88,157);"><span class="fa fa-newspaper-o"></span> Actualités
                     </span>
                 </h5>
             </div>

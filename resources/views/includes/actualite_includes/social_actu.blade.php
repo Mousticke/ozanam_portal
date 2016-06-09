@@ -4,7 +4,7 @@
     </div>
     <h5 style="border-bottom: 4.0px solid rgb(1,88,157);background-image: none;padding-bottom: 0;">
             <span style="width: 90.0%;max-width: 210.0px;padding: 10.0px 0 6.0px 15.0px;display: block;color: white;
-                        background-color: rgb(1,88,157);">Social</span>
+                        background-color: rgb(1,88,157);"><span class="fa fa-wifi"></span> Social</span>
     </h5>
 </div>
 <div layout="row" class="col-lg-offset-1 box-body" layout-sm="column" layout-xs="column">
