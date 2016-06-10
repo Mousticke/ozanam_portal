@@ -28,7 +28,7 @@ $(".readmore").on('click', function (event) {
 
     ArticleFile = event.target.parentNode.parentNode.getAttribute("data-file");
     var arr2 = ArticleFile.split(',');
-   
+
     for (var i = 0; i < arr.length; i++) {
         console.log(arr[i]);
         $(".tab-content").find("#tab_1-1").append(arr[i] + '<br>');
@@ -38,7 +38,7 @@ $(".readmore").on('click', function (event) {
         console.log(arr2[j]);
         $(".tab-content").find("#tab_2-2").append(arr2[j] + '<br>');
     }
-    
+
     console.log(ArticleContent);
     console.log(ArticleTitle);
     console.log(ArticleImage);
@@ -75,3 +75,11 @@ $('div[data-toggle="tooltip_rss"]').tooltip({
     html: true,
 });
 
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 1) {
+        $('.nav-head').css('top', '0 ');
+        console.log('scollé');
+    } else {
+        $('.nav-head').css('top', '100px');
+    }
+});

@@ -25,7 +25,7 @@
 }
 #logo_ozanam {
     left: 50px;
-    top: 0;
+    top: auto;
     position: absolute;
 }
 
@@ -81,6 +81,7 @@
     height: 100px;
     background: #E8E8E8 url(images/bg_header.gif) no-repeat;
     float: right;
+    z-index: 100;
 }
 
 .title-sign{
@@ -135,8 +136,8 @@ p.top_info:before {
     background-color: #fff;
     box-shadow: 0 0 8px #565656;
     box-sizing: border-box;
-    position: relative;
-    top: 0!important;
+   /* position: fixed;*/
+    top: 100px;
     width: 100%;
     z-index: 100;
 }
