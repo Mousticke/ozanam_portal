@@ -9,7 +9,7 @@
                 <small>Version 1.0</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Accueil</a></li>
+                <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Accéder au site</a></li>
                 <li class="active">Panel Admin</li>
             </ol>
         </section>
