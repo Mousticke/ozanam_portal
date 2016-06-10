@@ -35,6 +35,14 @@ class User extends Model implements Authenticatable
         return $this->hasMany('App\Post' );
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function access ()
+    {
+        return $this->hasMany('App\Access' );
+    }
+
     public function link ()
     {
         return $this->hasMany('App\Link' );

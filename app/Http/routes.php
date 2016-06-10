@@ -44,6 +44,35 @@ Route::get('/admin/pl_Admin', [
     'middleware' => 'admin'
 ]);
 
+/*******************************************************Quick access***********************************************/
+Route::get('/admin/pl_Admin/manageQuickAccess', [
+
+    'uses' => 'QuickAccessController@getQuickAccess',
+    'as' => 'admin_quick_access',
+    'middleware' => 'admin'
+]);
+
+Route::get('/admin/pl_Admin/delete-access-admin/{access_id}', [
+
+    'uses' => 'QuickAccessController@getDeleteAccessAdmin',
+    'as' => 'access.delete.admin',
+    'middleware' => 'admin',
+]);
+
+Route::post('/admin/pl_Admin/editAccess', [
+
+    'uses' => 'QuickAccessController@postEditAccessAdmin',
+    'as' => 'edit.access',
+    'middleware' => 'admin'
+]);
+
+Route::post('/admin/pl_Admin/createaccess', [
+
+    'uses' => 'QuickAccessController@postCreateAccess',
+    'as' => 'access.create',
+    'middleware' => 'admin'
+]);
+
 /*******************************************************RSS*******************************************************/
 Route::get('/admin/pl_Admin/RSSfeed', [
 

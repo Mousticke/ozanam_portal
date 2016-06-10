@@ -74,7 +74,26 @@ $('#modal-saveMenu').on('click', function () {
 
 $('.wpmse_select2').select2();
 
+$('#titre_access').on('keyup', function () {
+    console.log('Modification du titr ' + $('#titre_access').val());
+    var value = $('#titre_access').val();
+    var change = document.getElementById('target_access_title');
+    change.innerHTML = value;
+});
+
 var selectedColor = 'bg-aqua';
+
+var selectedIcon = "fa fa-newspaper-o";
+
+$('#icon_access').on('keyup',function (){
+    $('.result_icon_access').removeClass(selectedIcon).addClass('fa fa-'+$(this).val());
+    selectedIcon = 'fa fa-'+$(this).val();
+});
+
+$('#color_access').change(function (){
+    $('.result_color_access').removeClass(selectedColor).addClass('bg-'+$(this).val());
+    selectedColor = 'bg-'+$(this).val();
+});
 
 $('#color_actu').change(function (){
     $('.result_color').removeClass(selectedColor).addClass('bg-'+$(this).val());

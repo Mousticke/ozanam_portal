@@ -31,11 +31,36 @@ class PostController extends Controller
      */
     public function getDashboard ()
     {
-        $rss_books = new SimpleXMLElement($this->getRSSbooks());
-        $rss_mangas = new SimpleXMLElement($this->getRSSmangas());
-        $rss_magazines = new SimpleXMLElement($this->getRSSmagazines());
-        $rss_literatures = new SimpleXMLElement($this->getRSSliteratures());
-        $rss_packs = new SimpleXMLElement($this->getRSSpacks());
+        try{
+            $rss_books = new SimpleXMLElement($this->getRSSbooks());
+
+        }catch (\Exception $e){
+            $rss_books = 'Flux illisible';
+        }
+        try{
+            $rss_mangas = new SimpleXMLElement($this->getRSSmangas());
+
+        }catch (\Exception $e){
+            $rss_mangas = 'Flux illisible';
+        }
+        try{
+            $rss_magazines = new SimpleXMLElement($this->getRSSmagazines());
+
+        }catch (\Exception $e){
+            $rss_magazines = 'Flux illisible';
+        }
+        try{
+            $rss_literatures = new SimpleXMLElement($this->getRSSliteratures());
+
+        }catch (\Exception $e){
+            $rss_literatures = 'Flux illisible';
+        }
+        try{
+            $rss_packs = new SimpleXMLElement($this->getRSSpacks());
+
+        }catch (\Exception $e){
+            $rss_packs = 'Flux illisible';
+        }
         $posts = Post::orderBy('created_at', 'desc')->get();
         $links = Link::orderBy('created_at', 'desc')->get();
         $files = File::orderBy('created_at', 'desc')->get();
@@ -61,11 +86,36 @@ class PostController extends Controller
      */
     public function getDashboardIndex ()
     {
-        $rss_books = new SimpleXMLElement($this->getRSSbooks());
-        $rss_mangas = new SimpleXMLElement($this->getRSSmangas());
-        $rss_magazines = new SimpleXMLElement($this->getRSSmagazines());
-        $rss_literatures = new SimpleXMLElement($this->getRSSliteratures());
-        $rss_packs = new SimpleXMLElement($this->getRSSpacks());
+        try{
+            $rss_books = new SimpleXMLElement($this->getRSSbooks());
+
+        }catch (\Exception $e){
+            $rss_books = 'Flux illisible';
+        }
+        try{
+            $rss_mangas = new SimpleXMLElement($this->getRSSmangas());
+
+        }catch (\Exception $e){
+            $rss_mangas = 'Flux illisible';
+        }
+        try{
+            $rss_magazines = new SimpleXMLElement($this->getRSSmagazines());
+
+        }catch (\Exception $e){
+            $rss_magazines = 'Flux illisible';
+        }
+        try{
+            $rss_literatures = new SimpleXMLElement($this->getRSSliteratures());
+
+        }catch (\Exception $e){
+            $rss_literatures = 'Flux illisible';
+        }
+        try{
+            $rss_packs = new SimpleXMLElement($this->getRSSpacks());
+
+        }catch (\Exception $e){
+            $rss_packs = 'Flux illisible';
+        }
         $links = Link::orderBy('created_at', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
         $files = File::orderBy('created_at', 'desc')->get();

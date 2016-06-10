@@ -13,14 +13,14 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>Inscriptions</h3>
+                    <h4>Inscriptions</h4>
                     <p>Information concernant l'inscription pour la rentrée 2016 2017</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-newspaper-o"></i>
                 </div>
                 <a href="#" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
+                    Plus d'infos <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -28,14 +28,14 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>Résultats du Bac</h3>
+                    <h4>Résultats du Bac</h4>
                     <p>Accès direct aux résultats du baccalauréat session 2016</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-desktop"></i>
                 </div>
                 <a href="#" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
+                    Plus d'infos <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -43,16 +43,17 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>Se rendre au Lycée</h3>
+                    <h4>Se rendre au Lycée</h4>
                     <p>Trajet pour vous rendre au Lycée Frédéric Ozanam depuis chez vous.</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-map-signs"></i>
                 </div>
                 <a href="#" class="small-box-footer">
-                    More info <i class="fa fa-arrow-circle-right"></i>
+                    Plus d'infos <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
+
     </div>
 </div>

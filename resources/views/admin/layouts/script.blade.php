@@ -65,10 +65,11 @@
                 tinymce.triggerSave();
             });
             editor.on('keyup', function (e) {
-               /* console.log('Modification du contenu. Nouveau Contenu: ' + editor.getContent()); */
+                console.log('Modification du contenu. Nouveau Contenu: ' + editor.getContent());
                 var value = tinymce.get('new-post').getContent();
                 var change = document.getElementById('target_actu');
                 var change_modal = document.getElementById('content_actu_preview');
+
                 if(value.length < 108){
                     change.innerHTML = value;
                     change_modal.innerHTML = value;
@@ -77,6 +78,12 @@
                     change.innerHTML = value.substring(0,106) + "...";
                     change_modal.innerHTML = value;
                 }
+            });
+            editor.on('keydown', function (e) {
+                console.log('Modification du contenu. Nouveau Contenu: ' + editor.getContent());
+                var value = tinymce.get('access_mce').getContent();
+                var change = document.getElementById('target_access');
+                change.innerHTML = value;
             });
         }
     };

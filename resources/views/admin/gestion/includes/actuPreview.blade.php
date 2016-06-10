@@ -23,11 +23,9 @@
                             <a class="share-icon googleplus" href="#"><span
                                         class="fa fa-google-plus"></span></a>
                         </div>
-
                         <a id="share" class="share-toggle share-icon" href="#"></a>
                     </div>
                 </div>
-
                 <article class="card__article" id="target_actu">
                 </article>
                 <div class="readme_center">
