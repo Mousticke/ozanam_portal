@@ -61,7 +61,7 @@ $(".card__share > a").on('click', function (e) {
 
 /*Tooltip menu header*/
 $('[data-toggle="tooltip_menu"]').tooltip({
-    placement: 'top'
+    placement: 'bottom'
 });
 
 $(".modal-wide").on("show.bs.modal", function() {
@@ -78,8 +78,13 @@ $('div[data-toggle="tooltip_rss"]').tooltip({
 $(window).scroll(function() {
     if ($(window).scrollTop() > 1) {
         $('.nav-head').css('top', '0 ');
-        console.log('scollé');
+        $('[data-toggle="tooltip_menu"]').tooltip({
+            placement: 'bottom',
+        });
     } else {
         $('.nav-head').css('top', '100px');
+        $('[data-toggle="tooltip_menu"]').tooltip({
+            placement: 'bottom',
+        });
     }
 });

@@ -1,7 +1,10 @@
 <div style="background-color: white" id="header">
     <div id="logo">
         <a href="{{route('dashboard')}}"><img id="logo_ozanam" src="{{URL::to('src/img/logo.png')}}"></a>
-        <h6 class="col-lg-offset-2" style="position: absolute;">Espace pédagogique du Lycée F.Ozanam</h6>
+        <div class="col-lg-offset-2" style="position: absolute;">
+            <h5 style="padding-left: 40px;">Portail pédagogique du </h5>
+            <h6 style="padding-left: 60px;">Lycée Frédéric Ozanam</h6>
+        </div>
     </div>
     <div style="position: absolute; left:250px;">
 
@@ -31,8 +34,11 @@
                 </p>
             </div>
             <div flex-gt-sm="20" flex-md="20" flex-lg="20" flex-sm="20">
-                <a style="font-size: 12px;" id="top_link" href="http://www.ozanam-lycee.fr">Site Web du Lycée
-                    <img width="120" height="60" src="{{URL::to('src/img/ozanamlycee.png')}}"></a>
+                <p class="top_info_site">
+                    <a style="font-size: 12px;" id="top_link" href="http://www.ozanam-lycee.fr">Site Web du Lycée
+                        <img width="120" height="60" src="{{URL::to('src/img/ozanamlycee.png')}}"></a>
+                </p>
+
             </div>
             <div flex-gt-sm="20" flex-md="20" flex-lg="20" flex-sm="20">
                 @if(!Auth::check())
@@ -120,7 +126,7 @@
         <div id="navbar" class="navbar-collapse collapse-1">
             <ul class="nav nav-center navbar-nav navbar-left site  navbar-custom">
                 @foreach($menus as $menu)
-                    @if($menu->id != 1 && $menu->id != 11)
+                    @if($menu->id != 1)
                         @if($menu->visibility == 1 && Auth::check())
                             @if(str_contains($menu->link , '.fr') || str_contains($menu->link , '.com') || str_contains($menu->link , '.org') || str_contains($menu->link , '.net'))
                                 @if(starts_with($menu->link , 'wwww.'))
@@ -171,6 +177,16 @@
                                             </div>
                                         </a>
                                     </li>
+                                @elseif(starts_with($menu->link, 'src/'))
+                                    <li>
+                                        <a class="custom-color-a" href="{{URL::to($menu->link)}}" target="_blank">
+                                            <div id="border_menu_link">
+                                    <span data-toggle="tooltip_menu" data-original-title="{{$menu->name}}" class="fa" aria-hidden="true">
+                                        <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                    </span>
+                                            </div>
+                                        </a>
+                                    </li>
                                 @endif
                             @else
                                 @if(starts_with($menu->link , 'wwww'))
@@ -218,6 +234,16 @@
                                                         class="fa" aria-hidden="true">
                                                     <img class="custom_fa" src="{{URL::to($menu->icon)}}">
                                                 </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                @elseif(starts_with($menu->link, 'src/'))
+                                    <li>
+                                        <a class="custom-color-a" href="{{URL::to($menu->link)}}" target="_blank">
+                                            <div id="border_menu_link">
+                                    <span data-toggle="tooltip_menu" data-original-title="{{$menu->name}}" class="fa" aria-hidden="true">
+                                        <img class="custom_fa" src="{{URL::to($menu->icon)}}">
+                                    </span>
                                             </div>
                                         </a>
                                     </li>
@@ -326,16 +352,6 @@
                                 @endif
                             @endif
                         @endif
-                    @elseif($menu->id == 11)
-                        <li>
-                            <a class="custom-color-a" href="{{URL::to('src/edt')}}" target="_blank">
-                                <div id="border_menu_link">
-                                    <span data-toggle="tooltip_menu" data-original-title="{{$menu->name}}" class="fa" aria-hidden="true">
-                                        <img class="custom_fa" src="{{URL::to($menu->icon)}}">
-                                    </span>
-                                </div>
-                            </a>
-                        </li>
                     @endif
                 @endforeach
                 @if(Auth::check())

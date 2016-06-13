@@ -53,3 +53,19 @@
         </select>
     </div>
 </div>
+
+<div class="input-group {{ $errors->has('publish_at') ? 'has-error ' : '' }}">
+    <span class="input-group-addon" id="basic-addon8"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+    <div class="col-lg-8">
+        <input type="datetime-local" aria-describedby="basic-addon8" class="form-control"
+               name="publish_at" id="publish_at" title="Publier à :" placeholder="Publier à : "/>
+    </div>
+</div>
+
+<div class="input-group {{ $errors->has('delete_at') ? 'has-error ' : '' }}">
+    <span class="input-group-addon" id="basic-addon9"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+    <div class="col-lg-8">
+        <input type="datetime-local" aria-describedby="basic-addon9" class="form-control"
+               name="delete_at" id="delete_at" title="Supprimer à :" placeholder="Supprimer à : "/>
+    </div>
+</div>

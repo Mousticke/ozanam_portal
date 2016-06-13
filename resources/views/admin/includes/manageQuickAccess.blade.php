@@ -23,4 +23,10 @@
             </div>
         </section>
     </div>
+
+    <script>
+        var token = '{{Session::token()}}';
+        var urlAccess = '{{route('edit.access')}}';
+
+    </script>
 @endsection

@@ -31,6 +31,8 @@ $('#modal-save').on('click', function () {
         });
 });
 
+
+
 $('.menu').find('.interaction').find('.editMenu').on('click', function (event) {
     event.preventDefault();
     NameElement = $("tr").children(".name_site");

@@ -33,4 +33,19 @@ class QuickAccessController extends Controller
             'colors' => $colors
         ]);
     }
+
+    public function postQuickAcecs(Request $request){
+        $this->validate($request, [
+            'titre' => 'required',
+            'icon' => 'required',
+            'body' => 'required',
+        ]);
+/* TODO : add database*/
+        $quickAcces = new Access();
+        $quickAcces->titre = $request['titre'];
+        $quickAcces->body = $request['body'];
+        $quickAcces->icon = $request['icon'];
+
+
+    }
 }

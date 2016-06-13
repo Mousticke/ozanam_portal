@@ -20,7 +20,7 @@
                     <i class="fa fa-newspaper-o"></i>
                 </div>
                 <a href="#" class="small-box-footer">
-                    Plus d'infos <i class="fa fa-arrow-circle-right"></i>
+                    <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -35,7 +35,7 @@
                     <i class="fa fa-desktop"></i>
                 </div>
                 <a href="#" class="small-box-footer">
-                    Plus d'infos <i class="fa fa-arrow-circle-right"></i>
+                    <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     <i class="fa fa-map-signs"></i>
                 </div>
                 <a href="#" class="small-box-footer">
-                    Plus d'infos <i class="fa fa-arrow-circle-right"></i>
+                    <i class="fa fa-arrow-circle-right"></i>
                 </a>
             </div>
         </div>

@@ -7,7 +7,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div id="slider1" class="item active">
-            <img class="first-slide" src="{{URL::to('src/img/01.jpg')}}" alt="First slide">
+            <img class="first-slide" src="{{URL::to('src/img/05.jpg')}}" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
                 </div>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div id="slider1" class="item">
-            <img class="third-slide" src="{{URL::to('src/img/03.jpg')}}" alt="Third slide">
+            <img class="third-slide" src="{{URL::to('src/img/06.jpg')}}" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
                 </div>

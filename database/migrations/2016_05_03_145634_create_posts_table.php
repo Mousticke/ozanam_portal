@@ -25,6 +25,8 @@ class CreatePostsTable extends Migration
             $table->string('google_post');
             $table->integer('user_id');
             $table->string('image_actu');
+            $table->date('publish_at');
+            $table->date('delete_at');
         });
     }
 

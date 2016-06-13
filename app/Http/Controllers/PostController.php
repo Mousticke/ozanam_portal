@@ -212,6 +212,8 @@ class PostController extends Controller
             'facebook_actu',
             'twitter_actu',
             'google_actu',
+            'publish_at',
+            'delete_at',
         ]);
 
         $timeline = new Timeline();
@@ -224,6 +226,8 @@ class PostController extends Controller
         $post->facebook_post = $request['facebook_actu'];
         $post->twitter_post = $request['twitter_actu'];
         $post->google_post = $request['google_actu'];
+        $post->publish_at = $request['publish_at'];
+        $post->delete_at = $request['delete_at'];
 
         if(Input::has('image_actu')){
             $imgactu = $request->file('image_actu');
