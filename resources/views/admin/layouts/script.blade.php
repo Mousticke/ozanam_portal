@@ -1,4 +1,6 @@
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootcards/1.0.0/js/bootcards.min.js"></script>
+
 <!-- Bootstrap 3.3.5 -->
 <script src="{{URL::to('src/admintheme/bootstrap/js/bootstrap.min.js')}}"></script>
 <!-- FastClick -->
@@ -24,6 +26,17 @@
 <script src="{{URL::to('src/js/appAdmin.js')}}"></script>
 <script src="{{URL::to('src/js/vendor/tinymce/js/tinymce/tinymce.min.js')}}"></script>
 <script src="{{URL::to('src/js/angularMain.js')}}"></script>
+
+<script>
+    bootcards.init( {
+        offCanvasBackdrop : true,
+        offCanvasHideOnMainClick : true,
+        enableTabletPortraitMode : true,
+        disableRubberBanding : true,
+        disableBreakoutSelector : 'a.no-break-out'
+    });
+</script>
+
 <script>
 
     var editor_config = {

@@ -9,6 +9,9 @@ class User extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
 
+    public function classe(){
+        return $this->belongsToMany('App\Classe');
+    }
 
     public function roles()
     {
@@ -32,7 +35,7 @@ class User extends Model implements Authenticatable
      */
     public function post ()
     {
-        return $this->hasMany('App\Post' );
+        return $this->hasMany('App\Post');
     }
 
     /**

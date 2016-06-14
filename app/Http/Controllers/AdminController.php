@@ -12,6 +12,7 @@ use App\Faicon;
 use App\Menu;
 use App\Post;
 use App\Timeline;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -34,6 +35,14 @@ class AdminController extends Controller
             'carousels' => $carousels,
             'menus' => $menus,
             'faicons' => $faicons,
+        ]);
+    }
+
+    public function getUsersAdmin ()
+    {
+        $users = User::orderBy('first_name')->get();
+        return view('admin.includes.manageUsers', [
+            'users' => $users,
         ]);
     }
 }

@@ -44,6 +44,13 @@ Route::get('/admin/pl_Admin', [
     'middleware' => 'admin'
 ]);
 
+Route::get('/admin/pl_Admin/users', [
+
+    'uses' => 'AdminController@getUsersAdmin',
+    'as' => 'admin_users',
+    'middleware' => 'admin'
+]);
+
 /*******************************************************Quick access***********************************************/
 Route::get('/admin/pl_Admin/manageQuickAccess', [
 

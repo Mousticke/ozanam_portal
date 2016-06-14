@@ -7,6 +7,7 @@
 <link rel="stylesheet"
       href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 
+
 <link rel="stylesheet" href="{{URL::to('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
 <!-- jvectormap -->
 <link rel="stylesheet" href="{{URL::to('src/admintheme/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
