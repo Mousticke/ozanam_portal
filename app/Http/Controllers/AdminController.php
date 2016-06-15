@@ -8,9 +8,11 @@
 namespace App\Http\Controllers;
 
 use App\Carousel;
+use App\Classe;
 use App\Faicon;
 use App\Menu;
 use App\Post;
+use App\Role;
 use App\Timeline;
 use App\User;
 
@@ -41,8 +43,12 @@ class AdminController extends Controller
     public function getUsersAdmin ()
     {
         $users = User::orderBy('first_name')->get();
+        $classes = Classe::orderBy('id')->get();
+        $roles = Role::orderBy('id')->get();
         return view('admin.includes.manageUsers', [
             'users' => $users,
+            'classes' => $classes,
+            'roles' => $roles,
         ]);
     }
 }

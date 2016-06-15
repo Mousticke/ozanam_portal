@@ -13,6 +13,12 @@
 
 use Illuminate\Http\Request;
 
+Route::post('/cdt', [
+    'uses' => 'UserController@getCahier',
+    'as' => 'testCahier',
+    'middleware' => 'auth'
+]);
+
 /**
  *                                                      Partie public
  */

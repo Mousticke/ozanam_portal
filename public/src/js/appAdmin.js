@@ -2,7 +2,7 @@
  * Created by Akim on 13/05/2016.
  */
 var postId = 0;
-var postBodyElement, NameElement, LinkElement, IconElement, VisibilityElement = null;
+var postBodyElement, NameElement, LinkElement, IconElement, VisibilityElement, UserName, UserEmail, UserPoste, UserPassword = null;
 
 $('.post').find('.interaction').find('.editAdmin').on('click', function (event) {
     event.preventDefault();
@@ -73,6 +73,21 @@ $('#modal-saveMenu').on('click', function () {
         });
 });
 
+$('.list-users').on('click', function(e){
+    $('a.active').removeClass('active');
+    $(this).addClass('active');
+    e.preventDefault();
+    UserName = e.target.parentNode.dataset['name'];
+    UserEmail = e.target.parentNode.dataset['email'];
+    UserPoste = e.target.parentNode.dataset['poste'];
+    UserPassword = e.target.parentNode.dataset['password'];
+
+    $(".detailsUser").find("#UserNameDetails").text(UserName);
+    $(".detailsUser").find("#UserEmailDetails").text(UserEmail);
+    $(".detailsUser").find("#UserPosteDetails").text(UserPoste);
+    $(".detailsUser").find("#UserPasswordDetails").text(UserPassword);
+    $('.detail').css('display', 'block');
+});
 
 $('.wpmse_select2').select2();
 

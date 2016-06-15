@@ -17,6 +17,29 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 
+    public function login($url,$data){
+        $fp = fopen("cookie.txt", "w");
+        fclose($fp);
+        $login = curl_init();
+        curl_setopt($login, CURLOPT_COOKIEJAR, "cookie.txt");
+        curl_setopt($login, CURLOPT_COOKIEFILE, "cookie.txt");
+        curl_setopt($login, CURLOPT_TIMEOUT, 40000);
+        curl_setopt($login, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($login, CURLOPT_URL, $url);
+        curl_setopt($login, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+        curl_setopt($login, CURLOPT_FOLLOWLOCATION, TRUE);
+        curl_setopt($login, CURLOPT_POST, TRUE);
+        curl_setopt($login, CURLOPT_POSTFIELDS, $data);
+        ob_start();
+        return curl_exec ($login);
+        ob_end_clean();
+        curl_close ($login);
+        unset($login);
+    }
+    public function getCahier(){
+        return redirect()->away($this->login('http://ozanet.fr/cdt/authentification/auth.php', 'md5=82b1f4abc1130b481dac6baccad68a97&nom_prof=DESCHAMPS&passe=&Submit2=Valider'));
+    }
+
     /**
      * On déconnecte l'utilisateur. Sa session est vide. On le redirie vers l'accueil
      * @return mixed
@@ -84,9 +107,14 @@ class UserController extends Controller
             'password' => $request['password']
         ])
         ) {
+
+
+
             return redirect()->route('dashboard');
         } else
             return redirect()->back();
     }
 
 }
+
+

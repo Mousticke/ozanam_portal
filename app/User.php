@@ -10,7 +10,7 @@ class User extends Model implements Authenticatable
     use \Illuminate\Auth\Authenticatable;
 
     public function classe(){
-        return $this->belongsToMany('App\Classe');
+        return $this->belongsTo('App\Classe');
     }
 
     public function roles()
@@ -21,6 +21,26 @@ class User extends Model implements Authenticatable
     public function isAdmin()
     {
         return in_array(1, $this->roles()->pluck('role_id')->all());
+    }
+
+    public function isProf()
+    {
+        return in_array(2, $this->roles()->pluck('role_id')->all());
+    }
+
+    public function isStudent()
+    {
+        return in_array(3, $this->roles()->pluck('role_id')->all());
+    }
+
+    public function isProfPrincipal()
+    {
+        return in_array(4, $this->roles()->pluck('role_id')->all());
+    }
+
+    public function isRespProf()
+    {
+        return in_array(5, $this->roles()->pluck('role_id')->all());
     }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
