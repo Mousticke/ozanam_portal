@@ -26,6 +26,7 @@ Route::post('/cdt', [
 Route::get('/', [
     'uses' => 'PostController@getDashboardIndex',
     'as' => 'home',
+    Artisan::call('up'),
 ]);
 
 /**
