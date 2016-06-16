@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Maitenance</title>
-
+    <title>Oops ! Quelque chose ne va pas.</title>
+    <meta charset="utf-8"/>
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
     <style>
@@ -40,7 +40,8 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">Site en maintenance. Soyez patient</div>
+        <div class="title">La page demandée n'existe pas.</div>
+        <div><em> - Il se peut que cette page soit en construction</em></div>
     </div>
 </div>
 </body>
