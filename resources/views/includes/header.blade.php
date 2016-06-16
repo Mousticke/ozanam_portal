@@ -123,7 +123,7 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div id="navbar" class="navbar-collapse collapse-1">
+        <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav nav-center navbar-nav navbar-left site  navbar-custom">
                 @foreach($menus as $menu)
                     @if($menu->id != 1)
@@ -357,7 +357,6 @@
                 @if(Auth::check())
                     @if (Auth::user()->isAdmin())
                         <li><a class="custom-color-a" href="{{route('pl_admin')}}">Admin</a></li>
-                        <li><a href="http://ozanet.fr/cdt/?md5=82b1f4abc1130b481dac6baccad68a97&nom_prof=DESCHAMPS&passe=&Submit2=Valider">Test cahier de texte</a></li>
                     @endif
                 @endif
             </ul>
