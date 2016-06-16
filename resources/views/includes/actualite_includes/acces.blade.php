@@ -9,50 +9,57 @@
         </h5>
     </div>
     <div layout="row" layout-wrap class="col-lg-offset-1 box-body">
+       <div class="col-lg-4 col-xs-6">
+           <a class="custom-color-a" href="http://www.ozanam-lycee.fr/index.php/inscriptions/inscriptions-au-lycee" target="_blank">
+               <!-- small box -->
+               <div class="small-box bg-aqua">
+                   <div class="inner">
+                       <h4>Inscriptions</h4>
+                       <p>Information concernant l'inscription pour la rentrée 2016 2017</p>
+                   </div>
+                   <div class="icon">
+                       <i class="fa fa-newspaper-o"></i>
+                   </div>
+                   <a href="#" class="small-box-footer">
+                       <i class="fa fa-arrow-circle-right"></i>
+                   </a>
+               </div>
+           </a>
+           </div>
         <div class="col-lg-4 col-xs-6">
+            <a class="custom-color-a" href="http://www.ac-reims.fr/pid30478/resultats-aux-examens-concours.html" target="_blank">
             <!-- small box -->
-            <div class="small-box bg-aqua">
-                <div class="inner">
-                    <h4>Inscriptions</h4>
-                    <p>Information concernant l'inscription pour la rentrée 2016 2017</p>
+                <div class="small-box bg-red">
+
+                    <div class="inner">
+                        <h4>Résultats du Bac</h4>
+                        <p>Accès direct aux résultats du baccalauréat session 2016</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-desktop"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-newspaper-o"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                    <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
+            </a>
         </div>
         <div class="col-lg-4 col-xs-6">
+            <a class="custom-color-a" href="http://www.google.fr" target="_blank">
             <!-- small box -->
-            <div class="small-box bg-red">
-                <div class="inner">
-                    <h4>Résultats du Bac</h4>
-                    <p>Accès direct aux résultats du baccalauréat session 2016</p>
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h4>Se rendre au Lycée</h4>
+                        <p>Trajet pour vous rendre au Lycée Frédéric Ozanam depuis chez vous.</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-map-signs"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </a>
                 </div>
-                <div class="icon">
-                    <i class="fa fa-desktop"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                    <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-4 col-xs-6">
-            <!-- small box -->
-            <div class="small-box bg-green">
-                <div class="inner">
-                    <h4>Se rendre au Lycée</h4>
-                    <p>Trajet pour vous rendre au Lycée Frédéric Ozanam depuis chez vous.</p>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-map-signs"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                    <i class="fa fa-arrow-circle-right"></i>
-                </a>
-            </div>
+            </a>
         </div>
 
     </div>

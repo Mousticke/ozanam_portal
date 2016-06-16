@@ -1,7 +1,7 @@
 <div style="background-color: white" id="header">
     <div id="logo">
         <a href="{{route('dashboard')}}"><img id="logo_ozanam" src="{{URL::to('src/img/logo.png')}}"></a>
-        <div class="col-lg-offset-2" style="position: absolute;">
+        <div class="col-lg-offset-2 visible-lg-block" style="position: absolute;">
             <h5 style="padding-left: 40px;">Portail pédagogique du </h5>
             <h6 style="padding-left: 60px;">Lycée Frédéric Ozanam</h6>
         </div>
@@ -42,7 +42,7 @@
             </div>
             <div flex-gt-sm="20" flex-md="20" flex-lg="20" flex-sm="20">
                 @if(!Auth::check())
-                    <div>
+                    <div style="font-size: smaller">
                         <button ng-click="slideToggle=! slideToggle" class="btn icon-btn btn-success custom_btn" href="#">
                             <i class="glyphicon btn-glyphicon glyphicon-user img-circle text-primary"
                                aria-hidden="true"></i>
@@ -51,7 +51,7 @@
                     </div>
                 @endif
                 @if(Auth::check())
-                    <div>
+                    <div style="font-size: smaller">
                         <a style="color: white !important;" class="btn icon-btn btn-danger custom_btn" href="{{route('logout')}}">
                             <i class="glyphicon btn-glyphicon glyphicon-log-out img-circle text-info"
                                aria-hidden="true"></i>
@@ -67,8 +67,8 @@
                     </button>
                 </div>
             </div>
-            <div flex-gt-sm="20" flex-md="20" flex-lg="20" flex-sm="20">
-                <div id="clockbox"></div>
+            <div class="visible-lg-block" flex-gt-sm="20" flex-md="20" flex-lg="20" flex-sm="20">
+                <div  id="clockbox"></div>
             </div>
         </div>
 
@@ -103,7 +103,7 @@
                 var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds();
                 if (nmin <= 9) nmin = "0" + nmin;
                 if (nsec <= 9) nsec = "0" + nsec;
-                document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisMonth + " " + thisYear + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
+                document.getElementById('clockbox').innerHTML = thisDay + " " + thisNumber + " " + thisMonth + "<br/>" + nhour + ":" + nmin + ":" + nsec + "";
             }
             window.onload = function () {
                 GetClock();
