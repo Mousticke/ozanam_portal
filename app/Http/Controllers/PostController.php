@@ -170,7 +170,7 @@ class PostController extends Controller
     }
 
     public function getRSSbooks(){
-        return file_get_contents('http://0511147v.esidoc.fr/search.php?filter[]=format%3A%22book%22&filter[]=&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&filter[]=&filter[]=&multifilter[]=format%3A%22book%22&sort=year_desc&view=rss&image_type=large&count=15&imagesonly=T');
+        return file_get_contents('http://0511147v.esidoc.fr/search.php?filter[]=format%3A%22book%22&filter[]=&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&filter[]=&filter[]=&multifilter[]=format%3A%22book%22&sort=year_desc&view=rss&image_type=large&count=15&hasImage=T');
     }
 
     public function getRSSmangas(){
@@ -179,7 +179,7 @@ class PostController extends Controller
     }
 
     public function getRSSmagazines(){
-        return file_get_contents('http://0511147v.esidoc.fr/search.php?filter[]=format%3A%22newspaper%22&filter[]=&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&expert=T&filter[]=&filter[]=&filter[]=&filter[]=&filter[]=noticeType%3A%22Notice+g%C3%A9n%C3%A9rale%22&filter[]=&filter[]=&multifilter[]=format%3A%22newspaper%22&sort=year_desc&view=rss&image_type=large&count=15&imagesonly=T');
+        return file_get_contents('http://0511147v.esidoc.fr/search.php?filter[]=format%3A%22newspaper%22&filter[]=&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&bool[]=ET&type[]=all&lookfor[]=&expert=T&filter[]=&filter[]=&filter[]=&filter[]=&filter[]=noticeType%3A%22Notice+g%C3%A9n%C3%A9rale%22&filter[]=&filter[]=&multifilter[]=format%3A%22newspaper%22&sort=year_desc&view=rss&image_type=large&count=15&hasImage=T');
 
     }
 
@@ -234,8 +234,6 @@ class PostController extends Controller
             $imgactu->move('files/shares/actualite/', $imgactu->getClientOriginalName());
             $post->image_actu = 'files/shares/actualite/' . $imgactu->getClientOriginalName();
         }
-
-
         $message = 'Il n\' y a une erreur';
         $message2 = 'Il n\' y a une erreur';
         /*Save the post si c'est un succès c'est bon.*/
@@ -308,8 +306,6 @@ class PostController extends Controller
             $message = 'Ajout à la timeline réussi';
         }
         $post->update();
-
-
         return response()->json(['new_body' => $post->body, 'message' => $message], 200);
     }
 

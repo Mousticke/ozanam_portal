@@ -1,8 +1,30 @@
 /**
  * Created by Akim on 13/05/2016.
  */
-var postId = 0;
-var postBodyElement, NameElement, LinkElement, IconElement, VisibilityElement, UserName, UserEmail, UserPoste, UserPassword = null;
+var postId, accessId = 0;
+var ClasseNameElement, ClasseStudentElement, ClasseGroupeElement, postBodyElement, NameElement, LinkElement, IconElement, VisibilityElement, UserName, UserEmail, UserPoste, UserPassword, accessBodyElement = null;
+
+$(".modal").on("hidden.bs.modal", function() {
+    $(".classe_title").find("#classe_name").html("");
+    $(".classe_student").find("#eleves").html("");
+});
+$('.classe_details').find('.interaction').find('.classes').on('click', function (event) {
+    event.preventDefault();
+    ClasseNameElement =  event.target.parentNode.parentNode.parentNode.dataset['classename'];
+    ClasseGroupeElement =  event.target.parentNode.parentNode.parentNode.dataset['classegroupe'];
+    postId = event.target.parentNode.parentNode.parentNode.dataset['classeid'];
+
+    ClasseStudentElement = event.target.parentNode.parentNode.parentNode.getAttribute("data-classestudent");
+    var arr = ClasseStudentElement.split(',');
+    for (var i = 0; i < arr.length; i++) {
+        $(".table").find("#eleves").append('<tr><td>' + arr[i] + '</td></tr>');
+    }
+    console.log(ClasseNameElement);
+    console.log(ClasseGroupeElement);
+    $(".classe_title").find("#classe_name").text(ClasseNameElement);
+    $(".classe_info").find("#UtP").text(ClasseGroupeElement);
+    $('#classe_display').modal();
+});
 
 $('.post').find('.interaction').find('.editAdmin').on('click', function (event) {
     event.preventDefault();
@@ -31,6 +53,33 @@ $('#modal-save').on('click', function () {
         });
 });
 
+
+$('.access').find('.interaction').find('.editAccess').on('click', function (event) {
+    event.preventDefault();
+    accessBodyElement = event.target.parentNode.parentNode.childNodes[1];
+    var accessIdMCE = event.target.parentNode.parentNode.dataset['content'];
+    var accessBodyMCE = tinyMCE.activeEditor.setContent(accessIdMCE); // overall text
+    console.log(accessBodyMCE);
+    accessId = event.target.parentNode.parentNode.dataset['accessid'];
+    $("#access-body").val(accessBodyMCE);
+    $('#edit-modal-access').modal();
+});
+
+$('#modal-save-access').on('click', function () {
+    $.ajax({
+        method: 'POST',
+        url: urlAccess,
+        data: {
+            body: $("#access-body").val(),
+            accessId: accessId,
+            _token: token
+        }
+    })
+        .done(function (msg) {
+            $(accessBodyElement).text(msg['access-body-update']);
+            $('#edit-modal-access').modal('hide');
+        });
+});
 
 
 $('.menu').find('.interaction').find('.editMenu').on('click', function (event) {

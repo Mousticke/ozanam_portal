@@ -49,7 +49,6 @@ class User extends Model implements Authenticatable
     {
         return $this->hasMany('App\Carousel');
     }
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

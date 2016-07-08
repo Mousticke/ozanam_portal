@@ -30,7 +30,16 @@
                                         <td>{{ $post->id }}</td>
                                         <td>{{$post->user->first_name}}</td>
                                         <td>{{date('d M Y' ,strtotime($post->user->created_at))}}</td>
-                                        <td><span class="label label-success">Approved</span></td>
+                                        <td>
+                                            @if((strtotime($post->publish_at) >= strtotime(date('Y-m-d'))) && (strtotime(date('Y-m-d')) < strtotime($post->delete_at)) || $post->delete_at == null)
+                                                <span class="label label-success">Publiée</span>
+                                            @elseif((strtotime($post->publish_at) < strtotime(date('Y-m-d'))) && (strtotime(date('Y-m-d')) < strtotime($post->delete_at)) )
+                                                <span class="label label-warning">En attente de publication</span>
+                                            @else
+                                               <!-- <span class="label label-danger">Echue</span>-->
+                                                <span class="label label-warning">En attente de publication</span>
+                                            @endif
+                                        </td>
                                         <td>
                                             <div id="articleNew"
                                                  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-xs-offset-1 col-md-offset-1 col-sm-offset-1">

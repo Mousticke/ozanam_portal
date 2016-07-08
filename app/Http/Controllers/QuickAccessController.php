@@ -34,18 +34,42 @@ class QuickAccessController extends Controller
         ]);
     }
 
-    public function postQuickAcecs(Request $request){
+    public function getDeleteAccessAdmin($access_id){
+        $quickAccess = Access::where('id', $access_id)->first();
+        $quickAccess->delete();
+        return redirect()->route('admin_quick_access')->with(['message' => 'Accès rapide effacé avec succès']);
+    }
+
+    public function postCreateAccess(Request $request){
         $this->validate($request, [
             'titre' => 'required',
             'icon' => 'required',
             'body' => 'required',
+            'color_access' => 'required',
+            'link_access' => 'required',
         ]);
-/* TODO : add database*/
+        $message = 'Il n\' y a une erreur';
         $quickAcces = new Access();
         $quickAcces->titre = $request['titre'];
         $quickAcces->body = $request['body'];
         $quickAcces->icon = $request['icon'];
+        $quickAcces->color = $request['color_access'];
+        $quickAcces->link = $request['link_access'];
 
+        if ($request->user()->access()->save($quickAcces)) {
+            $message = 'L\'accès rapide a été ajouté';
+        }
+        return redirect()->route('admin_quick_access')->with(['message' => $message]);
+    }
 
+    public function postEditAccessAdmin(Request $request){
+        $this->validate($request, [
+            'body' => 'required'
+        ]);
+        $quickAccess = Access::find($request['accessId']);
+        $message = 'Il n\' y a une erreur';
+
+        $quickAccess->update();
+        return response()->json(['access-body-update' => $quickAccess->body, 'message' => $message], 200);
     }
 }

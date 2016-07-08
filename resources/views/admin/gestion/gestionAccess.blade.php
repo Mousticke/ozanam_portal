@@ -36,7 +36,7 @@
                                                             {{date('d M Y' ,strtotime($access->user->created_at))}}</div>
                                                         <div class="panel panel-body">
                                                             <div>
-                                                                <article class="post" data-postid="{{ $access->id }}" data-content="{{$access->body}}">
+                                                                <article class="access" data-accessid="{{ $access->id }}" data-content="{{$access->body}}">
                                                                     <p id="thisArticle">{!! html_entity_decode($access->body) !!}</p>
                                                                     <div class="info">
                                                                         Postée par {{$access->user->first_name}} crée
@@ -95,7 +95,7 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button id="modal-save" type="button" class="btn btn-primary">Enregistrer les données</button>
+                <button id="modal-save-access" type="button" class="btn btn-primary">Enregistrer les données</button>
             </div>
         </div>
     </div>

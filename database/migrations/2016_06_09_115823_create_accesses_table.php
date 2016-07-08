@@ -19,6 +19,7 @@ class CreateAccessesTable extends Migration
             $table->text('body');
             $table->string('color');
             $table->integer('user_id');
+            $table->string('link');
         });
     }
 

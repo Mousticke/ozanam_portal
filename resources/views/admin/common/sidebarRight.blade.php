@@ -82,6 +82,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('admin_users')}}"><i class="fa fa-circle-o"></i>Gestion des utilisateurs</a></li>
+                    <li><a href="{{route('admin_users_classes')}}"><i class="fa fa-circle-o"></i>Gestion des classes</a></li>
                 </ul>
             </li>
         </ul>

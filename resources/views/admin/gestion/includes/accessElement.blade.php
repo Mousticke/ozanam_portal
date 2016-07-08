@@ -10,7 +10,15 @@
     <span class="input-group-addon" id="basic-addon"><i class="fa fa-tag" aria-hidden="true"></i></span>
     <div class="col-lg-8">
         <input type="text" aria-describedby="basic-addon" class="form-control"
-               name="icon" id="icon_access" title="icône du bloc" placeholder="TIcône du bloc "/>
+               name="icon" id="icon_access" title="icône du bloc" placeholder="Icône du bloc "/>
+    </div>
+</div>
+
+<div class="input-group {{ $errors->has('link_access') ? 'has-error ' : '' }}">
+    <span class="input-group-addon" id="basic-addon"><i class="fa fa-link" aria-hidden="true"></i></span>
+    <div class="col-lg-8">
+        <input type="text" aria-describedby="basic-addon" class="form-control"
+               name="link_access" id="link_access" title="Lien de l'acceès" placeholder="Lien de l'accès rapide sous la forme de http://"/>
     </div>
 </div>
 

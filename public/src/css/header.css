@@ -1,7 +1,7 @@
 .navbar-collapse{
     max-height: none !important;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1500px) {
     .navbar-header {
         float: none;
     }

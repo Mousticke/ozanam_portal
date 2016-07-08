@@ -40,6 +40,15 @@ class AdminController extends Controller
         ]);
     }
 
+    public function getClassesAdmin(){
+        $classes = Classe::orderBy('name')->get();
+        $users = User::orderBy('first_name')->get();
+        return view('admin.gestion.gestionClasse', [
+            'classes'=>$classes,
+            'users'=>$users, 
+        ]);
+    }
+
     public function getUsersAdmin ()
     {
         $users = User::orderBy('first_name')->get();
@@ -50,5 +59,13 @@ class AdminController extends Controller
             'classes' => $classes,
             'roles' => $roles,
         ]);
+    }
+    
+    public function postCreateClasseAdmin(Request $request){
+        $this->validate($request, [
+            
+        ]);
+
+        return redirect()->route('admin_users_classes')->with(['message' => $message]);
     }
 }

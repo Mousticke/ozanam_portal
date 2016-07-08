@@ -58,6 +58,13 @@ Route::get('/admin/pl_Admin/users', [
     'middleware' => 'admin'
 ]);
 
+Route::get('/admin/pl_Admin/classes', [
+
+    'uses' => 'AdminController@getClassesAdmin',
+    'as' => 'admin_users_classes',
+    'middleware' => 'admin'
+]);
+
 /*******************************************************Quick access***********************************************/
 Route::get('/admin/pl_Admin/manageQuickAccess', [
 
