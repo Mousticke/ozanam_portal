@@ -69,3 +69,18 @@
                name="delete_at" id="delete_at" title="Supprimer à :" placeholder="Supprimer à : "/>
     </div>
 </div>
+
+<div class="input-group {{ $errors->has('filtre_actu') ? 'has-error ' : '' }}">
+    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-eye" aria-hidden="true"></i></span>
+    <div class="col-lg-8">
+        <select aria-describedby="basic-addon1" class="form-control"
+                name="filtre_actu" id="filtre_actu" title="Mettre un filtre">
+            <option disabled selected value> -- Selectionner un filtre (facultatif) --</option>
+            @foreach($groupes as $groupe)
+                <option name="color" class="bg-{{$groupe->name}}" value="{{$groupe->name}}">
+                     {{$groupe->name}}
+                </option>
+            @endforeach
+        </select>
+    </div>
+</div>

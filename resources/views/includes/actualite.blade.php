@@ -16,7 +16,7 @@
             <div layout="row" layout-wrap class="col-lg-offset-1 box-body ">
                 <!--<div flex="100" flex-gt-xs="100" flex-sm="50" >-->
                 @foreach($posts as $key=>$post)
-                    @if($post->id != 1 && ((strtotime($post->publish_at) >= strtotime(date('Y-m-d'))) && (strtotime(date('Y-m-d')) < strtotime($post->delete_at)) || $post->delete_at == null))
+                    @if($post->id != 1 && ((strtotime($post->publish_at) >= strtotime(date('Y-m-d'))) && (strtotime(date('Y-m-d')) < strtotime($post->delete_at)) || $post->delete_at == null) && ($post->groupe_id==null || $post->groupe_id==$post->user->groupe_id || $post->user->groupe_id==5))
                         <div flex-gt-sm="30" flex-md="30" flex-lg="30" flex-sm="30" class="small-box info-box card radius shadowDepth1 bg-{{$post->color}}" data-actuid="{{ $post->id }}"
                              data-title="{{$post->titre}}" data-img="{{$post->image_actu}}" data-content="{{$post->body}}"
                              data-date="{{date('d M Y' ,strtotime($post->created_at))}}" data-link = " @foreach($links as $link)

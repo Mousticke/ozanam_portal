@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('classe_id');
+            $table->integer('groupe_id');
         });
     }
 

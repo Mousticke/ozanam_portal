@@ -27,6 +27,7 @@ class AdminController extends Controller
     public function getPanelAdmin ()
     {
         $timelines = Timeline::orderBy('created_at', 'desc')->get();
+        $classes = Classe::orderBy('name', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
         $menus = Menu::orderBy('created_at', 'desc')->get();
@@ -37,6 +38,7 @@ class AdminController extends Controller
             'carousels' => $carousels,
             'menus' => $menus,
             'faicons' => $faicons,
+            'classes' => $classes,
         ]);
     }
 

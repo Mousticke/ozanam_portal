@@ -7,6 +7,8 @@
  */
 namespace App\Http\Controllers;
 
+use App\Groupe;
+use App\Classe;
 use DB;
 use App\Color;
 use App\Carousel;
@@ -61,7 +63,9 @@ class PostController extends Controller
         }catch (\Exception $e){
             $rss_packs = 'Flux illisible';
         }
+        $groupes = Groupe::orderBy('name', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
+        $classes = Classe::orderBy('name', 'desc')->get();
         $links = Link::orderBy('created_at', 'desc')->get();
         $files = File::orderBy('created_at', 'desc')->get();
         $carousels = Carousel::orderBy('created_at', 'desc')->get();
@@ -77,6 +81,8 @@ class PostController extends Controller
             'rss_magazines' => $rss_magazines,
             'rss_literatures' => $rss_literatures,
             'rss_packs' => $rss_packs,
+            'classes' => $classes,
+            'groupes' => $groupes,
         ]);
     }
 
@@ -116,6 +122,8 @@ class PostController extends Controller
         }catch (\Exception $e){
             $rss_packs = 'Flux illisible';
         }
+        $groupes = Groupe::orderBy('name', 'desc')->get();
+        $classes = Classe::orderBy('name', 'desc')->get();
         $links = Link::orderBy('created_at', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
         $files = File::orderBy('created_at', 'desc')->get();
@@ -132,6 +140,8 @@ class PostController extends Controller
             'rss_magazines' => $rss_magazines,
             'rss_literatures' => $rss_literatures,
             'rss_packs' => $rss_packs,
+            'classes' => $classes,
+            'groupes' => $groupes,
         ]);
     }
 
@@ -161,11 +171,15 @@ class PostController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getManageActualiteAdmin(){
+        $groupes = Groupe::orderBy('name', 'desc')->get();
+        $classes = Classe::orderBy('name', 'desc')->get();
         $colors = Color::orderBy('name', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->get();
         return view('admin.includes.manageActualite',[
             'posts' => $posts,
             'colors' => $colors,
+            'classes' => $classes,
+            'groupes' => $groupes,
         ]);
     }
 
