@@ -380,10 +380,10 @@
 </nav>
 <div class="clearfix"></div>
 
-<div class="slide-toggle col-lg-8" ng-show="slideToggle" style="position: absolute; right: 10px; z-index: 20; box-sizing: border-box;">
+<div class="slide-toggle col-lg-8" ng-show="slideToggle" style="position: absolute; right: 10px; z-index: 120; box-sizing: border-box;">
     @include('includes.navbar.sign')
 </div>
-<div class="slide-toggle col-lg-8" ng-show="slideToggle2" style="position: absolute; right: 50px; z-index: 20; box-sizing: border-box;">
+<div class="slide-toggle col-lg-8" ng-show="slideToggle2" style="position: absolute; right: 50px; z-index: 120; box-sizing: border-box;">
     @include('includes.navbar.contact')
 </div>
 <script type="text/javascript">

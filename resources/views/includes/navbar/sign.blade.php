@@ -23,7 +23,7 @@
                     </div>
 
                     <button type="submit" class="btn-sign icon-btn btn-primary custom_btn">
-                        Submit
+                        Enregistrement
                     </button>
                     <input type="hidden" name="_token" value="{{ Session::token() }}">
                 </form>
@@ -32,9 +32,9 @@
                 @include('includes.message-block')
                 <h3 class="title-sign">S'Authentifier</h3>
                 <form action="{{route('signin')}}" method="POST">
-                    <div class="form-group {{ $errors->has('email') ? 'has-error ' : '' }}">
-                        <label for="email">Votre Mail : </label>
-                        <input class="form-control" type="text" name="email" id="email" value="{{ Request::old('email') }}">
+                    <div class="form-group {{ $errors->has('first_name') ? 'has-error ' : '' }}">
+                        <label for="first_name">Votre Nom : </label>
+                        <input class="form-control" type="text" name="first_name" id="first_name" value="{{ Request::old('first_name') }}">
                     </div>
 
                     <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
@@ -43,7 +43,7 @@
                     </div>
 
                     <button type="submit" class="btn-sign icon-btn btn-primary custom_btn">
-                        Submit
+                        Se connecter
                     </button>
                     <input type="hidden" name="_token" value="{{ Session::token() }}">
                 </form>

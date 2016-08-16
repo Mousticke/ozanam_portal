@@ -73,11 +73,11 @@ class UserController extends Controller
          * If the login is a success, we are redirected in the dashboard. Otherwise, we get back in signin form
          */
         $this->validate($request, [
-            'email' => 'required',
+            'first_name' => 'required',
             'password' => 'required'
         ]);
 
-        if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']])) {
+        if (Auth::attempt(['first_name' => $request['first_name'], 'password' => $request['password']])) {
             return redirect()->route('dashboard');
         } else
             return redirect()->back();
